@@ -3,9 +3,9 @@
 %\IEEEraisesectionheading{\section{Introduction}}
 \section{Introduction}
 \label{sec:intro}
-With a user base of more than one-tenth of the world's population,
-spreadsheets are by far the most popular medium for ad-hoc exploration
-and analysis of data by end-users~\cite{excel-users}. 
+\new{With a user base of more than  one-tenth of the world's population,
+{\bf \em spreadsheets are by far the most popular medium for ad-hoc exploration
+and analysis of data}~\cite{excel-users}.} 
 \saj{Studies show that information workers prefer to operate on their data within spreadsheets while shunning enterprise solutions 
 with more advanced analytical features~\cite{chan1996use,raden2005shedding}. 
 One popular joke among those developing business intelligence applications is that  the ``export to excel'' button is the third-most commonly used button from the menu bar, after OK and Cancel~\cite{bakke2016expressive}.}
@@ -142,8 +142,21 @@ reducing cognitive load for users by
 providing \new{them} the big picture first,
 helping them quickly assimilate 
 the information space~\cite{cockburn2009review}.
-\agp{got until here}
-\saj{In this paper, our goal is to integrate an overview plug-in with spreadsheets that captures the overall structure of the data while allowing interactions that minimize the difficulties caused by typical navigational operations like scrolling and steering.}
+\new{Our goal is to {\em integrate an overview plug-in 
+with spreadsheets} that captures
+the overall structure of the data,
+while supporting interactions that address
+the difficulties in typical navigational 
+operations like scrolling and steering.
+{\bf \em It is essential
+that our interface is a plug-in that 
+enhances the capabilities of spreadsheets
+that so many users
+are used to and reliant on,
+as opposed to a potentially jarring or confusing 
+replacement for spreadsheets.}
+}
+% \saj{In this paper, our goal is to integrate an overview plug-in with spreadsheets that captures the overall structure of the data while allowing interactions that minimize the difficulties caused by typical navigational operations like scrolling and steering.}
 
 However, while an overview plug-in for spreadsheets
 does seem appealing and natural,
@@ -151,14 +164,19 @@ developing it leads to several challenges.
 
 \squishlist
 \item {\em Overview modality.}
-\saj{One approach for an overview is to simply add a
+\saj{
+One approach for an overview is to simply add a
 zoomed out version of the entire sheet as a pane on the side,
-as in popular presentation software applications like Microsoft PowerPoint or text editors
+as in popular presentation software like 
+Microsoft PowerPoint or text editors
 like Sublime Text. 
 Unfortunately, this approach
-would not suffice for a spreadsheet---while it would help users make
-somewhat more informed
-scrolling decisions, the zoomed out presentation of the overview would be unreadable. An overview should provide a comprehensible big picture view of the spreadsheet.
+would not suffice for a spreadsheet.
+\new{An overview should provide a
+comprehensible big picture view:
+for a spreadsheet, when zooming out beyond a point, 
+the overview would be effectively 
+unreadable.}
 Another approach, adopted by map tools like the
 early versions of Google maps,
 is to use the overview
@@ -167,7 +185,7 @@ being displayed in the zoomed in detailed view~\cite{cockburn2009review}.
 While the overview remains static, users can perform semantic zooming operations~\cite{perlin1993pad} on the detailed
 view which allows objects to be represented differently at different scales. Since spreadsheets already display the raw data,
 zooming into and out of a detailed view consisting of
-this raw data is not meaningful. Rather, the spreadsheet overview should dynamically change as users sought more fine-grained or coarse-grained view of the overall structure of the data.} 
+this raw data is not meaningful. Rather, the spreadsheet overview should dynamically change as users seek a more fine-grained or coarse-grained view of the overall structure of the data.} 
 
 \item {\em Construction of the overview.}
 \saj{Given a spreadsheet
