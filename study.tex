@@ -1,0 +1,166 @@
+\section{Evaluation Study Design}
+\label{sec:study}
+
+In this section, we present the design of a user study
+to evaluate whether 
+\noah helps address spreadsheet navigational challenges.
+\subsection{Study Design and Participants}
+\label{sec:study_design}
+\saj{\noah was designed to address the navigational challenges in spreadsheets. As such, the goal of the study was to evaluate whether \noah enhances the navigational capabilities of traditional spreadsheets. Furthermore, we wanted understand how the presence of the features introduced by a plugin like \noah affects a spreadsheet user's navigation experience. In this study, we compare a \noah-integrated spreadsheet with a typical, popular one, Excel, for various navigational tasks in the spreadsheet domain. Similar domain specific evaluations have been performed for measuring the performance of various  overview+detail interfaces, \eg database browsing~\cite{north2000snap} or 
+tree navigation~\cite{beard1990navigational}. As explained in Section~\ref{sec:related}, the goals of spreadsheets and the TDA tools are quite different. Therefore, we did not consider TDA tools for the comparative study.}
+Our study was designed to answer the following questions:
+
+\squishlist
+\item {\bf RQ1.} %\sout{How does the addition of an overview help address spreadsheet navigational challenges, with respect to quantitative performance metrics such as speed and accuracy?}
+\saj{How did the addition of an overview like \noah affect a spreadsheet users navigation performance?}
+\item {\bf RQ2.} %\sout{How do users make use of the aggregate column results in conjunction with the raw spreadsheet data to analyze data?} 
+\saj{How did \noah and it's components impact spreadsheet users'
+navigational experiences?}
+%\item {\bf RQ3.} \sout{How does bin customization help users inject domain knowledge in addressing their specific exploration questions compared to the automated overview?} \sout{\saj{How do users utilize additional features of \noah, \eg bin customization, during navigation?}
+%\item {\bf RQ4.} \sout{How is the user's subjective satisfaction with \noah compared to traditional spreadsheets?}}  \sout{\saj{How is the user's subjective satisfaction with \noah compared to the traditional spreadsheets when performing navigational tasks?}}
+\squishend
+
+\stitle{Study Design.} We conducted a $2 \times 2$ (2 datasets, 2 tools) mixed design within-subject study. The two tools used in the study were: Microsoft Excel, and \noah integrated within {\scshape DataSpread}~\cite{dataspread}. \saj{We chose Excel for our comparative study because it is the most popular spreadsheet in use today.}
+The study consisted of three phases: (a) an introductory phase explaining
+the essential features of \noah via a video tutorial, followed by a warm-up session where participants explored a flight dataset~\cite{web:flight} in \noah 
+to familiarize themselves with its features,
+(b) a quiz phase where the participants first used both the tools
+to perform targeted tasks on two different datasets (described later) 
+followed by a survey to provide feedback on their impressions about both Excel and \noah, and
+(c) a semi-structured interview to collect qualitative data regarding the quiz phase. 
+
+\stitle{Datasets.} We used two datasets---the birdstrikes (used in Keshif~\cite{yalccin2018keshif} and Voyager~\cite{wongsuphasawat2016voyager}), and the Airbnb~\cite{web:airbnb} datasets. These datasets were chosen for their understandability to a general audience. The birdstrikes dataset records instances of birds hitting aeroplanes in different US states. The dataset has 10,868 records and 14 attributes (eight categorical, one spatial region, one temporal, four numeric). 
+The Airbnb dataset was larger than the birdstrikes dataset. To ensure a fair comparison across tools, we created a sampled version of the original Airbnb dataset with 10,925 records, by uniformly sampling $10\%$ of the records from each US city. This dataset contained 15 attributes (six categorical, two spatial region, one temporal, six numeric).
+
+
+\stitle{Participants.} We recruited 20 participants (11 female, 9 male) via flyers across the university and via a university email newsletter. 
+The average age of the participants was $31.06$ years ($\sigma = 12.44$). 
+The participants came from different backgrounds, 
+\eg engineering (seven), business (five), administration (five), and natural science (three). 
+During recruitment, 
+prospective participants filled out an interest form
+where they answered questions about their spreadsheet expertise, 
+types of spreadsheet tasks performed, and usage of spreadsheet operations. 
+Participants were asked to rate their expertise with
+different spreadsheet software, \eg Excel and Google Sheets, 
+and their frequency of using various spreadsheet 
+tasks \eg data management, data analysis, statistical modeling, and what-if analysis.
+We also asked participants about their familiarity 
+with basic mathematical and statistical spreadsheet functions
+as well as advanced operations, \eg pivot table,
+ \code{SUBTOTAL}, and conditional formatting. 
+To ensure that participants’ experience with spreadsheets 
+didn’t affect their performance during the quiz phase, 
+we only recruited participants who rated their experience 
+with Excel to be greater than four on a scale of one (no expertise at all) to five (very experienced). 
+The selected participants were familiar with performing 
+various tasks on spreadsheets, \eg maintaining, tracking, and
+analyzing, making predictions, and performing comparisons. 
+All of the participants were familiar with the basic mathematical
+and statistical functions supported by Excel. 
+Each participant received \$10 per hour at the end of their session.
+
+\subsection{Study Procedure}
+\label{sec:procedure}
+We now explain each of the phases of our study in more detail.
+ 
+\stitle{Phase 1: Introduction to \noah.}
+We began the study by showing a six-minute video tutorial explaining the features of \noah on a dataset of all the flights across the US for January 2018~\cite{web:flight}. The participants then explored the same dataset using \noah to familiarize themselves with the tool for about 10 minutes. The quiz phase began as soon as the participants finished their exploration. \toappendix{Note that we recruited only experienced Excel users for the study and therefore, we did not provide any introduction to Excel. }
+
+\begin{table}[!htb]
+\scriptsize
+ \vspace{-10pt}
+\caption{Quiz tasks for the birdstrikes dataset.}
+\label{tab:questions}
+\centering
+\begin{tabular}{l l}
+\hline
+\multicolumn{1}{c}{Category} & \multicolumn{1}{c}{Question}    \\ \hline
+steer                & Organize the data by State. How many flights that \\
+                         & had damages (damage = 1) originated from Florida? \\ 
+identify     & How many flights in the currently visible \\
+                 &  spreadsheet window have damages?                                    \\ 
+steer                & How many flights that had damages (damage = 1) \\
+                         &   originated from California?                          \\ 
+\cmpA & Which state between Florida and California \\
+                         &   has a higher number of flights with damages?    \\ 
+\cmpB & Find the state with the most birdstrike occurrences.  \\ 
+customize       & Organize the data by \emph{altitude}. What is the average \\
+                         &   cost of damages for altitude bin 0-450?          \\ \hline
+\end{tabular}
+\end{table}
+
+\stitle{Phase 2: The Quiz Phase.}
+\saj{The purpose of the quiz phase was to evaluate the effectiveness of the features supported by \noah in addressing spreadsheet limitations}. During the quiz phase, 
+each participant performed specific tasks on the two datasets in two sessions, using Excel for one and \noah for the other. 
+Each session was followed by a survey, described later. We
+alternated the order of the datasets between consecutive participants. 
+The order of the tools was alternated between every two participants. 
+We developed an online JavaScript-based quiz system that recorded user responses and submission times. 
+We also recorded the participants’ interactions
+with both tools using screen capture software. 
+Participants were informed that they can refer to the Internet for help as many times as they wanted. However, due to their familiarity with Excel, none of the participants required external help. 
+For reference, we also provided a printed handout to the participants 
+that contained screenshots with the features of \noah. 
+
+\emph{Quiz Tasks.} \saj{We designed six tasks grouped into four categories: 
+steer (two tasks), compare (two tasks), identify (one task), and customize (one task), representing the Table~\ref{tab:scope} uses cases \code{summarize}, \code{compare}, \code{identify}, and \code{create}, respectively. All of the tasks except the customize task, are representative of the navigation interactions required for the most frequently issued spreadsheet formulae
+~\cite{bradbard2014spreadsheet, lawson2009comparison}. The customize tasks was designed to mimic the scenario where a user would group data subsets of interest and required participants to utilize the bin customization feature. The tasks were presented in the same order as shown in Table~\ref{tab:questions} for the birdstrikes dataset. The questions for the Airbnb dataset were similar. The order of the questions mimics the spreadsheet navigation scenario presented in Section~\ref{sec:usage}.}
+%All of these tasks require navigation of the spreadsheet data in the form of either scrolling or steering. 
+
+\saj{The steer tasks required participants to use the aggregate column feature in \noah as opposed to steering in Excel. The identify task required participants to interact with the detailed view and relate the aggregate result of the first steer task with the raw spreadsheet data. The \cmpA task asked the participants to compare the results of the first steer task (\eg Florida) with that of the second steer task (\eg California) which would require them to use the context bar to revisit a previously visited bin. The \cmpB task involved comparing statistics of all the data subsets. The purpose of the \cmpB task was to see how increasing the number of subsets would affect navigation. As explained earlier, the customize task was designed to evaluate the utility of bin customization feature.}
+
+
+%As participants use both \noah and Excel to perform these tasks, by examining participants' task performance, we can understand a) how the addition of an overview affect participants' navigation experience (\emph{RQ1}), b) what are the impacts of the individual features of \noah in spreadsheet navigation (\emph{RQ2}), and c) how the participants utilize the features supported by \noah during navigation (\emph{RQ3})
+
+\emph{Survey.} After each session, 
+participants rated the corresponding tool used on six metrics: 
+confidence, comprehensibility, level of satisfaction, 
+ease and speed of use, and ease of learning for spreadsheet navigation, 
+on a Likert scale from one (\eg strongly disagree) to seven (\eg strongly agree). 
+The survey asked multiple questions related to these metrics, 
+15 in total, to ensure reliability. 
+Participants were also asked to mention the positive 
+and negative aspects of both tools. 
+The survey was designed to evaluate \emph{RQ4}.
+
+\emph{Evaluation.} 
+We evaluated the accuracy (either 0 or 1) and
+completion time for each of the six tasks. 
+\saj{We combined this analysis with qualitative survey, interview, and screen/audio recording data to provide insights that can be explained with multiple information sources.}
+For example, 
+we analyzed the video recordings of participants' interaction with the tools during the quiz phase. 
+We further analyzed the survey responses to quantify the usability of both the tools. 
+
+\stitle{Phase 3: Interview Phase.} 
+Following the survey, we conducted a semi-structured interview to 
+identify participants’ preferred tools for different tasks 
+and to understand the reasoning behind their choices. 
+We also asked participants to comment on the usefulness of 
+different features provided by \noah and Excel. 
+
+\subsection{Study Limitations.}
+\kgk{Our study has several limitations that can be strengthened by future larger-scale and more fine-grained studies. One limitation arises from our participant demographics.  We conducted the study with $20$ participants from four different backgrounds. Our participant pool demographics partially represent the demographics of the general audience intended for \noah.
+%is in sample size and participant demographics: we conducted the study with $20$ participants from four different backgrounds.Therefore, our participant pool demographics partially represents the demographics of the general audience intended for \noah.
+A larger sample with more participants that better represented the spreadsheet user population would have provided more ecological validity to generalize our findings.
+}
+%While a larger sample with more diverse backgrounds would have allowed us to perform more definitive quantitative analysis, we combined this analysis with qualitative survey, interview, and screen/audio recording data to provide insights that can be explained with multiple information sources.
+
+\saj{Another limitation of the study is that we only compared the performance of a \noah-integrated spreadsheet with a traditional spreadsheet. We did not evaluate specific spreadsheet features like pivot table and \code{SUBTOTAL} due to their limitations in the types of interactions supported (see Section~\ref{sec:related}). Moreover, we wanted the participants to utilize the typical spreadsheet operations that they are comfortable with to complete those tasks and see how introduction of \noah affected their navigation experience.} 
+
+\saj{Finally, we did not isolate the effects of the individual features of \noah to better understand the implications of those. For example, the effect of binned overview (visual clarity versus visual continuity), display layout (screen space trade-off), and
+contextual presentation of data (raw text versus chart representation of aggregate columns). However, the goal of the study was to understand participants' navigation experience in the presence and absence of \noah. A more fine-grained study can be conducted in the future, to inspect the contribution of individual components of \noah in further detail.}
+
+
+\begin{comment}
+\infovis{
+\begin{itemize}
+    \item Justify the choice of comparing to Excel and note the limitations of that approach (see section 6.1 intro and the {\bf study design paragraph})
+    \item Better justify the choice of tasks in the study (see section 6.2 \emph{quiz tasks})
+    \item Explain the choice of the four research questions. (see section 6.1 intro)
+    \item Provide more details about the study, including reporting intra-participant
+    differences (see section 7.2)
+\end{itemize}
+}
+\end{comment}
+

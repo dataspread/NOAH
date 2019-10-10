@@ -1,0 +1,71 @@
+\section{Discussion and Conclusion}
+\label{sec:discuss}
+\saj{In this paper, we have introduced \noah, an in-situ navigation interface, designed as a spreadsheet plugin.
+Using \noah, users can get a bird’s-eye view of the data, with the ability to scroll or seek
+additional details on demand, using a multi-granularity overview, as well as
+aggregate columns that eliminate cumbersome steering operations. Quantitatively, we find \noah to speed up navigation without compromising the accuracy of the tasks. Qualitatively, study participants identify it as positively impacting their experience while overviewing and navigating large datasets, and issuing formulae. 
+However, participants identified unfamiliarity and lack of transparency of operations as some of the limitations of \noah. In this section, we discuss
+how to address these limitations
+and highlight other future enhancement opportunities for \noah.}
+
+\stitle{Transparency and documentation.} \saj{Several operations in \noah 
+are quite different from typical spreadsheet interactions, \eg zooming, bin customization. Moreover, participants found some of the terminologies quite different from typical spreadsheet terminologies (see Section~\ref{sec:rq2}). In addition, some participants complained about the lack of explanation surrounding the overview construction and aggregate column computation. In the future, these issues can be addressed by using more relatable terminologies and improved documentation.}
+
+\stitle{Maintaining spreadsheet look and feel.}
+\saj{In subsequent versions of \noah, we can further 
+display the appropriate formula for each bin as users hover 
+over the corresponding cell on the aggregate column. 
+Moreover, participants ($N=5$) noted the fact that \noah currently 
+does not support user defined formulae, another possible future enhancement. Bin customization in \noah is performed using a menu bar which adds an additional step. In Excel, the cell splitting and merging operations are direct and only requires a single click. Similar direct adjustment of data grouping strategies have been explored for visualization tools~\cite{sarvghad2018embedded} and can be introduced in a future version of \noah.} 
+
+\stitle{Binning for different data types.} \saj{The experience 
+surrounding the construction
+of the overview
+can be further improved, specially for categorical data.
+Currently, the bins of the overview
+can be customized
+only after the overview is constructed.
+Providing the users
+the capability to
+select the representation
+(similar to bin customization)
+of the overview could have addressed this issue.
+Understanding the impact of these
+representation choices for the overview
+can be an interesting future research.}
+
+\stitle{Scope of overview-spreadsheet coordination.} 
+\saj{Spreadsheet users may perform various edit operations, 
+\eg updating values, adding/deleting rows/columns. 
+However, \noah currently assumes the data to be read-only. 
+In our next version, we can add support for
+propagating the spreadsheet updates to the overview. 
+Moreover, the charts displayed in an \emph{aggregate column} are non-interactive, 
+\ie users cannot interact with the charts to visually look up relevant or 
+interesting data points within the spreadsheet. 
+In the future, we plan to extend \noah to support visual querying 
+through the charts in an aggregate column, similar to multi-modal linked selections in Keshif~\cite{yalccin2018keshif}.}
+
+\stitle{Enhancing the navigation experience.} \noah currently constructs the overview on a single attribute. We can add support for multi-attribute navigation (\eg explore the Airbnb data by city and neighborhood), and multi-level navigation (\eg explore the neighborhoods after zooming into a specific city in the Airbnb data). Furthermore, bin customization currently supports changing the bin boundaries only while maintaining the current order. Supporting user defined ordering to allow arbitrary reshuffling of the bins can be another enhancement.\toappendix{ However, such modification will require a redesign of the histogram based data structure since the ordering property will not hold anymore.Finally, a complete characterization of the spreadsheet operations that can be supported by \noah is another open question, for example, other operations that involve working with subsets of spreadsheet data, \eg sorting, filtering, copy-pasting, can also be supported by \noah.} 
+
+\stitle{Expanding the scope of supported operations.} \saj{Spreadsheet operations that involve working with subsets of spreadsheet data, \eg sorting, filtering, copy-pasting, can also be supported by \noah. Therefore, it is necessary to  completely characterize the scope of spreadsheet operations that can be supported by \noah. Other enhancement includes adding annotations, \eg visual cues, texts, to the overview and then exporting the customized overview---a required feature for information seeking tools~\cite{shneiderman2003eyes}.}
+
+\stitle{Beyond Tabular Data.} \noah operates only on tabular data.
+However, spreadsheets can be semi-structured---formulae 
+and text can be interspersed with tabular data. 
+We can extend \noah to act as a map highlighting heterogeneous regions on such complex spreadsheets which users can utilize to navigate the spreadsheet. 
+We can leverage existing work on spreadsheet table detection~\cite{tablesense}, 
+and property identification~\cite{chen2017spreadsheet} 
+to construct the map.  
+
+\stitle{From Perceptual to Interactive Scalability.} 
+The current version of \noah addresses the perceptual 
+scalability challenges while navigating 
+Excel-scale (one million rows) data. 
+As modern spreadsheets continue to support 
+increasingly larger datasets---{\scshape DataSpread}~\cite{datamodels} 
+supports one billion rows---the interactions proposed in this paper may violate the interactive response time bound of 500 ms~\cite{liu2014effects}. This opens the door to a new set of research challenges that may range from approximate query processing to progressive data analytics.
+
+\noah represents our 
+first step towards a general purpose spreadsheet navigation plug-in that can make spreadsheets more effective
+on large datasets that are increasingly the norm. 
