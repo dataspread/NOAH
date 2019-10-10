@@ -185,26 +185,55 @@ being displayed in the zoomed in detailed view~\cite{cockburn2009review}.
 While the overview remains static, users can perform semantic zooming operations~\cite{perlin1993pad} on the detailed
 view which allows objects to be represented differently at different scales. Since spreadsheets already display the raw data,
 zooming into and out of a detailed view consisting of
-this raw data is not meaningful. Rather, the spreadsheet overview should dynamically change as users seek a more fine-grained or coarse-grained view of the overall structure of the data.} 
+this raw data is not meaningful. 
+\new{How do we design an overview to dynamically 
+change as users 
+seek a more fine-grained or coarse-grained view 
+of the overall structure of the data?} 
+}
 
 \item {\em Construction of the overview.}
 \saj{Given a spreadsheet
 with many rows, 
-one approach to constructing a dynamic overview is mapping rows of data to high level groups similar to online maps. In online maps, cities are grouped into states and states are grouped into countries forming a multi-granularity hierarchy. How do we automatically group spreadsheet rows together in a similar ``meaningful''
+one approach to constructing a dynamic overview 
+is mapping rows of data to high level groups, 
+similar to online maps. 
+In online maps, cities are grouped into states 
+and states are grouped into countries, 
+forming a multi-granularity hierarchy. 
+How do we automatically group spreadsheet 
+rows together in a similar ``meaningful''
 way
 such that this grouping applies to all 
-data types, including strings and numbers? If the automatic grouping is not meaningful, how do we allow the users
-to customize the overview
-to construct meaningful groups? How do we facilitate interactions that enable users view the overview at multiple granularities?}
+data types, including strings and numbers? 
+If the automatically generated grouping is 
+not semantically meaningful, how do we allow the users
+to customize the grouping modality? 
+How do we facilitate interactions that enable 
+users to view the overview at multiple granularities?}
 
 \item {\em Operations on the overview.}
-\saj{Following the construction of a dynamic overview, the next challenge is to design simple interactions that achieve similar outcomes as scrolling and steering.
-For example, an alternative to scrolling can be to leverage the groups of the overview to access the rows mapped to that group. How do we leverage the overview so that users can perform similar simple interaction to steer spreadsheet data and issue formula? As the granularity of the dynamic overview changes, how do we efficiently update the mapping from spreadsheet rows to the finer or coarser groups so that scrolling remains seamless? How do we recompute the results of a formula as the granularity changes without requiring the users to reissue the formula from scratch? How do we ensure such automatic recomputation scales with the size of the data?}
+\saj{Following the construction of a dynamic overview, 
+the next challenge is to design simple interactions 
+that achieve similar outcomes as scrolling and steering.
+For example, an alternative to scrolling 
+can be to leverage the groups of the overview 
+to access the rows mapped to that group. 
+Similarly, how do we leverage
+the overview to support simple interactions
+to steer spreadsheet data (i.e., select a range of data)
+for formula computation?
+As the granularity of the dynamic overview 
+changes, how do we efficiently update the mapping 
+from spreadsheet rows to the finer or coarser groups so that scrolling remains seamless? 
+How do we recompute the results of a formula as the granularity changes without requiring the users to reissue the formula from scratch? 
+How do we ensure such automatic recomputation 
+scales with the size of the data?\agp{the last three questions are fairly confusing and assume that you already know what NOAH does.. can we simplify?}}
 
 \item {\em Seamless integration as a plug-in.}
 Finally, the design of the overview
 should be generic so that it can be integrated
-with any existing spreadsheet tool on any spreadsheet
+with any existing spreadsheet tool on any 
 dataset without impacting
 existing functionalities or look-and-feel.
 Any new interactions introduced should be consistent
@@ -213,6 +242,8 @@ and complement existing spreadsheet interactions.
 Interactions between the overview and the raw spreadsheet
 should be coordinated to the extent possible.
 \squishend
+\agp{A general comment: can we ensure that either we use
+questions for all of the items above or none of them for uniformity?}
 
 \begin{comment}
 Since we want to allow users to control how the overview
@@ -243,8 +274,8 @@ automatically maintained for all groups when
 zooming in and zooming out. 
 \end{comment}
 
-\stitle{\noah.} We address the aforementioned challenges
-in our tool \noah,
+\stitle{\noah: \new{an navigation plug-in for spreadsheets}.} We address the aforementioned challenges
+in \noah,
 an in-situ
 \textbf{\underline{n}}avigation interface
 for \textbf{\underline{o}}verviewing
@@ -262,8 +293,15 @@ Figure~\ref{fig:ux} shows a snapshot of \noah.
 When the user chooses to explore
 the data by a specific attribute,
 \saj{a multi-granularity overview is constructed and displayed
-within \noah, next to the raw spreadsheet data (Figure~\ref{fig:ux}a). Users can zoom into or out of the overview to obtain a fine-grained or coarse grained perspective of the data distribution. The distribution at each granularity is captured by a histogram,
-enabling users to assimilate the data. Each bin (group) of the histogram is mapped to a collection of rows in the spreadsheet.} Cumbersome scrolling operations are eliminated in favor
+within \noah, next to the raw spreadsheet data (Figure~\ref{fig:ux}a). Users can zoom into or out of the overview to obtain a \new{fine or coarse-}grained 
+perspective of the data distribution. 
+The distribution at each granularity 
+is captured by a histogram,
+enabling users to assimilate the data \new{via summary
+statistics}. 
+Each bin (group) of the histogram is 
+mapped to a collection of rows in the spreadsheet.} 
+Cumbersome scrolling operations are eliminated in favor
 of a few clicks on the overview interface. Instead of steering to analyze the data,
 users can issue formulae
 on the overview with interactions similar to pivot table construction,
@@ -299,7 +337,7 @@ complement existing spreadsheet operations.
 the benefits and limitations of this plugin.
 \saj{The study shows that compared to Microsoft Excel, participants were able to complete spreadsheet
 tasks involving navigation 
-correctly and quickly in \noah. Participants made {\bf $2.5\times$ fewer} mistakes while being {\bf $2\times$ faster} with a \noah-integrated spreadsheet than with Excel.} 
+correctly and quickly in \noah. Participants made {\bf $2.5\times$ fewer} mistakes while being {\bf $2\times$ faster} with a \noah-integrated spreadsheet than with Excel.} \agp{mention how these tasks were representative or general}
 \squishend
 
 
