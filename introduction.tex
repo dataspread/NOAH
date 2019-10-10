@@ -1,9 +1,14 @@
+%!TEX root = main.tex
+
 %\IEEEraisesectionheading{\section{Introduction}}
 \section{Introduction}
 \label{sec:intro}
 With a user base of more than one-tenth of the world's population,
 spreadsheets are by far the most popular medium for ad-hoc exploration
-and analysis of data by end-users~\cite{excel-users}. \saj{Studies show that information workers prefer to operate on their data within spreadsheets while shunning enterprise solutions with more advanced analytical features~\cite{chan1996use,raden2005shedding}. One popular joke among those developing business intelligence applications is that  the ``export to excel'' button is the third-most commonly used button from the menu bar, after OK and Cancel~\cite{bakke2016expressive}.}
+and analysis of data by end-users~\cite{excel-users}. 
+\saj{Studies show that information workers prefer to operate on their data within spreadsheets while shunning enterprise solutions 
+with more advanced analytical features~\cite{chan1996use,raden2005shedding}. 
+One popular joke among those developing business intelligence applications is that  the ``export to excel'' button is the third-most commonly used button from the menu bar, after OK and Cancel~\cite{bakke2016expressive}.}
 Spreadsheets enable users to view, structure, and present data
 in an intuitive tabular layout, wherein users can map their data and tasks;
 this tabular layout is essential to
@@ -15,7 +20,7 @@ navigation, \ie
 show another portion of the information space''}~\cite{nav-study}.
 Navigation is supported
 via two unit operations, scrolling and steering.
-\saj{Scrolling is the action of moving displayed text or graphics up, down, or across on a computer screen in order to view different parts of the spreadsheet.}
+\saj{Scrolling is the action of moving displayed text or graphics up, down, or across a computer screen, in order to view different parts of the spreadsheet.}
 For example, when analyzing data, users may scroll
 to compare data across different screens, or to get
 a high-level view of the overall spreadsheet.
@@ -37,9 +42,20 @@ identify, compare, and summarize data.
   \label{fig:ux}
 \end{figure*}
 
-However, navigating spreadsheet data using scrolling or steering
-is often challenging, even for moderately sized spreadsheets that only span
-a few screens~\cite{network-context,nardi1990spreadsheet}, due to multiple inter-related reasons:
+\new{
+However, navigating spreadsheets using scrolling or steering
+is challenging, since spreadsheet data span multiple screens,
+making it hard to synthesize, analyze, makes sense of, or
+operate on it~\cite{network-context,nardi1990spreadsheet}.
+With the ease of data generation, and with spreadsheets
+now supporting increasingly larger datasets, \eg Google Sheets
+now supports two million cells~\cite{}, a five-fold increase
+from the previous limit of 400K cells, 
+{\em navigating
+data within spreadsheets is only becoming even harder},
+thanks to
+multiple inter-related reasons: 
+}
 \squishlist
 \item {\em Loss of overview and context.}
 When navigating
@@ -88,45 +104,45 @@ reduce the visual discontinuity~\cite{nardi1990spreadsheet,network-context},
 which is cumbersome.
 \squishend
 
-Overall,  while navigating present-day spreadsheets, {\bf \em users often lose context,
+\noindent
+Overall,  while navigating present-day spreadsheets, 
+{\bf \em users often lose context,
 get overwhelmed, and experience visual discontinuities.} 
 Addressing these challenges requires considerable manual effort.
-As we argue in Section~\ref{sec:related},
-existing spreadsheet functionalities such as
+As we \new{will} argue in Section~\ref{sec:related},
+existing spreadsheet features such as
 pivot tables, named ranges, and subtotals,
-while providing partial support for some of these challenges
-(\eg pivot table generates a summary
-while losing the mapping between the
-raw data and the summary; named ranges requires users
-to manually associate names with ranges of data),
-do not eliminate them entirely.
-With the ease of data generation, and with spreadsheets
-now supporting data
-of increasingly larger scales---\eg Google Sheets
-now supports two million cells, a five-fold increase
-from the previous limit of 400K cells---navigating
-data within spreadsheets will become harder, not easier.
+\new{partially alleviate 
+some of the aforementioned 
+challenges but do not eliminate them entirely.
+For example, pivot tables generate a summary
+while losing the correspondence between the
+raw data and the summary, while named ranges require users
+to manually associate names with ranges of data.}
+
 
 So, how do we support more effective navigation of data
 within spreadsheets?
 One approach would be to try to integrate
 an overview of the overall structure of the data along
-with the spreadsheet~\cite{grudin2001partitioning}.
-The resulting integration would then be a classical
+with the spreadsheet~\cite{grudin2001partitioning}
+\new{resulting in} a classical
 overview+detail interface
 where the spreadsheet is the detailed view.
 Overview+detail interfaces are used
 to facilitate navigation in various domains such as 
-text editors and maps~\cite{cockburn2009review},
-and enable users to manipulate
+text editors and maps~\cite{cockburn2009review}.
+\new{Users can manipulate
 the overview or detailed view,
 to perform high-level or low-level operations,
-respectively.
+respectively.}
 Overview+detail interfaces
 have been shown to be effective in these domains,
 reducing cognitive load for users by
-providing the big picture first,
-helping them quickly assimilate the information space~\cite{cockburn2009review}.
+providing \new{them} the big picture first,
+helping them quickly assimilate 
+the information space~\cite{cockburn2009review}.
+\agp{got until here}
 \saj{In this paper, our goal is to integrate an overview plug-in with spreadsheets that captures the overall structure of the data while allowing interactions that minimize the difficulties caused by typical navigational operations like scrolling and steering.}
 
 However, while an overview plug-in for spreadsheets
