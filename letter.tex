@@ -8,14 +8,14 @@ A previous version of this paper was submitted to InfoVis 2019. This version was
 
 The present version of the paper addresses all of the issues mentioned by the reviewers. The entire set of reviews are attached. In particular, the reviewers asked for the following changes for a revision: 
 \begin{itemize}
-    \item More clearly articulate the merits over alternative tools, such as Keshif. 
-     \item Convincingly explain the design choice around the binning mechanism or revise
+    \item[\textbf{C1:}] More clearly articulate the merits over alternative tools, such as Keshif. 
+     \item[\textbf{C2:}] Convincingly explain the design choice around the binning mechanism or revise
     that approach.
-    \item Justify the choice of comparing with Excel and note the limitations of that
+    \item[\textbf{C3:}] Justify the choice of comparing with Excel and note the limitations of that
     approach.
-     \item Better justify the choice of tasks in the study. 
-     \item Explain the choice of the four research questions.
-     \item Provide more details about the study, including reporting intra-participant
+     \item[\textbf{C4:}] Better justify the choice of tasks in the study. 
+     \item[\textbf{C5:}] Explain the choice of the four research questions.
+     \item[\textbf{C6:}] Provide more details about the study, including reporting intra-participant
     differences.
 \end{itemize} 
 We have spent the last four months 
@@ -26,29 +26,30 @@ Here, we provide a response to the reviews.
 In our revised submission,
 (i) we discuss the merits of having an interface like \noah
 integrated within an existing spreadsheet, as opposed
-to other general-purpose exploratory tools such as  Keshif;
-(ii) we justify our design choice surrounding the binning mechanism;
-and 
+to other general-purpose exploratory tools such as  Keshif (\textbf{C1});
+(ii) we justify our design choice surrounding the binning mechanism
+while discussing its limitations (\textbf{C2}); 
 (iii) we enrich the user study design section further 
-by providing justifications for comparing \noah and Excel, 
-rephrasing our research questions reflecting the purpose of the user study, explaining the choice of quiz tasks,
-(iv) we reorganize the results section to  highlight key contributions of \noah while explaining participant experiences in using the tool. Moreover, we report the  intra-participant differences for the study. 
+by providing justifications for comparing \noah and Excel (\textbf{C3}), 
+explaining the choice of quiz tasks (\textbf{C4}), rephrasing our research questions reflecting the purpose of the user study (\textbf{C5}), and reporting the intra-participant differences for the study (\textbf{C6}).
+Moreover, to answer the rephrased research questions, we 
+have reorganized the results section to highlight key contributions of \noah while explaining participant experiences in using the tool.
 The major changes to the paper include:
 
 \begin{enumerate}
 \leftmargin=25pt \rightmargin=0pt \labelsep=5pt \labelwidth=20pt \itemindent=0pt \listparindent=0pt \topsep=0pt plus 2pt minus 4pt \partopsep=0pt plus 1pt minus 1pt \parsep=0pt plus 1pt \itemsep=\parsep
 
-\item \textit{Explanation of the binning mechanism.} We have explained our choice of the binning mechanism in the context the third design consideration (\emph{DC3}) and can be found under the title ``Why a Multi-granularity Binned Overview'' in Section~\ref{sec:design}. \saj{In brief, we opted for binning to provide a clear and concise representation of the overall data distribution while minimizing user's back and forth movement across multiple screens during navigation.} However, we acknowledge the limitation of this choice for binning categorical data and discuss possible solutions in Section~\ref{sec:discuss}. 
+\item \textit{Merits over other tools} (\textbf{C1}): \saj{In the paper, we have identified the major contribution of \noah as its \emph{design as a general purpose navigation interface}, the concepts of which can be implemented and integrated as a plug-in to any spreadsheet. As spreadsheets have a massive user-base, enhancing the experience surrounding data exploration and formula computation while maintaining the spreadsheet look and feel as much as possible, has the potential to impact a lot of users. As we mentioned earlier, even users of enterprise solutions prefer Excel for direct data manipulation. Therefore, developing a solution to improve the experience with basic operations of such a tool has its merits.} 
 
-\item \textit{Justification of Excel as a Baseline.}
+\item \textit{Explanation of the binning mechanism} (\textbf{C2}): We have explained our choice of the binning mechanism in the context the third design consideration (\emph{DC3}) and can be found under the title ``Why a Multi-granularity Binned Overview'' in Section~\ref{sec:design}. \saj{In brief, we opted for binning to provide a clear and concise representation of the overall data distribution while minimizing user's back and forth movement across multiple screens during navigation.} However, we acknowledge the limitation of this choice for binning categorical data and discuss possible solutions in Section~\ref{sec:discuss}. 
+
+\item \textit{Justification of Excel as a Baseline} (\textbf{C2}):
 We have provided justification for using Excel over tabular data analysis (TDA) tools a) by highlighting the appeal of spreadsheets in interacting with data even for the users of enterprise solutions (see Section~\ref{sec:intro}), b) by identifying the scope of tasks supported by spreadsheets and the TDA tools (see Section~\ref{sec:usage} and~\ref{sec:related}), c) by explaining that the goal of spreadsheets is to facilitate direct manipulation and arbitrary derivation of the data unlike TDA tools that hide the data while providing summarized statistics (see Section~\ref{sec:related}), and d) by highlighting the importance of addressing the shortcomings of a tool, the user base of which, far exceeds that of the TDA tools (see Section~\ref{sec:study_design}). 
 
-\item \textit{Merits over other tools.} \saj{In the paper, we have identified the major contribution of \noah as its \emph{design as a general purpose navigation interface}, the concepts of which can be implemented and integrated as a plug-in to any spreadsheet. As spreadsheets have a massive user-base, enhancing the experience surrounding data exploration and formula computation while maintaining the spreadsheet look and feel as much as possible, has the potential to impact a lot of users. As we mentioned earlier, even users of enterprise solutions prefer Excel for direct data manipulation. Therefore, developing a solution to improve the experience with basic operations of such a tool has its merits.} 
-
-\item \textit{Enhancing the user study design.}
+\item \textit{Enhancing the user study design} (\textbf{C4, C5}):
 We have added additional explanations on the goal of the study while better articulating the research questions, provided a better justification for the choice of the tasks for the study (see Section~\ref{sec:study_design}) and added a detailed discussion on the limitations of the study. \saj{Specifically, we merged a number of research questions that explored how specific features of \noah affected participants' navigation experience into one broad question which explores their overall experience with \noah and its components. Moreover, we have justified the choice of the quiz tasks by a) relating their goals with the scope of tasks supported by spreadsheets (see Section~\ref{sec:usage}, and b) explaining how these tasks can reveal how people may utilize \noah for spreadsheet navigation. Finally, we have identified two limitations of the study , resulting from sample size and the study design, which we justify based on the scope of the study.}
 
-\item \textit{Reporting Intra-participant Differences.}
+\item \textit{Reporting Intra-participant Differences} (\textbf{C6}):
 Finally, we have performed additional analysis of the study data to report intra-participant submission time differences while providing insights on the trends that emerged from analyzing the data. \saj{For the latter, we find that, despite a few exceptions, across all tasks, participants' task submission times were faster using \noah. However, we already obtained similar observations from Figure~\ref{fig:timeBox} in Section~\ref{sec:rq1}. Therefore, we have included the results of the intra-participant analysis in appendix while briefly summarizing its outcomes in Section~\ref{sec:rq1}.}
 \end{enumerate}
 
