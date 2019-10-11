@@ -6,9 +6,9 @@
 \new{With a user base of more than  one-tenth of the world's population,
 {\bf \em spreadsheets are by far the most popular medium for ad-hoc exploration
 and analysis of data}~\cite{excel-users}.} 
-Studies show that information workers prefer to operate on their data within spreadsheets while shunning enterprise solutions 
+\saj{Studies show that information workers prefer to operate on their data within spreadsheets while shunning enterprise solutions 
 with more advanced analytical features~\cite{chan1996use,raden2005shedding}. 
-One popular joke among those developing business intelligence applications is that  the ``export to excel'' button is the third-most commonly used button from the menu bar, after OK and Cancel~\cite{bakke2016expressive}.
+One popular joke among those developing business intelligence applications is that  the ``export to excel'' button is the third-most commonly used button from the menu bar, after OK and Cancel~\cite{bakke2016expressive}.}
 Spreadsheets enable users to view, structure, and present data
 in an intuitive tabular layout, wherein users can map their data and tasks;
 this tabular layout is essential to
@@ -20,11 +20,11 @@ navigation, \ie
 show another portion of the information space''}~\cite{nav-study}.
 Navigation is supported
 via two unit operations, scrolling and steering.
-Scrolling is the action of moving displayed text or graphics up, down, or across a computer screen, in order to view different parts of the spreadsheet.
+\saj{Scrolling is the action of moving displayed text or graphics up, down, or across a computer screen, in order to view different parts of the spreadsheet.}
 For example, when analyzing data, users may scroll
 to compare data across different screens, or to get
 a high-level view of the overall spreadsheet.
-Steering, on the other hand, involves clicking the left mouse button and then dragging the mouse pointer through the spreadsheet to select a specific region. For example, to issue a formula,
+\saj{Steering, on the other hand, involves clicking the left mouse button and then dragging the mouse pointer through the spreadsheet to select a specific region.} For example, to issue a formula,
 users may steer to select
 the subset of the data
 to be operated on as an argument within the formula.
@@ -164,6 +164,7 @@ developing it leads to several challenges.
 
 \squishlist
 \item {\em Overview modality.}
+\saj{
 One approach for an overview is to simply add a
 zoomed out version of the entire sheet as a pane on the side,
 as in popular presentation software like 
@@ -194,9 +195,10 @@ this raw data is not meaningful.
 change as users 
 seek a more fine-grained or coarse-grained view 
 of the overall structure of the data?} 
+}
 
 \item {\em Construction of the overview.}
-Given a spreadsheet
+\saj{Given a spreadsheet
 with many rows, 
 one approach to constructing a dynamic overview 
 is mapping rows of data to high level groups, 
@@ -213,10 +215,10 @@ If the automatically generated grouping is
 not semantically meaningful, how do we allow the users
 to customize the grouping modality? 
 How do we facilitate interactions that enable 
-users to view the overview at multiple granularities?
+users to view the overview at multiple granularities?}
 
 \item {\em Operations on the overview.}
-Following the construction of a dynamic overview, 
+\saj{Following the construction of a dynamic overview, 
 the next challenge is to design simple interactions 
 that achieve similar outcomes as scrolling and steering.
 For example, an alternative to scrolling 
@@ -244,7 +246,7 @@ How do we
 recompute the results of a formula 
 as the granularity changes 
 without requiring the users to 
-reissue the formula from scratch?}
+reissue the formula from scratch?}}
 \agp{the last three questions are fairly confusing and assume that you already know what NOAH does.. can we simplify?}
 
 \item {\em Seamless integration as a plug-in.}
@@ -285,7 +287,7 @@ are closed source.
 Figure~\ref{fig:ux} shows a snapshot of \noah.
 When the user chooses to explore
 the data by a specific attribute,
-a multi-granularity overview is constructed and displayed
+\saj{a multi-granularity overview is constructed and displayed
 within \noah, next to the raw spreadsheet data (Figure~\ref{fig:ux}a). Users can zoom into or out of the overview to obtain a \new{fine or coarse-}grained 
 perspective of the data distribution. 
 The distribution at each granularity 
@@ -293,7 +295,7 @@ is captured by a histogram,
 enabling users to assimilate the data \new{via summary
 statistics}. 
 Each bin (group) of the histogram is 
-mapped to a collection of rows in the spreadsheet. 
+mapped to a collection of rows in the spreadsheet.} 
 Cumbersome scrolling operations are eliminated in favor
 of a few clicks on the overview interface. Instead of steering to analyze the data,
 users can issue formulae
@@ -332,9 +334,9 @@ the benefits and limitations of this plugin.
 perform tasks that were representative of
 popular spreadsheet operations,
 using both Microsoft Excel and \noah.}
-The study shows that compared to Microsoft Excel, participants were able to complete spreadsheet
+\saj{The study shows that compared to Microsoft Excel, participants were able to complete spreadsheet
 tasks involving navigation 
-correctly and quickly in \noah. Participants made {\bf $2.5\times$ fewer} mistakes while being {\bf $2\times$ faster} with a \noah-integrated spreadsheet than with Excel. \agp{mention how these tasks were representative or general}
+correctly and quickly in \noah. Participants made {\bf $2.5\times$ fewer} mistakes while being {\bf $2\times$ faster} with a \noah-integrated spreadsheet than with Excel.} \agp{mention how these tasks were representative or general}
 \squishend
 
 
