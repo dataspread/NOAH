@@ -51,7 +51,7 @@ the Appendix.}
 \begin{table}[!htb]\scriptsize
 \new{
 \vspace{-10pt}
-\caption{Use cases of \noah, employing Brehmer and Munzner's typology~\cite{brehmer2013multi}.}
+\caption{Example use cases of \noah, employing Brehmer and Munzner's typology~\cite{brehmer2013multi}.}
 \label{tab:scope}
 \vspace{-10pt}
 \centering
@@ -60,18 +60,17 @@ the Appendix.}
 Purpose & Use Cases   \\ \hline
 \emph{Consume}         & 
 \code{discover} (\checkmark: {\em generation of hypotheses}, e.g., Rebecca finds a trend in larger cities and wants to check if it is present in smaller cities), 
-\code{present} (\checkmark: {\em communication of information}, e.g., Rebecca takes a screenshot of \noah to share with her coworkers of the overall availability trends in the context of raw listings), 
+\code{present} (\checkmark: {\em communication of information}, e.g., Rebecca sees the overall availability trends in the context of raw listings, and can present this view to her co-workers), 
 \code{enjoy} (\checkmark: {\em casual encounters with visualization}, e.g., Rebecca uses the overview ``at a glance'' 
 to understand which cities are present in the dataset, 
 and how many listings are present per city)\\
 \emph{Search}            & 
-\code{explore} (\checkmark: {\em searching based on characteristics where location is unknown}, e.g.,), 
-\code{browse} (\checkmark: {\em searching based on characteristics where location is known}, e.g.,), 
-\code{locate} (\checkmark: {\em searching based on entities where location is unknown}, e.g., Rebecca wants to find all entries corresponding to a given city like Chicago), \code{lookup} (\checkmark: {\em searching based on entities where location is known}, e.g.,) \\
+\code{explore/browse} (\checkmark: {\em searching based on characteristics where location is unknown/known}, e.g., Rebecca tries to find Chicago listings with availability greater than 60 days), 
+\code{locate/lookup} (\checkmark: {\em searching based on entities where location is unknown/known}, e.g., Rebecca wants to find all entries corresponding to a given city like Chicago) \\
 \emph{Query}    		&  
-\code{identify} (\checkmark: {\em returning the characteristics of entity found during search}, e.g., Rebecca wants to examine Chicago listings and the typical availabilities of listings in Chicago), 
+\code{identify} (\checkmark: {\em returning the characteristics of entity found during search}, e.g., Rebecca wants to examine Chicago listings to assess typical availabilities of listings in Chicago), 
 \code{compare} (\checkmark: {\em returning characteristics of multiple entities}, e.g., Rebecca wants to compare listing patterns in Boston to that of Chicago), \code{summarize} (\checkmark: {\em returning characteristics of several entities}, e.g., Rebecca wants to gain an understanding of overall rental patterns across cities)  \\ 
-\emph{Produce}         & \code{export/save/generate} ($\times$), \code{record} (\checkmark:)\\
+\emph{Produce}         & \code{export/save} ($\times$), \code{generate/record} (\checkmark: {\em generation or recording of new information}, e.g., Rebecca issues an aggregate formula to generate summary availability statistics across cities)\\
 \hline
 \end{tabular}
 }
@@ -149,46 +148,52 @@ the number of listings for each city, as displayed on the overview (\code{compar
 She decides to focus on Boston, her hometown,
 and wants to find out how many listings
 in Boston violate
-the ``rent availability $>60$ days'' condition.
+the ``rent availability $>60$ days'' condition \new{(\code{identify})}.
 In a typical spreadsheet, Rebecca needs to manually steer and then select
-the Boston listings as input to a \code{COUNTIF} formula that counts the number of
+the Boston listings as input to a \code{COUNTIF} 
+formula that counts the number of
 rows that satisfy the above mentioned condition.
 Using \noah, she can zoom into
 the {\em Ashville-Boston} bin
 (Figure~\ref{fig:concept}a and~\ref{fig:concept}b)
 and then issues
-a \code{COUNTIF} operation on the overview.
+a \code{COUNTIF} operation on the overview  \new{(\code{generate})}.
 %\ie a \code{COUNTIF} formula\footnote{\code{COUNTIF} is a
 %type of formula in spreadsheets that counts the number %of
 %rows that satisfy some condition.}. 
 The result is displayed as an {\em aggregate column}
 alongside the overview (Figure~\ref{fig:ux}b).
-Rebecca learns \saj{(\code{discover})} that more than half of the listings in Boston are 
-effectively operating as hotels---a large number! 
+Rebecca learns that 
+more than half of the listings in Boston are 
+effectively operating as hotels \new{(\code{discover})}---a large number! 
 
 Based on this insight, Rebecca then wants to
 understand availability statistics for an even
-larger city, Chicago \saj{(\code{summarize})}.
+larger city, Chicago \new{(\code{compare})}.
 As she uses the overview to navigate
 to Chicago, \noah
 automatically updates the aggregate column to
-the \code{COUNTIF} formula results for Chicago,
-without Rebecca needing to reissue it by performing a cumbersome steering operation as in traditional spreadsheets. 
+the \code{COUNTIF} formula results for Chicago \new{(\code{identify})},
+without Rebecca needing to reissue it by performing a 
+cumbersome steering operation as in traditional spreadsheets. 
 Rebecca learns that Chicago exhibits 
-a similar renting pattern as Boston, with more than half the listings operating as hotels. She can then check if this trend holds for all large cities \saj{(\code{compare})},
-and whether the smaller cities have a different pattern \saj{(\code{discover})}. \saj{Note that, the rows that satisfy the ``rent availability $>60$ days'' condition, are listed
+a similar renting pattern as Boston, with more than half the listings operating as hotels. 
+\new{She can then hypothesizes that this trend may hold for all large cities,
+and can check whether the smaller cities have a different pattern (\code{discover}). Note that, the rows that satisfy the 
+``rent availability $>60$ days'' condition, are listed
  in the spreadsheet adjacent
-to the overview in sky blue (Figure~\ref{fig:ux}g)}. With the raw 
+to the overview in sky blue (Figure~\ref{fig:ux}g) (\code{explore})}. 
+With the raw 
 data presented side-by-side, she can also dive into other attributes
 of the listings operating as hotels to see if there are any other identifying characteristics,
-\eg if they are all managed by a small number of agencies acting as individual renters \saj{(\code{identify})}.
+\eg if they are all managed by a small number of agencies acting as individual renters \new{(\code{identify})}.
 
  Finally, as Rebecca navigates the data,
  her navigation history (Figure~\ref{fig:ux}d),
  \ie recently visited cities, and current navigation path
  (Figure~\ref{fig:ux}e) are kept up-to-date,
- allowing her to maintain context during navigation.
- She can revisit any previously visited cities
+ allowing her to maintain context during navigation \new{(\code{record})}.
+ She can revisit any previously visited cities \new{(\code{lookup})}
  by simply clicking on the relevant path
  in the navigation history.
 
