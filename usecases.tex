@@ -3,37 +3,99 @@
 
 \section{\noah Use Cases}
 \label{sec:usage}
-\saj{As explained in Section~\ref{sec:intro}, users prefer spreadsheets over enterprise solutions to view, directly manipulate, and explore data~\cite{chan1996use,raden2005shedding}. To identify the scope of these tasks on spreadsheets (see Table~\ref{tab:scope}), we draw parallel to the typology of abstract data exploration tasks~\cite{brehmer2013multi}. The typology characterizes the exploration and manipulation tasks performed on visual representations of data. While all the tasks in Table~\ref{tab:scope} can be performed using spreadsheets, \noah enhances the experience for a subset of these tasks, indicated by a checkmark (\checkmark). We explain how \noah complements spreadsheets in accomplishing these tasks in Appendix.}
+\new{Users prefer spreadsheets 
+over enterprise solutions 
+to view, explore, and analyze data~\cite{chan1996use,raden2005shedding}. 
+To understand the scope of typical user 
+tasks on spreadsheets, 
+we make use of the typology 
+of abstract data exploration tasks~\cite{brehmer2013multi}---see 
+Table~\ref{tab:scope}. 
+This typology characterizes the range of domain-independent
+tasks performed on visual representations of data,
+developed after analyzing task classification 
+systems in over two dozen papers, 
+and has been applied to a variety of 
+scenarios, including XXX\agp{argue for
+ utility with citations.}
+While all the tasks in Table~\ref{tab:scope} 
+can be performed using spreadsheets, 
+\noah enhances the experience 
+for many of these tasks, 
+indicated by a checkmark (\checkmark). 
+We describe these tasks in the context
+of a real usage scenario for \noah below.
+Additional details regarding how \noah 
+complements spreadsheets 
+in accomplishing these tasks can be found in 
+the Appendix.}
+
+% \begin{table}[!htb]\scriptsize
+% \vspace{-10pt}
+% \caption{Use cases of \noah, employing Brehmer and Munzner's typology~\cite{brehmer2013multi}.}
+% \label{tab:scope}
+% \vspace{-10pt}
+% \centering
+% \begin{tabular}{c p{2.8in}}
+% \hline
+% Purpose & Use Cases   \\ \hline
+% \emph{Consume}         & \code{discover} (\checkmark), \code{present} (\checkmark), \code{enjoy} (\checkmark)\\
+% \emph{Produce}         & \code{create} (\checkmark), \code{annotate} ($\times$)\\
+% \emph{Search}            & \code{browse} (\checkmark), \code{explore(\checkmark)}, \code{locate} ($\times$), \code{lookup} ($\times$)\\
+% \emph{Query}    &  \code{identify} (\checkmark), \code{summarize} (\checkmark), \code{compare} (\checkmark)  \\ \hline
+% \end{tabular}
+% \vspace{-5pt}
+% \end{table}
+
 
 \begin{table}[!htb]\scriptsize
-\caption{Uses cases of \noah.}
+\new{
+\vspace{-10pt}
+\caption{Use cases of \noah, employing Brehmer and Munzner's typology~\cite{brehmer2013multi}.}
 \label{tab:scope}
+\vspace{-10pt}
 \centering
-\begin{tabular}{c c}
+\begin{tabular}{c p{2.8in}}
 \hline
 Purpose & Use Cases   \\ \hline
-\emph{Consume}         & \code{discover} (\checkmark), \code{present} (\checkmark), \code{enjoy} (\checkmark)\\
-\emph{Produce}         & \code{create} (\checkmark), \code{annotate} ($\times$)\\
-\emph{Search}            & \code{browse} (\checkmark), \code{explore (\checkmark)}, \code{locate} ($\times$), \code{lookup} ($\times$)\\
-\emph{Query}    &  \code{identify} (\checkmark), \code{summarize} (\checkmark), \code{compare} (\checkmark)  \\ \hline
+\emph{Consume}         & 
+\code{discover} (\checkmark: {\em generation of hypotheses}, e.g., Rebecca finds a trend in larger cities and wants to check if it is present in smaller cities), 
+\code{present} (\checkmark: {\em communication of information}, e.g., Rebecca takes a screenshot of \noah to share with her coworkers of the overall availability trends in the context of raw listings), 
+\code{enjoy} (\checkmark: {\em casual encounters with visualization}, e.g., Rebecca uses the overview ``at a glance'' 
+to understand which cities are present in the dataset, 
+and how many listings are present per city)\\
+\emph{Search}            & 
+\code{explore} (\checkmark: {\em searching based on characteristics where location is unknown}, e.g.,), 
+\code{browse} (\checkmark: {\em searching based on characteristics where location is known}, e.g.,), 
+\code{locate} (\checkmark: {\em searching based on entities where location is unknown}, e.g., Rebecca wants to find all entries corresponding to a given city like Chicago), \code{lookup} (\checkmark: {\em searching based on entities where location is known}, e.g.,) \\
+\emph{Query}    		&  
+\code{identify} (\checkmark: {\em returning the characteristics of entity found during search}, e.g., Rebecca wants to examine Chicago listings and the typical availabilities of listings in Chicago), 
+\code{compare} (\checkmark: {\em returning characteristics of multiple entities}, e.g., Rebecca wants to compare listing patterns in Boston to that of Chicago), \code{summarize} (\checkmark: {\em returning characteristics of several entities}, e.g., Rebecca wants to gain an understanding of overall rental patterns across cities)  \\ 
+\emph{Produce}         & \code{export/save/generate} ($\times$), \code{record} (\checkmark:)\\
+\hline
 \end{tabular}
+}
+\vspace{-5pt}
 \end{table}
 
-\saj{We now describe a usage scenario that captures the spreadsheet exploration tasks accommodated by \noah (Table~\ref{tab:scope}) while illustrating the benefits of integrating an overview with spreadsheets. Let's assume that} Rebecca, an investigative journalist
-is exploring the Inside Airbnb dataset~\cite{web:airbnb},
-a dataset of all the Airbnb listings across different US cities.
+
+\new{We now describe a usage scenario 
+that illustrates the benefits of integrating \noah
+into typical spreadsheets. 
+Let's assume that Rebecca, a journalist,
+is exploring the {\em Inside Airbnb} dataset~\cite{web:airbnb},
+a dataset of all the Airbnb listings across different US cities.}
 This dataset was created to investigate the long-standing
 accusation that many listings in Airbnb are illegally
 run as hotel businesses, while avoiding taxes;
 any listing available for rent for more than $60$ days
 a year is considered to be operated as a hotel~\cite{accusation}. 
 
-Without any prior knowledge of the dataset,
-Rebecca starts by finding out information
-about cities in the dataset and their corresponding listings;
-for example, which cities are present,
-and roughly how many listings does each city have \saj{(\code{browse} and \code{explore})}.
-Without \noah, Rebecca may have used
+\new{Given that this is the first time she's examining
+this dataset,
+Rebecca wants to first gain a bird's eye view of the data. 
+Without \noah, Rebecca 
+would have had to use} 
 a pivot table (discussed in Section~\ref{sec:related})
 to construct
 a summary---however, since this summary is disconnected
@@ -41,31 +103,37 @@ from the underlying data, it is hard for Rebecca to
 map the summary statistics to
 the raw data to obtain further details
 about listings from any given city.
-If she wanted to identify listings from a specific city \saj{(\code{lookup} and \code{locate} or \code{identify})},
+If she wanted to examine listings from a 
+specific city,
 Rebecca would have to either use search capabilities or
 perform an explicit filter for this information,
 and would have to switch back and forth between the
 pivot table results and the raw listings,
 present at disparate locations
 on the spreadsheet.
-Even at the first step of this exploration,
-Rebecca would experience substantial cognitive burden,
+\new{Even at the first step of exploration,
+Rebecca would experience {\em substantial cognitive burdens,
 loss of context,
-and visual discontinuities,
+and visual discontinuities},
 with subsequent steps becoming progressively
-more challenging.
+more challenging.}
 
 
-Using \noah, she explores
-the data by city,
-with \noah providing a high-level overview of
-cities (Figure~\ref{fig:ux}a).
+
+\new{Using \noah, 
+she organizes the overview by city
+and starts casually exploring the dataset, understanding
+which cities are present, and roughly how many listings
+does each city have---with \noah providing a high-level overview of
+cities (Figure~\ref{fig:ux}a) (\code{enjoy}).}
 The overview consists of sorted non-overlapping bins
 containing one or more cities.
 She can click on any bin and the corresponding
 data will be displayed at the top of her screen.
-For example, clicking on the {\em Ashville-Boston} bin
-displays the Ashville listings (Figure~\ref{fig:ux}c).
+\new{For example, clicking on the {\em Ashville-Boston} bin
+displays the Ashville listings (Figure~\ref{fig:ux}c);
+she can similarly find and examine properties of 
+the Chicago listings by clicking on the {\em Chicago-Denver} bin (\code{locate} followed by \code{identify}).}
 She can also zoom into bins using the ``\textcolor{blue}{$\rangle$}'' arrows,
 zoom out of bins using the ``\textcolor{blue}{$\langle$}'' arrows,
 and pan by clicking on various bins at the same level.
@@ -73,11 +141,11 @@ We discuss the construction of the overview
 and associated interactions in Section~\ref{sec:ui}.
 
 
-Next, say Rebecca wants to analyze
-one of the larger cities \saj{(\code{query}/\code{summarize}) to understand the renting pattern}.
-She identifies these cities by
-comparing the number of listings
-for each city displayed on the overview \saj{(\code{compare})}.
+\new{Next, say Rebecca wants to analyze
+one of the larger cities to understand the 
+overall renting pattern (\code{summarize}).
+She studies a few cities at a time, examining and comparing
+the number of listings for each city, as displayed on the overview (\code{compare})}.
 She decides to focus on Boston, her hometown,
 and wants to find out how many listings
 in Boston violate
