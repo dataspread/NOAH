@@ -1,15 +1,17 @@
+%!TEX root = main.tex
+
 \section{Related Work}
 \label{sec:related}
-In this section, we present tools and techniques
+We now discuss tools and techniques
 that partially address the limitations of navigating
-spreadsheets as discussed in the introduction.
+spreadsheets.
 
 \subsection{Spreadsheet Tools and Prototypes}
 \cut{Commercial spreadsheet tools include
 Microsoft Excel, Google Sheets, and Airtable---of
 these, Excel and Google Sheets support features
 targeted at improving users' navigation experience.}
-
+\agp{Abrupt, add at least one line to say that existing spreadsheet tools recognize challenges in nav or something}
 
 \cut{Excel allows users to maintain context during navigation
 by manually creating named ranges~\cite{named-range},
@@ -22,32 +24,40 @@ to navigate to the referred region.
 However, the onus is on the user to create
 named ranges for each region of interest.}
 \stitle{Microsoft Excel.}
-\saj{Excel enables users to manually create references
-to a spreadsheet region using the named ranges~\cite{named-range} feature which is displayed within the Excel menu bar.
+\new{Excel enables users to manually create references
+to a spreadsheet region using the named 
+ranges~\cite{named-range} feature,
+accessible from the menu bar.
 Users can click on a named range
-to navigate to the referred region. However, the onus is on the user to create
-named ranges for each region of interest. The Pivot table~\cite{pivot} feature provides a summary view, enabling users
+to navigate to the referred region. 
+However, the onus is on the user to create
+named ranges for each region of interest. 
+The pivot table~\cite{pivot} feature 
+allows users to create a summary view to 
+compare subsets of data without having to 
+provides a summary view, enabling users
 to compare subsets of data without
 having to navigate to various locations
-within the spreadsheet.
+within the sheet.
 This summary is placed
-in a separate region in the spreadsheet,
+in a separate region of the spreadsheet,
 preventing users from accessing
-the data underlying the summary, thereby, impeding navigation. A similar overview feature, \code{SUBTOTAL}~\cite{subtotal},
-adds a new row at the end of the
-corresponding subset of data with summary
+the data underlying the summary, impeding navigation. 
+A similar overview feature, \code{SUBTOTAL}~\cite{subtotal},
+adds a new row at the end of each distinct
+subset of data with summary
 information. Users can expand the summary to view
 the actual spreadsheet data.
-However, for datasets with larger subsets (\eg for numeric data),
-the size of the summary can become very
-large spanning multiple screens and can cause
+However, for datasets with many subsets (\eg for numeric data),
+the number of new lines inserted (i.e., the summary) 
+can itself become very
+large, spanning multiple screens, and can cause
 increased
 visual discontinuity during navigation. Finally, NodeXL~\cite{hansen2010analyzing}
-is an Excel plug-in that provides an overview
-of a network
-and enables users to perform navigational operations,
+is a plug-in that provides a spreadsheet network overview
+and supports navigational operations,
 \eg zooming in/out, dynamic filtering, on the overview;
-this plugin only supports network datasets,
+this plug-in only supports network datasets,
 such as biological or social networks.}
 
 \stitle{Google Sheets Explore.}
@@ -80,7 +90,7 @@ generates an interactive summary of a large spreadsheet table as
 a collection of rules; users can drill-down to
 a specific rule to view more fine-grained rules.
 Hillview~\cite{web:hillview} displays
-the results of group-by queries
+the approximate results of group-by queries
 on large spreadsheet tables.
 While these tools support summarization at scale,
 providing an overview of the spreadsheet,
@@ -180,21 +190,27 @@ allowing users to drill-down further.
 Visualization tools such as Tableu~\cite{tableau}, Power BI~\cite{powerbi}, Keshif~\cite{yalccin2018keshif}, Voyager~\cite{wongsuphasawat2016voyager} and
 analytical tools such as SPSS~\cite{noruvsis1986spss}, SAS~\cite{sas1985sas}, can all provide summaries of tabular data in various forms (visualizations,
 aggregate statistics). 
-\saj{However, these summaries 
+\new{However, these summaries 
 are static overviews of the data---much like pivot tables, 
 these summaries are not dynamically linked
 to nor are co-located with
-the underlying data. 
-Naturally, 
-users cannot navigate and directly manipulate the raw data
-using these tools unlike spreadsheets. For example, using these tools users cannot \code{browse} subsets of data and \code{lookup} or \code{locate} data points of interest (see Table~\ref{tab:scope}). Even users of such tools want to inspect the underlying data to verify the summary statistics and visualizations~\cite{2017trust}.
+the underlying raw data. 
+As such, the spreadsheet look-and-feel is lost,
+and as a result, users
+cannot navigate and directly manipulate the raw data
+in the way they do in spreadsheets. 
+For example, using these tools users cannot \code{browse} subsets of data and \code{lookup} or \code{locate} data points of interest (see Table~\ref{tab:scope}). \agp{previous line problematic: they can... because all these tools support to varying extents the typology}
+Even users of such tools want to inspect the underlying data to verify the summary statistics and visualizations~\cite{2017trust}. \agp{this line is problematic too... because the citation is to an AQP tool rather than some general purpose study}
 %several wanted to be able to see the underlying data: although big data demands aggregations, analysts wanted to see individual records to spot-check their results, and to get a sense of what sat in a bucket. 
-The goals of spreadsheets vary from the TDA tools in two different ways: a) facilitating direct manipulation of the data and b) enabling arbitrary derivation of new data and summaries
+The goals of spreadsheets differ from TDA 
+tools in two ways: a) facilitating direct manipulation of raw 
+data and b) enabling arbitrary derivation of new data and summaries
 using various operations involving navigation,
 \eg formulas or expressions.
-\noah being a plugin to spreadsheets, facilitates a unified interface that
+\noah being a plug-in to spreadsheets, 
+facilitates a unified interface that
 upholds both these goals
 while enhancing
-the navigational capabilities
+navigational capabilities
 for spreadsheet users.
 }
