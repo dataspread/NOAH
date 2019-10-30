@@ -17,7 +17,7 @@ across multiple design iterations.
 An overview helps users get a high-level picture
 of the data.
 However, maintaining the overview in a separate
-location from the data can be cumbersome;
+location from the data can \newsaj{lead to loss of context};
 instead, having it co-located with the data
 can help users make rapid glances to
 explore information between a
@@ -27,8 +27,8 @@ and a close-up detail~\cite{grudin2001partitioning}.
 \para{DC2. Ensure reduced
 visual discontinuity while providing details on demand}
 Users often need to access subsets of data,
-and study their properties in detail (\eg via steering);
-navigating back and forth \saj{between different subsets of data}
+and study their properties in detail, \eg via steering.
+Navigating back and forth \saj{between different subsets of data}
 can lead to increased visual discontinuity.
 The interface should allow users to compute such details for
 various data subsets on demand~\cite{shneiderman2003eyes}.
@@ -52,7 +52,7 @@ Since users can view the overview
 and the spreadsheet simultaneously,
 interactions on both need to be linked~\cite{roberts2007state},
 \ie an interaction on one should be reflected on
-the other interface~\cite{wang2000guidelines}.
+the other~\cite{wang2000guidelines}.
 For example, as a user scrolls through
 the spreadsheet, the user's current focus
 should be highlighted on the overview.
@@ -72,7 +72,7 @@ may not match the letter grade ranges
 that the instructors have in mind.
 Allowing users to customize the overview is therefore essential.
 
-\para{DC6. Display contextual and historical information regarding users' navigation}
+\para{DC6. Display contextual and historical navigation information}
 The interface should record navigation history,
 allowing users to revisit previously visited locations~\cite{shneiderman2003eyes},
 while also displaying their current navigation path for context.
@@ -98,16 +98,16 @@ groups of data called {\em bins}.
 As shown in Figure~\ref{fig:concept}d,
 an overview of the Airbnb data
 on the navigation attribute ``city''
-has two levels of granularities.
-The highest level of the granularity
+has granularity levels.
+The highest (coarsest) granularity level
 consists of four bins.
 Figure~\ref{fig:concept}a
-depicts \noah showing the first four bins,
+depicts the first four bins,
 the first of which is {\em Ashville-Boston}.
 Each bin contains summary information
 regarding the data subset/region
 it spans, \eg starting row and
-ending row number,
+ending row number, and 
 the total number of rows the region spans.
 Each bin displays an overview
 of the next (finer) granularity (if any)
@@ -120,8 +120,7 @@ Correspondingly, Figure~\ref{fig:concept}(a)
 shows three horizontal bar charts for the
 first {\em Ash-Bos} bin,
 one for each bin in the next granularity.
-On the other hand,
-since the third bin from the top
+Since the third bin from the top
 (\emph{LA}) spans only one city,
 no bar chart is embedded.
 Users can perform different
@@ -153,33 +152,33 @@ To strike a balance between these two objectives
 ({\bf DC3}) we designed a multi-granularity overview
 that abstracts the data at varying levels of detail.
 Multi-granularity interfaces
-provide an alternative to a single-granularity
-spatial partition of the data space,
-by varying the scale at which the data is displayed,
-enabling multiple views at varying granularities~\cite{cockburn2009review}.
+provide an alternative to \newsaj{the spatially partitioned single-granularity representation of the data space, \eg in Powerpoint, by allowing users to control the scale at which the overview should be displayed~\cite{cockburn2009review}.}
 Users can resize the overview to control the amount of spreadsheet data that remains visible.
 \toappendix{Microsoft PowerPoint also uses a
 similar technique to balance the screen
 space between overview and detail.}
-Moreover, users can also hide the overview if required.}
+Users can also hide the overview if required.}
 
-\saj{As explained earlier,
-we divide each granularity
-of the overview into bins.
-The highest (coarsest) level of the granularity
-provides a global view with less visual clarity
-and reduced visual discontinuity,
-As the bins become more fine-grained, visual clarity improves while visual discontinuity increases.
+\newsaj{The data structure underlying the overview
+is an equi-depth histogram constructed
+on the values
+in the navigation attribute column.
+Equi-depth histograms are commonly
+used for summarizing the statistical properties
+of data, with applications such as
+database query optimizers~\cite{chaudhuri1998random}.
 The binned representation of the overview
 using equi-depth histograms
 enables faster navigation
 by reducing visual discontinuity. 
-The bins of the histogram
-act as landmarks
+The bins act as landmarks
 in the overview, enabling 
 users to skip irrelevant bins
-and quickly navigate to the desired subset of data.
-The equi-depth histogram 
+and quickly navigate to the desired subset of data. We now discuss how the overview is constructed.}
+
+
+\stitle{Overview Construction.}
+\newsaj{The equi-depth histogram 
 can be constructed on 
 any data types
 that can be ordered, \eg text, numbers, dates. For example, 
@@ -188,16 +187,6 @@ the journalist grouped the data into cities
 for ease of navigation 
 when exploring the larger cities
 in the Airbnb dataset.}
-
-\stitle{Overview Construction.}
-The data structure underlying the overview
-is an equi-depth histogram constructed
-on the values
-in the navigation attribute column.
-Equi-depth histograms are commonly
-used for summarizing the statistical properties
-of data, with applications such as
-database query optimizers~\cite{chaudhuri1998random}.
 Each bin in the equi-depth histogram
 contains the same number of items,
 where each item is a value.
@@ -237,9 +226,10 @@ equi-depth
 histogram that is as close to an equi-depth
 histogram as possible, while ensuring
 that the ranges represented by each bin have no overlap.
-\toappendix{\agp{We don't have time but for the future, this is
-something that would have been great to describe the algorithm on
-for technical depth.}}
+\agp{Aditya: would be valuable to describe the algorithm to increase
+technical depth.}
+\saj{Saj: can we add a pseudocode in appendix and refer to that?}
+
 
 \begin{figure}[t]
         \centering
@@ -344,11 +334,11 @@ order of the bins.\toappendix{ Users can only customize the boundary of the bins
 \noah supports coordination
 between the overview and the
 corresponding spreadsheet data (\textbf{DC4}),
-\ie interaction on the overview
+\ie interactions on the overview
 may be reflected on the spreadsheet and vice-versa.
-Indicating the navigation attribute on the spreadsheet
+\newsaj{One example of this coordinations is,} indicating the navigation attribute on the spreadsheet
 using color (see the lime green column in Figure~\ref{fig:ux}c)
-as user constructs the overview, is an example of such coordination. However, not all overview interactions are coupled
+as user constructs the overview. However, not all overview interactions are coupled
 with the spreadsheet and vice versa.
 The coupling depends on the user's current
 focus---\emph{\saj{to ensure consistency between the overview and the spreadsheet,} any interaction on
@@ -387,7 +377,7 @@ bins are highlighted
 When a user zooms into a bin
 that is already in the user's current focus,
 the spreadsheet view does not change.
-For example, in Figure~\ref{fig:concept}a
+For example, in Figure~\ref{fig:concept}a,
 the user zooms into the \emph{Ashville-Boston} bin;
 here, the spreadsheet view stays the same
 (see Figure~\ref{fig:concept}b).
@@ -398,9 +388,9 @@ a coarser granularity view
 of the user's current focus.
 Since the focus stays the same,
 there's no need to update the spreadsheet view.
-Similarly, operations like panning on the overview without clicking
+Similarly, operations like panning on the overview without clicking,
 and customizing the overview
-do not change user's current focus and are decoupled.
+do not change user's current focus and are therefore decoupled.
 Online maps also adopt similar
 decoupling of the overview and detail~\cite{cockburn2009review}.
 However, their goal is to reduce network
@@ -424,56 +414,52 @@ one per bin.
 Users can issue several formulae simultaneously,
 each giving rise to a new aggregate column.
 However, adding an aggregate column
-takes up screen space thus shrinking the spreadsheet view.
+takes up screen space, shrinking the spreadsheet view.
 As a workaround, users can resize or
-remove aggregate columns
-to make more screen space available
-to the spreadsheet (\textbf{DC3}).
-When user issues a formula on the overview,
+remove aggregate columns if required (\textbf{DC3}).
+When the user issues a formula on the overview,
 the spreadsheet column
 corresponding to the aggregate column
 is highlighted in grayish orange
 (see Figure~\ref{fig:ux}c)---another example of coupled interaction.
 For conditional formulae like \code{COUNTIF},
 cells that satisfy the condition
-are highlighted, \eg in Figure~\ref{fig:ux}c),
+are highlighted, \eg in Figure~\ref{fig:ux}c,
 the cells with availability $\ge 60$ are colored in sky blue.
-By viewing the colored cells,
-users can find out which cells
+In this manner,
+users can quickly determine which cells
 are relevant to the aggregation operation\toappendix{ (\code{identify} in Table~\ref{tab:scope})}.
 
 Creating an aggregate column on the overview mimics how users create pivot tables. Users
 are not required to explicitly type formulae;
 rather they simply select the formula from a drop-down menu,
-and provide the necessary formula parameters to a web form.
-This way, \noah maintains the semantics
-of existing spreadsheet tools.
-Currently, \noah supports statistical
+and provide the necessary formula parameters to a form.
+\newsaj{The aggregate column can employ any} statistical
 and mathematical formulae that
 operate over a range of data.
-Therefore, creating an aggregate column
-is equivalent to selecting a subset of data
-on the sheet, \ie steering and then executing a formula,
+\newsaj{Therefore, creating an aggregate column
+is equivalent to selecting subsets of data
+on the sheet, \ie steering, and then executing a formula on this subset},
 helping users avoid cumbersome steering operations.
 We have classified the formulae supported
 into five categories: a) summary (\eg min, max, average),
 b) frequency (\eg mode, large, small), c) conditional (\eg countif, sumif), d) spread (\eg var,stdev), and e) others (\eg sum, count).
 
-Users can choose to view the result of formulae
-either as raw values or charts and can toggle between the two.
+Users can view the results
+either as raw values or as charts, and can toggle between the two.
 Raw values are displayed
 along with a colored bar, the \emph{value bar},
 whose length is proportional to
 the corresponding aggregate (see Figure~\ref{fig:ux}b). Users can use the lengths to visually compare across bins\toappendix{ (\code{compare} in Table~\ref{tab:scope})}.
 The chart representation varies depending on the formula type.
-Except for the \emph{others} category
-all other categories can be represented by charts.
+All other categories except for the \emph{others} category
+can be represented by charts.
 Figure~\ref{fig:agg} shows the
 chart representation for these categories
 along with different visual cues
 that highlight formula results
 as well as other information. We discuss these representations 
-in detail in the supplementary material.
+in detail in the Appendix.
 \toappendix{For example, for \emph{conditional} formulae
 like \code{COUNTIF},
 shading is used to de-emphasize data ranges

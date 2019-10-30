@@ -6,15 +6,16 @@ to evaluate whether
 \noah helps address spreadsheet navigational challenges.
 \subsection{Study Design and Participants}
 \label{sec:study_design}
-\saj{\noah was designed to address the navigational challenges in spreadsheets. As such, the goal of the study was to evaluate whether \noah enhances the navigational capabilities of traditional spreadsheets. Furthermore, we wanted understand how the presence of the features introduced by a plugin like \noah affects a spreadsheet user's navigation experience. In this study, we compare a \noah-integrated spreadsheet with a typical, popular one, Excel, for various navigational tasks in the spreadsheet domain. Similar domain specific evaluations have been performed for measuring the performance of various  overview+detail interfaces, \eg database browsing~\cite{north2000snap} or 
-tree navigation~\cite{beard1990navigational}. As explained in Section~\ref{sec:related}, the goals of spreadsheets and the TDA tools are quite different. Therefore, we did not consider TDA tools for the comparative study.}
+\newsaj{The goal of our study is to evaluate whether \noah addresses the navigational challenges in traditional spreadsheets. Furthermore, we wanted understand how the presence of the features introduced by a plugin like \noah impacts a spreadsheet user's navigation experience as they explore and make sense of data. Therefore, we decided to compare a \noah-integrated spreadsheet with a typical, popular one, Excel, for various navigational tasks in the spreadsheet domain.} \saj{Similar domain specific-evaluations have been performed for measuring the performance of various  overview+detail interfaces, \eg database browsing~\cite{north2000snap} or 
+tree navigation~\cite{beard1990navigational}. As explained in Section~\ref{sec:related}, the goals \newsaj{and user populations} of spreadsheets and TDA tools are quite different. Therefore, we did not consider TDA tools for the comparative study.}
 Our study was designed to answer the following questions:
-
+\agp{The RQs feel repetitive. What did Karrie think.}
+\newsaj{She was fine with it. I think there are subtle differences. the RQ1 tries corresponds to quantifiable performance metric like accuracy, latency. RQ2 is qualitative feedback of user experience.}
 \squishlist
 \item {\bf RQ1.} %\sout{How does the addition of an overview help address spreadsheet navigational challenges, with respect to quantitative performance metrics such as speed and accuracy?}
-\saj{How did the addition of an overview like \noah affect a spreadsheet users navigation performance?}
+\saj{How did the addition of an overview like \noah impact \newsaj{a user's spreadsheet navigation performance  measured in terms of speed and accuracy?}}
 \item {\bf RQ2.} %\sout{How do users make use of the aggregate column results in conjunction with the raw spreadsheet data to analyze data?} 
-\saj{How did \noah and it's components impact spreadsheet users'
+\saj{How did \noah and it's components affect spreadsheet users'
 navigational experiences?}
 %\item {\bf RQ3.} \sout{How does bin customization help users inject domain knowledge in addressing their specific exploration questions compared to the automated overview?} \sout{\saj{How do users utilize additional features of \noah, \eg bin customization, during navigation?}
 %\item {\bf RQ4.} \sout{How is the user's subjective satisfaction with \noah compared to traditional spreadsheets?}}  \sout{\saj{How is the user's subjective satisfaction with \noah compared to the traditional spreadsheets when performing navigational tasks?}}
@@ -70,25 +71,31 @@ We began the study by showing a six-minute video tutorial explaining the feature
 \begin{table}[!htb]
 \scriptsize
  \vspace{-10pt}
-\caption{Quiz tasks for the birdstrikes dataset.}
+\caption{\newsaj{Quiz tasks for the birdstrikes dataset. The use cases correspond to the task typology discussed in Section~\ref{sec:usage}}}
 \label{tab:questions}
 \centering
-\begin{tabular}{l l}
+\begin{tabular}{l l l}
 \hline
-\multicolumn{1}{c}{Category} & \multicolumn{1}{c}{Question}    \\ \hline
-steer                & Organize the data by State. How many flights that \\
-                         & had damages (damage = 1) originated from Florida? \\ 
-identify     & How many flights in the currently visible \\
-                 &  spreadsheet window have damages?                                    \\ 
-steer                & How many flights that had damages (damage = 1) \\
-                         &   originated from California?                          \\ 
-\cmpA & Which state between Florida and California \\
-                         &   has a higher number of flights with damages?    \\ 
-\cmpB & Find the state with the most birdstrike occurrences.  \\ 
-customize       & Organize the data by \emph{altitude}. What is the average \\
-                         &   cost of damages for altitude bin 0-450?          \\ \hline
+Category & Question & Use case    \\ \hline
+steer                & Organize the data by State. How many& \\
+                     & flights that had damages (damage = 1)& \code{summarize}\\
+                     & originated from Florida? \\ 
+identify             & How many flights in the currently &\\
+                     & visible spreadsheet window  &  \code{identify}\\ 
+                     & have damages? & \\
+steer                & How many flights that had damages & \code{summarize}\\
+                     & originated from California?                         & \\ 
+\cmpA                & Which state between Florida and &\\
+                     & California  has a higher number of & \code{compare}\\ 
+                     & flights with damages?    &\\
+\cmpB                & Find the state with the most & \code{compare}\\
+                     & birdstrike occurrences.  &\\ 
+customize            & Organize the data by \emph{altitude}. &\\
+                     & What is the average cost of damages & \code{generate}\\
+                     &    for altitude bin 0-450?         & \\ \hline
 \end{tabular}
 \end{table}
+
 
 \stitle{Phase 2: The Quiz Phase.}
 \saj{The purpose of the quiz phase was to evaluate the effectiveness of the features supported by \noah in addressing spreadsheet limitations}. During the quiz phase, 
@@ -104,7 +111,7 @@ For reference, we also provided a printed handout to the participants
 that contained screenshots with the features of \noah. 
 
 \emph{Quiz Tasks.} \saj{We designed six tasks grouped into four categories: 
-steer (two tasks), compare (two tasks), identify (one task), and customize (one task), representing the Table~\ref{tab:scope} uses cases \code{summarize}, \code{compare}, \code{identify}, and \code{create}, respectively. All of the tasks except the customize task, are representative of the navigation interactions required for the most frequently issued spreadsheet formulae
+steer (two tasks), compare (two tasks), identify (one task), and customize (one task), representing the Table~\ref{tab:scope} uses cases \code{summarize}, \code{compare}, \code{identify}, and \code{generate}, respectively. All of the tasks except the customize task, are representative of the navigation interactions required for the most frequently issued spreadsheet formulae
 ~\cite{bradbard2014spreadsheet, lawson2009comparison}. The customize tasks was designed to mimic the scenario where a user would group data subsets of interest and required participants to utilize the bin customization feature. The tasks were presented in the same order as shown in Table~\ref{tab:questions} for the birdstrikes dataset. The questions for the Airbnb dataset were similar. The order of the questions mimics the spreadsheet navigation scenario presented in Section~\ref{sec:usage}.}
 %All of these tasks require navigation of the spreadsheet data in the form of either scrolling or steering. 
 
@@ -140,13 +147,13 @@ We also asked participants to comment on the usefulness of
 different features provided by \noah and Excel. 
 
 \subsection{Study Limitations.}
-\kgk{Our study has several limitations that can be strengthened by future larger-scale and more fine-grained studies. One limitation arises from our participant demographics.  We conducted the study with $20$ participants from four different backgrounds. Our participant pool demographics partially represent the demographics of the general audience intended for \noah.
+\saj{Our study has several limitations that can be strengthened by future larger-scale and more fine-grained studies. One limitation arises from our participant demographics.  We conducted the study with $20$ participants from four different backgrounds. Our participant pool demographics partially represent the demographics of the general audience intended for \noah.
 %is in sample size and participant demographics: we conducted the study with $20$ participants from four different backgrounds.Therefore, our participant pool demographics partially represents the demographics of the general audience intended for \noah.
 A larger sample with more participants that better represented the spreadsheet user population would have provided more ecological validity to generalize our findings.
 }
 %While a larger sample with more diverse backgrounds would have allowed us to perform more definitive quantitative analysis, we combined this analysis with qualitative survey, interview, and screen/audio recording data to provide insights that can be explained with multiple information sources.
 
-\saj{Another limitation of the study is that we only compared the performance of a \noah-integrated spreadsheet with a traditional spreadsheet. We did not evaluate specific spreadsheet features like pivot table and \code{SUBTOTAL} due to their limitations in the types of interactions supported (see Section~\ref{sec:related}). Moreover, we wanted the participants to utilize the typical spreadsheet operations that they are comfortable with to complete those tasks and see how introduction of \noah affected their navigation experience.} 
+\saj{Another limitation of the study is that we only compared the performance of a \noah-integrated spreadsheet with a traditional spreadsheet. We did not evaluate specific spreadsheet features like pivot table and \code{SUBTOTAL} due to their limitations in the types of interactions supported (see Section~\ref{sec:related}). Moreover, instead of forcing the participants use unfamiliar spreadsheet operations, we wanted them to utilize the typical spreadsheet operations that they are comfortable with, to complete the tasks and see how introduction of \noah affected their navigation experience.} 
 
 \saj{Finally, we did not isolate the effects of the individual features of \noah to better understand the implications of those. For example, the effect of binned overview (visual clarity versus visual continuity), display layout (screen space trade-off), and
 contextual presentation of data (raw text versus chart representation of aggregate columns). However, the goal of the study was to understand participants' navigation experience in the presence and absence of \noah. A more fine-grained study can be conducted in the future, to inspect the contribution of individual components of \noah in further detail.}

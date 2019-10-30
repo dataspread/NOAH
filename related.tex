@@ -12,6 +12,7 @@ Microsoft Excel, Google Sheets, and Airtable---of
 these, Excel and Google Sheets support features
 targeted at improving users' navigation experience.}
 \agp{Abrupt, add at least one line to say that existing spreadsheet tools recognize challenges in nav or something}
+\newsaj{Existing spreadsheet tools---both commercial software and academic prototypes---recognize some of these navigation challenges while adopting different measures to address those.}
 
 \cut{Excel allows users to maintain context during navigation
 by manually creating named ranges~\cite{named-range},
@@ -190,23 +191,19 @@ allowing users to drill-down further.
 Visualization tools such as Tableu~\cite{tableau}, Power BI~\cite{powerbi}, Keshif~\cite{yalccin2018keshif}, Voyager~\cite{wongsuphasawat2016voyager} and
 analytical tools such as SPSS~\cite{noruvsis1986spss}, SAS~\cite{sas1985sas}, can all provide summaries of tabular data in various forms (visualizations,
 aggregate statistics). 
-\new{However, these summaries 
+\new{These summaries 
 are static overviews of the data---much like pivot tables, 
 these summaries are not dynamically linked
 to nor are co-located with
-the underlying raw data. 
-As such, the spreadsheet look-and-feel is lost,
+the underlying raw data. \newsaj{For example, Keshif~\cite{yalccin2018keshif} can display all the unique values corresponding to an attribute of interest, \eg cities of the Airbnb data~\cite{web:airbnb}. However, users cannot view or inspect the raw data corresponding to each city. With TDA tools, the spreadsheet look-and-feel is lost,
 and as a result, users
-cannot navigate and directly manipulate the raw data
-in the way they do in spreadsheets. 
-For example, using these tools users cannot \code{browse} subsets of data and \code{lookup} or \code{locate} data points of interest (see Table~\ref{tab:scope}). \agp{previous line problematic: they can... because all these tools support to varying extents the typology}
-Even users of such tools want to inspect the underlying data to verify the summary statistics and visualizations~\cite{2017trust}. \agp{this line is problematic too... because the citation is to an AQP tool rather than some general purpose study}
-%several wanted to be able to see the underlying data: although big data demands aggregations, analysts wanted to see individual records to spot-check their results, and to get a sense of what sat in a bucket. 
-The goals of spreadsheets differ from TDA 
+loose the capability to directly manipulate raw data, derive new data, and issue formulae for free-form analysis.}  
+\cut{For example, using these tools users cannot \code{browse} subsets of data and \code{lookup} or \code{locate} data points of interest (see Table~\ref{tab:scope}). Aditya: previous line problematic: they can... because all these tools support to varying extents the typology. Even users of such tools want to inspect the underlying data to verify the summary statistics and visualizations~\cite{2017trust}. Aditya:this line is problematic too... because the citation is to an AQP tool rather than some general purpose study}
+\newsaj{Therefore, the goals of spreadsheets differ from TDA 
 tools in two ways: a) facilitating direct manipulation of raw 
 data and b) enabling arbitrary derivation of new data and summaries
 using various operations involving navigation,
-\eg formulas or expressions.
+\eg formulas or expressions.}
 \noah being a plug-in to spreadsheets, 
 facilitates a unified interface that
 upholds both these goals
