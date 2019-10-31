@@ -2,17 +2,22 @@
 
 \section{Related Work}
 \label{sec:related}
+\new{
 We now discuss tools and techniques
-that partially address the limitations of navigating
-spreadsheets.
+that partially address the limitations 
+of navigating
+data, both inside and outside spreadsheets.
+}
 
 \subsection{Spreadsheet Tools and Prototypes}
 \cut{Commercial spreadsheet tools include
 Microsoft Excel, Google Sheets, and Airtable---of
 these, Excel and Google Sheets support features
 targeted at improving users' navigation experience.}
-\agp{Abrupt, add at least one line to say that existing spreadsheet tools recognize challenges in nav or something}
-\newsaj{Existing spreadsheet tools---both commercial software and academic prototypes---recognize some of these navigation challenges while adopting different measures to address those.}
+% \agp{Abrupt, add at least one line to say that existing spreadsheet tools recognize challenges in nav or something}
+\new{Both commercial spreadsheet tools
+as well as academic prototypes provide
+partial solutions to navigational challenges.}
 
 \cut{Excel allows users to maintain context during navigation
 by manually creating named ranges~\cite{named-range},
@@ -174,6 +179,8 @@ more effectively.
 \subsection{Spreadsheet Alternatives}
 %Finally, we discuss solutions to navigational and summarization
 %challenges in other domains.
+\new{We draw from work on navigation interfaces
+in non-spreadsheet interfaces as well.}
 
 \stitle{Overview+Detail Interfaces.}
 Cockburn et al.~\cite{cockburn2009review}
@@ -185,27 +192,31 @@ We follow the same analogy of
 providing an overview of the spreadsheet first,
 allowing users to drill-down further.
 
-\stitle{Multiple Coordinated Views.} Multiple coordinated views~\cite{roberts2007state}, \eg \emph{Snap}~\cite{north2000snap}, \emph{Elastic Documents}~\cite{badam2018elastic} connect multiple views, for example, an overview and a detailed data view while enabling coordination between these views through brushing and linking. Similarly, \noah connects tabular spreadsheets with an overview and updates the state of the spreadsheet as users interact with the overview and vice-versa.
+\stitle{Multiple Coordinated Views.} Multiple coordinated views~\cite{roberts2007state}, \eg \emph{Snap}~\cite{north2000snap}, \emph{Elastic Documents}~\cite{badam2018elastic} connect multiple views, for example, an overview and a detailed data view while enabling coordination between these views through brushing and linking. Similarly, \noah connects spreadsheets with an overview and updates the spreadsheet as users interact with the overview and vice-versa.
 
 \stitle{Tabular Data Analysis (TDA).}
-Visualization tools such as Tableu~\cite{tableau}, Power BI~\cite{powerbi}, Keshif~\cite{yalccin2018keshif}, Voyager~\cite{wongsuphasawat2016voyager} and
+Visualization tools such as Tableau~\cite{tableau}, Power BI~\cite{powerbi}, Keshif~\cite{yalccin2018keshif}, Voyager~\cite{wongsuphasawat2016voyager} and
 analytical tools such as SPSS~\cite{noruvsis1986spss}, SAS~\cite{sas1985sas}, can all provide summaries of tabular data in various forms (visualizations,
 aggregate statistics). 
 \new{These summaries 
 are static overviews of the data---much like pivot tables, 
 these summaries are not dynamically linked
 to nor are co-located with
-the underlying raw data. \newsaj{For example, Keshif~\cite{yalccin2018keshif} can display all the unique values corresponding to an attribute of interest, \eg cities of the Airbnb data~\cite{web:airbnb}. However, users cannot view or inspect the raw data corresponding to each city. With TDA tools, the spreadsheet look-and-feel is lost,
+the underlying raw data. 
+For example, Keshif~\cite{yalccin2018keshif} can display all the unique values corresponding to an attribute of interest, \eg cities of the Airbnb data~\cite{web:airbnb}. However, users cannot view or inspect the raw data corresponding to each city
+in a spreadsheet-like tabular setting, while being able to
+edit this raw data at will. 
+With TDA tools, the spreadsheet look-and-feel is lost,
 and as a result, users
-loose the capability to directly manipulate raw data, derive new data, and issue formulae for free-form analysis.}  
+lose the ability to directly manipulate raw data, derive new data, and issue formulae for free-form analysis.  
 \cut{For example, using these tools users cannot \code{browse} subsets of data and \code{lookup} or \code{locate} data points of interest (see Table~\ref{tab:scope}). Aditya: previous line problematic: they can... because all these tools support to varying extents the typology. Even users of such tools want to inspect the underlying data to verify the summary statistics and visualizations~\cite{2017trust}. Aditya:this line is problematic too... because the citation is to an AQP tool rather than some general purpose study}
-\newsaj{Therefore, the goals of spreadsheets differ from TDA 
+Therefore, the goals of spreadsheets differ from TDA 
 tools in two ways: a) facilitating direct manipulation of raw 
-data and b) enabling arbitrary derivation of new data and summaries
+data in-situ and b) enabling arbitrary derivation of new data and summaries
 using various operations involving navigation,
-\eg formulas or expressions.}
+\eg formulae or expressions\agp{expressions?}.
 \noah being a plug-in to spreadsheets, 
-facilitates a unified interface that
+provides a unified interface that
 upholds both these goals
 while enhancing
 navigational capabilities
