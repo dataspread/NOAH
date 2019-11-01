@@ -151,8 +151,16 @@ underlying data clearly~\cite{cockburn2009review}.
 To strike a balance between these two objectives
 ({\bf DC3}) we designed a multi-granularity overview
 that abstracts the data at varying levels of detail.
-Multi-granularity interfaces
-provide an alternative to \newsaj{the spatially partitioned single-granularity representation of the data space, \eg in Powerpoint, by allowing users to control the scale at which the overview should be displayed~\cite{cockburn2009review}.}
+\newsaj{Multi-granularity representations 
+have shown to
+scale better to 
+larger datasets----presenting information 
+at multiple granularities
+makes visual representations
+more perceptually scalable
+and less cluttered~\cite{elmqvist2009hierarchical}.
+The multi-granularity overview of \noah
+provides an alternative to the spatially partitioned single-granularity representation of the data space, \eg in Powerpoint, by allowing users to control the scale at which the overview should be displayed~\cite{cockburn2009review}.}
 Users can resize the overview to control the amount of spreadsheet data that remains visible.
 \toappendix{Microsoft PowerPoint also uses a
 similar technique to balance the screen
@@ -167,11 +175,27 @@ Equi-depth histograms are commonly
 used for summarizing the statistical properties
 of data, with applications such as
 database query optimizers~\cite{chaudhuri1998random}.
-The binned representation of the overview
-using equi-depth histograms
-enables faster navigation
-by reducing visual discontinuity. 
-The bins act as landmarks
+The binned representation 
+of the overview
+using equi-depth histograms 
+aggregates data 
+and visualizes density 
+by counting 
+the number of data points 
+falling within each bin. 
+Binned aggregation 
+highlights both high level (\eg densities) and low level (e.g., outliers)
+details of large datasets, 
+while enabling
+multi-granularity representation of data
+via the choice of bin size~\cite{liu2013immens}. 
+Moreover, binning reduces 
+visual discontinuity during navigation
+as users are able to 
+view an overview 
+that fits in the computer screen.
+As a result, users can 
+quickly navigate the data---the bins act as landmarks
 in the overview, enabling 
 users to skip irrelevant bins
 and quickly navigate to the desired subset of data. We now discuss how the overview is constructed.}
