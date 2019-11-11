@@ -1,3 +1,6 @@
+%!TEX root = main.tex
+
+
 \section{\noah: Design Considerations}
 \label{sec:design}
 In this section,
@@ -9,7 +12,8 @@ for a spreadsheet navigation interface.
 %is good for and not good for.
 Our design considerations were
 informed by prior work on
-information visualization~\cite{shneiderman2003eyes,brehmer2013multi}, overview+detail interfaces~\cite{cockburn2009review}, multiple-coordinated views~\cite{wang2000guidelines},
+information visualization~\cite{shneiderman2003eyes,brehmer2013multi}, 
+overview+detail interfaces~\cite{cockburn2009review}, multiple-coordinated views~\cite{wang2000guidelines},
 and refined through our experiences
 across multiple design iterations.
 
@@ -17,7 +21,7 @@ across multiple design iterations.
 An overview helps users get a high-level picture
 of the data.
 However, maintaining the overview in a separate
-location from the data can \newsaj{lead to loss of context};
+location from the data can \new{lead to loss of context};
 instead, having it co-located with the data
 can help users make rapid glances to
 explore information between a
@@ -28,7 +32,7 @@ and a close-up detail~\cite{grudin2001partitioning}.
 visual discontinuity while providing details on demand}
 Users often need to access subsets of data,
 and study their properties in detail, \eg via steering.
-Navigating back and forth \saj{between different subsets of data}
+Navigating back and forth \new{between different subsets of data}
 can lead to increased visual discontinuity.
 The interface should allow users to compute such details for
 various data subsets on demand~\cite{shneiderman2003eyes}.
@@ -40,9 +44,12 @@ recomputing the details for the new subset.
 As the overview
 has limited screen-space available,
 we need to consider the trade-off between visual discontinuity (\emph{DC2}) and clarity.
-\saj{Displaying a fine-grained overview improves visual clarity while increasing visual discontinuity---users need to scroll through the overview to access distant
+\new{Displaying a fine-grained overview improves visual clarity 
+while increasing visual discontinuity---users need to scroll through the overview to access distant
 subsets of data.
-Displaying a coarse-grained overview decreases visual discontinuity at cost of reduced visual clarity---the overview may span too many data subsets and appear visually cluttered}.
+Displaying a coarse-grained overview decreases visual discontinuity 
+at cost of reduced visual clarity---the overview may 
+span too many data subsets and appear visually cluttered.}
 The interface should further allow users to control the screen-space allocated
 to the overview.
 
@@ -126,16 +133,17 @@ no bar chart is embedded.
 Users can perform different
 operations on the bins, \eg clicking to pan and
 semantic zooming in/out~\cite{perlin1993pad}.
-\noah supports other interactions,
+\noah supports other interactions \new{atop this multi-granularity overview,}
 \eg customization and aggregation.
 We discuss these interactions
 in the context of our design considerations in Section~\ref{sec:overview_operations}.
 
 \stitle{Why a Multi-granularity Binned Overview?}
-\saj{A standard overview approach
-is to show a spatially partitioned
-collection of thumbnails \saj{on the left of the detailed view},
-similar to Microsoft PowerPoint or
+\new{A conventional design for overviews within
+popular interfaces is as a spatially partitioned
+collection of thumbnails 
+on the left of the standard detailed view,
+similar to Microsoft Power Point or
 Adobe Reader.
 However, displaying too many thumbnails
 results in increased scrolling
@@ -151,30 +159,33 @@ underlying data clearly~\cite{cockburn2009review}.
 To strike a balance between these two objectives
 ({\bf DC3}) we designed a multi-granularity overview
 that abstracts the data at varying levels of detail.
-\newsaj{Multi-granularity representations 
-have shown to
+Multi-granularity representations have been shown to
 scale better to 
 larger datasets----presenting information 
 at multiple granularities
 makes visual representations
 more perceptually scalable
 and less cluttered~\cite{elmqvist2009hierarchical}.
-The multi-granularity overview of \noah
-provides an alternative to the spatially partitioned single-granularity representation of the data space, \eg in Powerpoint, by allowing users to control the scale at which the overview should be displayed~\cite{cockburn2009review}.}
+Thus, the multi-granularity overview of \noah
+provides an alternative to the aforementioned conventional 
+spatially partitioned 
+single-granularity representation of the data space, \eg in Power Point, 
+by allowing users to control the scale at 
+which the overview should be displayed~\cite{cockburn2009review}.
 Users can resize the overview to control the amount of spreadsheet data that remains visible.
 \toappendix{Microsoft PowerPoint also uses a
 similar technique to balance the screen
 space between overview and detail.}
 Users can also hide the overview if required.}
 
-\newsaj{The data structure underlying the overview
+\new{The data structure underlying the overview
 is an equi-depth histogram constructed
 on the values
-in the navigation attribute column.
+in the navigation attribute column.\agp{Briefly describe what equi-depth histograms are; or don't mention it here, just say histogram -- we can defer details later}
 Equi-depth histograms are commonly
 used for summarizing the statistical properties
 of data, with applications such as
-database query optimizers~\cite{chaudhuri1998random}.
+database query optimizers~\cite{chaudhuri1998random}. \agp{only one application?}
 The binned representation 
 of the overview
 using equi-depth histograms 
@@ -182,13 +193,14 @@ aggregates data
 and visualizes density 
 by counting 
 the number of data points 
-falling within each bin. 
+falling within each bin. \agp{This previous sentence feels repetitive.}
 Binned aggregation 
 highlights both high level (\eg densities) and low level (e.g., outliers)
 details of large datasets, 
 while enabling
 multi-granularity representation of data
-via the choice of bin size~\cite{liu2013immens}. 
+via the choice of bin size~\cite{liu2013immens}. \agp{Clarify what is known from prior work and what
+you are proposing. Here, it is intermixed.}
 Moreover, binning reduces 
 visual discontinuity during navigation
 as users are able to 
@@ -202,7 +214,7 @@ and quickly navigate to the desired subset of data. We now discuss how the overv
 
 
 \stitle{Overview Construction.}
-\newsaj{The equi-depth histogram 
+\new{The equi-depth histogram 
 can be constructed on 
 any data types
 that can be ordered, \eg text, numbers, dates. For example, 
@@ -253,6 +265,7 @@ that the ranges represented by each bin have no overlap.
 \agp{Aditya: would be valuable to describe the algorithm to increase
 technical depth.}
 \saj{Saj: can we add a pseudocode in appendix and refer to that?}
+\agp{Yes please.}
 
 
 \begin{figure}[t]
@@ -309,7 +322,7 @@ each bin corresponds to one city.
 Therefore, users can only click on those bins
 to bring that data into view, and cannot zoom in further.
 One issue with zooming interactions
-is discoverability \saj{of the zoom operation}~\cite{cockburn2009review}.
+is discoverability \new{of the zoom operation}~\cite{cockburn2009review}.
 We circumvent this (see Figure~\ref{fig:concept}c)
 by providing the root of the bin under selection
 for zoom out, and arrows for
@@ -360,12 +373,12 @@ between the overview and the
 corresponding spreadsheet data (\textbf{DC4}),
 \ie interactions on the overview
 may be reflected on the spreadsheet and vice-versa.
-\newsaj{One example of this coordinations is,} indicating the navigation attribute on the spreadsheet
+\new{One example of this coordinations is} indicating the navigation attribute on the spreadsheet
 using color (see the lime green column in Figure~\ref{fig:ux}c)
 as user constructs the overview. However, not all overview interactions are coupled
 with the spreadsheet and vice versa.
 The coupling depends on the user's current
-focus---\emph{\saj{to ensure consistency between the overview and the spreadsheet,} any interaction on
+focus---\emph{\new{to ensure consistency between the overview and the spreadsheet,} any interaction on
 either interface
 that changes the current focus must be reflected
 on the other interface}.
@@ -458,10 +471,10 @@ Creating an aggregate column on the overview mimics how users create pivot table
 are not required to explicitly type formulae;
 rather they simply select the formula from a drop-down menu,
 and provide the necessary formula parameters to a form.
-\newsaj{The aggregate column can employ any} statistical
-and mathematical formulae that
+\new{The aggregate column can employ any statistical
+or mathematical formulae that
 operate over a range of data.
-\newsaj{Therefore, creating an aggregate column
+Therefore, creating an aggregate column
 is equivalent to selecting subsets of data
 on the sheet, \ie steering, and then executing a formula on this subset},
 helping users avoid cumbersome steering operations.
