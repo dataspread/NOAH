@@ -178,42 +178,34 @@ similar technique to balance the screen
 space between overview and detail.}
 Users can also hide the overview if required.}
 
-\new{The data structure underlying the overview
-is an equi-depth histogram constructed
+\newsaj{The data structure underlying the overview
+is a histogram constructed
 on the values
-in the navigation attribute column.\agp{Briefly describe what equi-depth histograms are; or don't mention it here, just say histogram -- we can defer details later}
-Equi-depth histograms are commonly
-used for summarizing the statistical properties
-of data, with applications such as
-database query optimizers~\cite{chaudhuri1998random}. \agp{only one application?}
-The binned representation 
-of the overview
-using equi-depth histograms 
-aggregates data 
-and visualizes density 
-by counting 
-the number of data points 
-falling within each bin. \agp{This previous sentence feels repetitive.}
-Binned aggregation 
-highlights both high level (\eg densities) and low level (e.g., outliers)
-details of large datasets, 
-while enabling
-multi-granularity representation of data
-via the choice of bin size~\cite{liu2013immens}. \agp{Clarify what is known from prior work and what
+in the navigation attribute column.
+Histograms are binned aggregates
+where each bin represents a collection (group) of data points and the frequency of the data points, \ie \code{COUNT} aggregate, visualizes the density of the corresponding group.} \agp{This previous sentence feels repetitive.} \saj{rephrased. wanted to explain that constructing histogram is a type of binned aggregation.}
+\newsaj{In addition to providing high level (\eg densities) and low level (e.g., outliers) details, binned aggregation techniques 
+enables multi-granularity visual representation of data
+by varying the bin size and
+have been deployed in 
+interactive visualization of 
+large scale datasets, \eg in \emph{imMens}~\cite{liu2013immens}.}. \agp{Clarify what is known from prior work and what
 you are proposing. Here, it is intermixed.}
-Moreover, binning reduces 
-visual discontinuity during navigation
-as users are able to 
+\newsaj{An additional benefit of deploying a binned overview for spreadsheets is a decrease in
+visual discontinuity during navigation. As users are able to 
 view an overview 
-that fits in the computer screen.
-As a result, users can 
-quickly navigate the data---the bins act as landmarks
+that fits in the computer screen, they can 
+quickly navigate the data}---the bins act as landmarks
 in the overview, enabling 
 users to skip irrelevant bins
-and quickly navigate to the desired subset of data. We now discuss how the overview is constructed.}
+and quickly navigate to the desired subset of data. We now discuss how the overview is constructed.
 
 
 \stitle{Overview Construction.}
+\newsaj{To generate the overview, we construct an equi-histogram. 
+Equi-depth histograms are commonly
+used for summarizing the statistical properties
+of data, with applications in database systems for query optimization and approximate query processing~\cite{ioannidis2003history} and in data mining applications for distribution fitting in data streams~\cite{mousavi2011fast}, among others.} \agp{only one application?}
 \new{The equi-depth histogram 
 can be constructed on 
 any data types
