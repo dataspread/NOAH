@@ -319,8 +319,12 @@ INPUT study.tex
 INPUT study.tex
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/vf/adobe/palatino/pplb7t.vf
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/palatino/pplrc7t.tfm
 INPUT results.tex
 INPUT results.tex
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/vf/adobe/palatino/pplrc7t.vf
+INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT images/bird_box.pdf
 INPUT ./images/bird_box.pdf
 INPUT ./images/bird_box.pdf
@@ -361,9 +365,6 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/palatino/pplrc7t.tfm
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/vf/adobe/palatino/pplrc7t.vf
-INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
 INPUT main.aux
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb

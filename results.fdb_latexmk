@@ -1,0 +1,10 @@
+# Fdb version 3
+["pdflatex"] 1574614146 "results.tex" "results.pdf" "results" 1574614147
+  "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1494087824 32646 eadc4ca26cdbe7105ac7c593aa8c4f72 ""
+  "/usr/local/texlive/2017/texmf-var/web2c/pdftex/pdflatex.fmt" 1495593487 4129592 0e6cfee100d68e6d96b92c0258f2ff73 ""
+  "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
+  "results.aux" 1574614146 8 a94a2480d3289e625eea47cd1b285758 ""
+  "results.tex" 1574614146 19288 8c8b1e060afd2e329b4e8ccbd73506f2 ""
+  (generated)
+  "results.log"
+  "results.pdf"

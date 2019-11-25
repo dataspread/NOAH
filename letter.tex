@@ -4,7 +4,7 @@
 \section*{Resubmission of InfoVis 2019 submission ``Extending Spreadsheets to Support Seamless
 Navigation at Scale'' to TVCG}
 
-A previous version of this paper was submitted to InfoVis 2019. This version was rejected as the paper co-chairs deemed that revising the paper would require more time than allocated to meet reviewer expectations. The paper co-chairs mentioned the following: ``\textit{We particularly encourage such revisions where submissions were positively received by reviewers, but the revisions required were deemed to be beyond the scope of the conference review cycle. If you address the issues raised and subsequently submit to TVCG, please make reference to this  InfoVis submission and include a description of how you addressed the InfoVis reviewers' comments.}'' The entire set of reviews are attached. In particular, the reviewers asked for the following changes for a revision: 
+A previous version of this paper was submitted to InfoVis 2019 (submission ID: 1043). This version was rejected as the paper co-chairs deemed that revising the paper would require more time than allocated to meet reviewer expectations. The paper co-chairs mentioned the following: ``\textit{We particularly encourage such revisions where submissions were positively received by reviewers, but the revisions required were deemed to be beyond the scope of the conference review cycle. If you address the issues raised and subsequently submit to TVCG, please make reference to this InfoVis submission and include a description of how you addressed the InfoVis reviewers' comments.}'' The entire set of reviews and the old INFOVIS submission are attached  at the end of this document. The reviewers asked for the following changes for a revision: 
 \begin{itemize}
     \item[\textbf{C1:}] More clearly articulate the merits over alternative tools, such as Keshif. 
      \item[\textbf{C2:}] Convincingly explain the design choice around the binning mechanism or revise
@@ -23,8 +23,8 @@ we have spent the last four months
 preparing a revised version of this paper.
 We believe the paper is substantially
 stronger as a result. 
-Every section in the paper has been revised;
-the changes are highlighted in \new{blue}.
+Every section in the paper has been revised. We have attached the new version of the paper with this ``summary of changes'' document, where
+the changes are highlighted in \new{blue} for reviewers' convenience.
 We briefly describe the changes to each section
 before returning to the changes required in the revision 
 ({\bf C1}--{\bf C6}).
@@ -77,8 +77,8 @@ mechanism.
 we now justify why we are developing a 
 multi-granularity overview,
 and explain why 
-we opted for histograms as an overview representation, \new{by contextualizing our
-approach using prior work on multi-scale aggregation~\cite{elmqvist2009hierarchical}.} 
+we opted for histograms as an overview representation, by contextualizing our
+approach using prior work on multi-scale aggregation~\cite{elmqvist2009hierarchical}. 
 \item 
 In Section~\ref{sec:study}, 
 we further clarified the goals of our study
@@ -88,15 +88,14 @@ Our research questions haven't been substantially altered;
 rather, they have been grouped together and made more precise. 
 In this version,
 we now explain our choice
-for the quiz tasks and discuss 
-three limitations of our study in detail. 
+for the quiz tasks in detail. 
 \item Section~\ref{sec:results} has been completely
 revamped to better reflect our research questions,
 while adding more qualitative observations 
 regarding the user experience with \noah. 
 We now
 include additional analysis results on intra-participant differences. 
-\item In Section~\ref{sec:discuss}, we have added a summary of our takeaways from the evaluation study, while discussing additional limitations of \noah and future enhancement opportunities. 
+\item In Section~\ref{sec:discuss}, we have added a summary of our takeaways from the evaluation study, while discussing limitations of our evaluation study and \noah's design while highlighting future enhancement opportunities. 
 \end{itemize}
 \subsection*{Changes Organized by Reviewer Concerns (C1--C6)}
 
@@ -110,7 +109,7 @@ Sections~\ref{sec:intro}, \ref{sec:related},
 and \ref{sec:study}), we have emphasized
 that the main contribution of \noah
 is its \emph{design as a general-purpose navigation plug-in} 
-to any existing spreadsheet system. 
+to any existing spreadsheet tool. 
 As spreadsheets have a massive user-base, 
 enhancing exploration and formula computation 
 on large datasets while maintaining 
@@ -132,7 +131,7 @@ that they are clearly loath to do.
 \item \textit{Explanation of the binning mechanism} (\textbf{C2}): 
 We now explain our choice
 of the binning mechanism in 
-the context of the third design consideration (\emph{DC3}), 
+the context of the third design consideration (\emph{DC3}),
 as detailed in Section~\ref{sec:design}.
 We further expand on this in the blurb titled 
 ``Why a Multi-granularity Binned Overview'' 
@@ -167,7 +166,7 @@ as outlined in item 1) above---the natural comparison point
 is Excel. 
 That said, beyond popularity, 
 we have provided a thorough justification
-for what spreadsheet systems like Excel offer
+for what spreadsheet tools like Excel offer
 relative to tabular data analysis tools (TDA),
 making it a more appropriate point of comparison.
 Our justification for using Excel over 
@@ -217,5 +216,16 @@ Finally, we have identified three limitations of the study,
 resulting from the sample size and the study design, which we justify based on the scope of the study.
 
 \item \textit{Reporting Intra-participant Differences} (\textbf{C6}):
-\newsaj{We performed additional analysis of the study data to report intra-participant submission time differences for the quiz phase tasks. While we summarize the results of the analysis in Section~\ref{sec:time_acc}, the detailed result can be found in Appendix}\agp{pls add; insights on trends sounds vague let's be more clear}. \newsaj{We find that, despite a few exceptions, across all tasks, participants' task submission times were faster using \noah---all but one participants completed at least four tasks in less time using \noah compared to Excel.} However, we already obtained similar observations from Figure~\ref{fig:timeBox} in Section~\ref{sec:rq1}. Therefore, we have included the results of the intra-participant analysis in Appendix.
+We performed additional analysis of the study data to report intra-participant submission time differences for the quiz phase tasks. While we summarize the results of the analysis in Section~\ref{sec:time_acc}, the detailed results can be found in Appendix. We find that despite a few exceptions, across all tasks, participants' task submission times were faster using \noah---all but one participants completed at least four tasks in less time using \noah compared to Excel. However, we already obtained similar observations from Figure~\ref{fig:timeBox} in Section~\ref{sec:rq1}. Therefore, we decided to include the results of the intra-participant analysis in the Appendix as opposed to the main paper.
 \end{enumerate}
+
+
+We realize that these extensive changes throughout the paper have increased the paper length. As the TVCG submission guidelines indicate ``\emph{The regular paper page length limit is defined at 12 formatted
+pages, including references and author biographies. Any pages or
+fraction thereof exceeding this limit are charged \textdollar220 per page. Regular
+papers may not exceed 18 formatted pages}'', so we have decided to let the paper length stand since our paper is at 16 pages currently — and we would be happy to pay for the extra pages. We would also be happy to reduce length by moving appropriate content from the main body to the supplementary material as suggested by reviewers. The following are attached with the ``Summary of changes'' document:
+\begin{itemize}
+    \item The resubmitted TVCG paper with changes highlighted in \new{blue}.
+    \item The entire set of reviews of the INFOVIS submission.
+    \item The previous INFOVIS submission.
+\end{itemize}

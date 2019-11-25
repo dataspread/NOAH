@@ -1,3 +1,5 @@
+%!TEX root = main.tex
+
 \section{Evaluation Study Design}
 \label{sec:study}
 
@@ -6,20 +8,24 @@ to evaluate whether
 \noah helps address spreadsheet navigational challenges.
 \subsection{Study Design and Participants}
 \label{sec:study_design}
-\new{Our goal is to study the impact of an in-situ navigation plugin for spreadsheets, \noah, on navigation and exploration of data.
-Therefore, we decided to compare a \noah-integrated spreadsheet system with a typical, popular one, Excel, across various tasks. Similar domain specific-evaluations have been performed for evaluating various  overview+detail interfaces, \eg database browsing~\cite{north2000snap} or 
+\new{Our goal is to study the impact of an in-situ navigation 
+plugin for spreadsheets, \noah, on navigation and exploration of data.
+Therefore, we decided to compare a \noah-integrated 
+spreadsheet system with a typical, popular one, Excel, across various tasks. Similar domain specific-evaluations have been performed for evaluating various  overview+detail interfaces, \eg database browsing~\cite{north2000snap} or 
 tree navigation~\cite{beard1990navigational}. As explained in Section~\ref{sec:related}, the goals and user populations of spreadsheets and TDA tools are quite different. Therefore, we did not consider TDA tools for the comparative study.}
 Our study was designed to answer the following questions:
 \squishlist
 \item {\bf RQ1.} %\sout{How does the addition of an overview help address spreadsheet navigational challenges, with respect to quantitative performance metrics such as speed and accuracy?}
-\new{How does integration of an overview plugin like \noah impact a) the completion time and accuracy of various spreadsheet navigational tasks\newsaj{, and b) the usability of spreadsheet systems?}} \saj{SAJ: the survey results are also part of this RQ}
+\new{How does the integration of an overview plugin like \noah impact the efficiency of navigation
+within and the usability of spreadsheet systems?}
 \item {\bf RQ2.} %\sout{How do users make use of the aggregate column results in conjunction with the raw spreadsheet data to analyze data?} 
 \new{How do the various components of \noah impact users' navigational experiences?}
+
 %\item {\bf RQ3.} \sout{How does bin customization help users inject domain knowledge in addressing their specific exploration questions compared to the automated overview?} \sout{\saj{How do users utilize additional features of \noah, \eg bin customization, during navigation?}
 %\item {\bf RQ4.} \sout{How is the user's subjective satisfaction with \noah compared to traditional spreadsheets?}}  \sout{\saj{How is the user's subjective satisfaction with \noah compared to the traditional spreadsheets when performing navigational tasks?}}
 \squishend
 
-\stitle{Study Design.} We conducted a $2 \times 2$ (2 datasets, 2 tools) mixed design within-subject study. The two tools used in the study were: Microsoft Excel, and \noah integrated within {\scshape DataSpread}~\cite{dataspread}. \new{As mentioned previously, we chose Excel for our comparative study because it is the most popular spreadsheet in use today.}
+\stitle{Study Design.} We conducted a $2 \times 2$ (2 datasets, 2 tools) mixed design within-subject study. The two tools used in the study were: Microsoft Excel, and \noah integrated within {\scshape DataSpread}~\cite{dataspread} \new{(henceforth, referred to as \noah for succinctness). As mentioned previously, we chose Excel for our comparative study because it is the most popular spreadsheet in use today.}
 The study consisted of three phases: (a) an introductory phase explaining
 the essential features of \noah via a video tutorial, followed by a warm-up session where participants explored a flight dataset~\cite{web:flight} in \noah 
 to familiarize themselves with its features,
@@ -28,7 +34,7 @@ to perform targeted tasks on two different datasets (described later)
 followed by a survey to provide feedback on their impressions about Excel and \noah, and
 (c) a semi-structured interview to collect qualitative feedback regarding the quiz phase. 
 
-\stitle{Datasets.} We used two datasets---the birdstrikes (\new{used for evaluating visual data exploration or recommendation tools like Keshif~\cite{yalccin2018keshif} and Voyager~\cite{wongsuphasawat2016voyager}}), and the Airbnb~\cite{web:airbnb} datasets. These datasets were chosen for their understandability to a general audience. The birdstrikes dataset records instances of birds hitting aeroplanes in different US states. The dataset has 10,868 records and 14 attributes (eight categorical, one spatial region, one temporal, four numeric). 
+\stitle{Datasets.} We used two datasets---the birdstrikes (\new{used for evaluating visual data exploration tools like Keshif~\cite{yalccin2018keshif} and Voyager~\cite{wongsuphasawat2016voyager}}), and the Airbnb~\cite{web:airbnb} datasets. These datasets were chosen for their understandability to a general audience. The birdstrikes dataset records instances of birds hitting aeroplanes in different US states. The dataset has 10,868 records and 14 attributes (eight categorical, one spatial region, one temporal, four numeric). 
 The Airbnb dataset was larger than the birdstrikes dataset. To ensure a fair comparison across tools, we created a sampled version of the original Airbnb dataset with 10,925 records, by uniformly sampling $10\%$ of the records from each US city. This dataset contained 15 attributes (six categorical, two spatial region, one temporal, six numeric).
 
 
@@ -38,13 +44,13 @@ The participants came from different backgrounds,
 \eg engineering (seven), business (five), administration (five), and natural science (three). 
 During recruitment, 
 prospective participants filled out an interest form
-where they answered questions about their spreadsheet expertise\newsaj{, spreadsheet usage purposes, and spreadsheet operations they typically use}.
+where they answered questions about their spreadsheet expertise\new{, their typical goals when using spreadsheets, and the spreadsheet operations they typically use}.
 Participants were asked to rate their expertise with
-different spreadsheet software, \eg Excel and Google Sheets, 
+different spreadsheet systems, \eg Excel and Google Sheets, 
 and their frequency of using various spreadsheet 
 tasks \eg data management, data analysis, statistical modeling, and what-if analysis.
 We also asked participants about their familiarity 
-with basic mathematical and statistical spreadsheet functions
+with basic mathematical and statistical spreadsheet functions,
 as well as advanced operations, \eg pivot table,
  \code{SUBTOTAL}, and conditional formatting. 
 \new{To ensure that prior experience with spreadsheets 
@@ -68,29 +74,30 @@ We began the study by showing a six-minute video tutorial explaining the feature
 \begin{table}[!htb]
 \scriptsize
  \vspace{-10pt}
-\caption{\newsaj{Quiz tasks for the birdstrikes dataset. The use cases correspond to the task typology discussed in Section~\ref{sec:usage}}}
+\caption{\new{Quiz tasks for the birdstrikes dataset. The task purposes and use cases correspond to the task typology discussed in Section~\ref{sec:usage}.}}
 \label{tab:questions}
 \centering
-\begin{tabular}{l l l}
+\new{
+\begin{tabular}{l l}
 \hline
-Category & Question & Use case    \\ \hline
-steer                & Organize the data by State. How many& \code{locate} $\rightarrow$\\
-                     & flights that had damages (damage = 1)& \code{summarize}\\
-                     & originated from Florida? \\ 
-identify             & How many flights in the currently &\\
-                     & visible spreadsheet window  &  \code{identify}\\ 
-                     & have damages? & \\
-steer                & How many flights that had damages & \code{locate} $\rightarrow$\\
-                     & originated from California?                         & \code{summarize}\\ 
-\cmpA                & Which state between Florida and &\\
-                     & California  has a higher number of & \code{compare}\\ 
-                     & flights with damages?    &\\
-\cmpB                & Find the state with the most & \code{compare}\\
-                     & birdstrike occurrences.  &\\ 
-customize            & Organize the data by \emph{altitude}. &\\
-                     & What is the average cost of damages & \code{generate}\\
-                     &    for altitude bin 0-450?         & \\ \hline
+Category & Question (Q), Purpose (P), Use case (U)    \\ \hline
+steer                & \textbf{Q}: Organize the data by State. How many flights that had \\
+                     & damages (damage = 1) originated from Florida?, \\
+                     & \textbf{P}: \emph{Search}$\rightarrow$\emph{Query}, \textbf{U}: \code{lookup}$\rightarrow$\code{identify}\\ \hline
+find                 & \textbf{Q}: How many flights in the currently visible spreadsheet \\
+                     & window have damages?, \textbf{P}: \emph{Search}, \textbf{U}:  \code{browse}\\ \hline 
+steer                & \textbf{Q}: Organize the data by State. How many flights that had \\
+                     & damages (damage = 1) originated from California?, \\
+                     & \textbf{P}: \emph{Search}$\rightarrow$\emph{Query}, \textbf{U}: \code{lookup}$\rightarrow$\code{identify}\\ \hline
+\cmpA                & \textbf{Q}: Which state between Florida and California has a higher\\
+                     & number of flights with damages?, \textbf{P}: \emph{Query}, \textbf{U}:  \code{compare}\\ \hline
+\cmpB                & \textbf{Q}: Find the state with the most birdstrike occurrences,\\
+                     & \textbf{P}: \emph{Query}$\rightarrow$\emph{Search}, \textbf{U}: \code{summarize}$\rightarrow$\code{locate}\\ \hline
+customize            & \textbf{Q}: Organize the data by \emph{altitude}. What is the average cost of\\
+                     & damages for altitude bin 0-450?, \textbf{P}: \emph{Query}$\rightarrow$\emph{Search}$\rightarrow$\emph{Produce}, \\
+                     & \textbf{U}: \code{generate}$\rightarrow$\code{summarize}$\rightarrow$\code{lookup}\\
 \end{tabular}
+}
 \end{table}
 
 
@@ -101,24 +108,34 @@ Each session was followed by a survey, described later. We
 alternated the order of the datasets between consecutive participants. 
 The order of the tools was alternated between every two participants. 
 We developed an online JavaScript-based quiz system that recorded user responses and submission times. 
-We also recorded the participants’ interactions
+We also recorded the participants' interactions
 with both tools using screen capture software. 
 Participants were informed that they can refer to the Internet for help as many times as they wanted. However, due to their familiarity with Excel, none of the participants required external help. 
 For reference, we also provided a printed handout to the participants 
 that contained screenshots with the features of \noah. 
 
-\emph{Quiz Tasks.} \new{We designed six tasks grouped into four categories: 
-steer (two tasks), compare (two tasks), identify (one task), and customize (one task), representing the Table~\ref{tab:scope} use cases \code{locate}, \code{summarize}, \code{compare}, \code{identify}, and \code{generate}, respectively. \newsaj{These use cases are representative of the navigation interactions required for the most frequently issued spreadsheet formulae
-~\cite{bradbard2014spreadsheet, lawson2009comparison}.} The tasks were presented in the same order as shown in Table~\ref{tab:questions} for the birdstrikes dataset. The tasks for the Airbnb dataset were similar. The order of the tasks mimics the spreadsheet navigation scenario presented in Section~\ref{sec:usage} \newsaj{where the task complexity increases as the user continues to navigate and analyze the data.}}
-%The customize tasks was designed to mimic the scenario where a user would group data subsets of interest and required participants to utilize the bin customization feature. 
-%All of these tasks require navigation of the spreadsheet data in the form of either scrolling or steering. 
+\emph{Quiz Tasks.} 
+\new{We designed six tasks across five categories: 
+steer (two tasks), find (one task), \cmpA (one task), \cmpB (one task), and customize (one task), encompassing six of the seven task typology use cases 
+underlying the \emph{Search}, \emph{Query}, 
+and \emph{Produce} purposes: \code{lookup}/\code{locate}, \code{identify},
+\code{browse}, \code{compare}, \code{summarize}, and \code{generate} 
+(see Table~\ref{tab:scope})\footnote{\new{We omitted the \code{export/save} use-case under the \emph{Produce} purpose since
+\noah is not targeted at improving that use case. 
+We also did not
+study the \emph{Consume} purpose so as to focus our evaluation on completion 
+of tasks as opposed to an open-ended exploration setting, which is beyond
+the scope of our study.}}.
+These tasks were selected to mimic a typical spreadsheet analysis
+workflow and are representative of navigation interactions 
+required for the most frequently issued spreadsheet operations~\cite{bradbard2014spreadsheet, lawson2009comparison}. The tasks were presented in the same order as shown in Table~\ref{tab:questions} for the birdstrikes dataset. 
+%The order of the tasks mimics a spreadsheet navigation scenario where a user begins by casually exploring a dataset (\emph{Consume}), \eg organizing the birdstrike data by state, and then engaging in more focused set of tasks to satisfy various purposes, \eg \emph{Search} and \emph{Query} data, \emph{Produce} new information. 
+The tasks for the Airbnb dataset mimic a scenario similar to the example in Section~\ref{sec:usage}. We explain the scenario in the context of the birdstrikes dataset next.}
 
-\newsaj{The steer tasks required the participants to first \code{locate} a data subset and then \code{summarize} the subset by issuing an aggregate operation, \eg \code{COUNTIF}. Following summarization, the identify task required participants to interact with the detailed view and \code{identify} data points within the spreadsheet that satisfy the condition of the first steer task. The purpose of the second steer tasks was to enable the \cmpA task---given the two summaries obtained from the two steer tasks, the \cmpA task asked the participants to \code{compare} the results of both. Then the participants were asked to perform an even more complex comparison, \ie the \cmpB task, which involved comparing the same statistics computed in the two steer tasks of all the data subsets. The purpose of the \cmpB task was to see how increasing the number of subsets would affect navigation. Finally, the customize task was designed to mimic the scenario where the \noah-generated overview doesn't reflect the user preference and a user would group data subsets of interest to create a new overview. (accomplished by utilizing the bin customization feature in \noah).}
+\new{Say a user is interested in analyzing bird-strike statistics across US states. As the user is from Florida, she starts by computing bird-strike occurrences for that state (steer) and finds the number of occurrences to be quite high. After looking at the aggregate statistics, she decides to examine specific instances of bird-strike occurrences to inspect other attributes, \eg the altitude where the strike happened or the species of the bird (find). She notices a bird-strike occurrence at 50ft, which is surprising. She decides to investigate this issue later. For now, she focuses her attention on analyzing the state-wise statistics. She computes the same occurrence statistics for another large state, say California (steer) and then compares the statistics between the two large states (\cmpA). At this point, she becomes interested in learning the occurrence statistics across all states and in finding the state with the highest bird-strike occurrences (\cmpB). With the state-wise comparison completed, she decides to revisit low altitude bird-strikes. So she organizes the data by \emph{altitude} and computes the occurrence statistics at low altitudes, along with the associated damages (customize). For this final task, the bins generated by \noah did not correspond to the given altitude range and would require bin customization to compute the statistics}. 
 
-%\newsaj{The steer tasks required participants to first \code{locate} a data subset and then issue a formula, \eg \code{COUNTIF}, via steering in Excel to \code{summarize} the subset (accomplished by the aggregate column feature in \noah). Following summarization, the identify task required participants to interact with the detailed view and \code{identify} data points within the spreadsheet that satisfy the condition of the first steer task (accomplished by inspecting the colored spreadsheet cells in \noah). The purpose of the second steer tasks was to enable the subsequent comparison tasks. Given the two summaries obtained from the two steer tasks, the participants were then asked to \code{compare} the results of both, \ie the \cmpA task (accomplished by utilizing the context bar feature of \noah to revisit the results of the first steer task). The \cmpB task involved comparing the same statistics computed in the two steer tasks of all the data subsets. The purpose of the \cmpB task was to see how increasing the number of subsets would affect navigation. Finally, the customize task was designed to mimic the scenario where the \noah-generated overview doesn't reflect the user preference and a user would group data subsets of interest to create a new overview. (accomplished by utilizing the bin customization feature in \noah).}
+%\hide{First,  the  user  is  interested  in  bird-strike  statistics  in  a state  of  interest,  say  Florida  (steer: lookup state  and  then identify the number of bird-strike occurrences). Then the user wants to find the actual bird-strike instances (find: \code{browse} data) within the spreadsheet region currently visible in the screen to obtain other details about the occurrence, for example, the altitude at which the strikes happened. Next, the user wants to verify whether the strike occurrences are similar for larger states (steer: \code{lookup} another state say California and then \code{identify} the number of bird-strike occurrences). Then the user \code{compare}s the occurrence statistics of the two states (\cmpA). Eventually the user decides to compare the same statistics for all the states in the dataset and find the state with the highest bird-strike occurrences (\cmpB: \code{summarize} all the states and then \code{locate} the maximum value state). Finally, the user wants to \code{summarize} the data by another attribute say altitude and \code{lookup} the bird-strike occurrence for a specific altitude range (customize). Note that in this scenario, the bins generated by \noah did not correspond to the given altitude range and would require the participant to utilize the bin customization feature to \code{generate} a customized overview first and then \code{summarize} and \code{lookup}.}
 
-
-%As participants use both \noah and Excel to perform these tasks, by examining participants' task performance, we can understand a) how the addition of an overview affect participants' navigation experience (\emph{RQ1}), b) what are the impacts of the individual features of \noah in spreadsheet navigation (\emph{RQ2}), and c) how the participants utilize the features supported by \noah during navigation (\emph{RQ3})
 
 \emph{Survey.} After each session, 
 participants rated the corresponding tool used on six metrics: 
@@ -127,14 +144,14 @@ ease and speed of use, and ease of learning for spreadsheet navigation,
 on a Likert scale from one (\eg strongly disagree) to seven (\eg strongly agree). 
 The survey asked multiple questions related to these metrics, 
 15 in total, to ensure reliability. 
-Participants were also asked to mention the positive 
+Participants were also asked to describe the positive 
 and negative aspects of both tools. 
-\newsaj{The survey was designed to evaluate \emph{RQ1b}}.
+%\newsaj{The survey was designed to evaluate \emph{RQ1}}.
 
 \emph{Evaluation.} 
 We evaluated the accuracy and
 completion time for each of the six tasks. 
-\newsaj{We combined this analysis with qualitative survey, interview, and screen/audio recording data to provide insights that can be corroborated across multiple information sources. Moreover, we analyzed the survey responses to quantify the usability of both Excel and \noah-integrated {\scshape DataSpread}.} 
+\new{We combined this analysis with qualitative survey, interview, and screen/audio recording data to provide insights that can be corroborated across multiple sources. Moreover, we analyzed the survey responses to quantify the usability of both Excel and the \noah-integrated spreadsheet.} 
 %For example, we analyzed the video recordings of participants' interaction with the tools during the quiz phase.  
 
 \stitle{Phase 3: Interview Phase.} 
@@ -144,26 +161,4 @@ and to understand the reasoning behind their choices.
 We also asked participants to comment on the usefulness of 
 different features provided by \noah and Excel. 
 
-\subsection{Study Limitations.}
-\newsaj{Our study has several limitations that can be strengthened by future larger-scale and more fine-grained studies. Firstly, our participant pool demographics partially represents the demographics of the general audience intended for \noah. A larger sample with more participants that better represents the spreadsheet user population would have provided more ecological validity to generalize our findings.
-}
-%While a larger sample with more diverse backgrounds would have allowed us to perform more definitive quantitative analysis, we combined this analysis with qualitative survey, interview, and screen/audio recording data to provide insights that can be explained with multiple information sources.
-
-\newsaj{Next, we only compared the performance of a \noah-integrated spreadsheet with a traditional spreadsheet. We did not evaluate specific spreadsheet features like pivot table and \code{SUBTOTAL} as they violate most of the design considerations proposed in Section~\ref{sec:design}. We discussed their limitations in Section~\ref{sec:related}. Moreover, allowing the participants to utilize the typical spreadsheet operations that they were comfortable with, enabled us to observe how introduction of \noah affected their navigation experience.} 
-
-\new{Finally, we did not isolate the effects of the individual features of \noah to better understand the implications of those. For example, the effect of binned overview (visual clarity versus visual continuity), display layout (screen space trade-off), and
-contextual presentation of data (raw text versus chart representation of aggregate columns). However, the goal of the study was to understand participants' navigation experience in the presence and absence of \noah. A more fine-grained study that teases apart the contribution of individual components of \noah is warranted.}
-
-
-\begin{comment}
-\infovis{
-\begin{itemize}
-    \item Justify the choice of comparing to Excel and note the limitations of that approach (see section 6.1 intro and the {\bf study design paragraph})
-    \item Better justify the choice of tasks in the study (see section 6.2 \emph{quiz tasks})
-    \item Explain the choice of the four research questions. (see section 6.1 intro)
-    \item Provide more details about the study, including reporting intra-participant
-    differences (see section 7.2)
-\end{itemize}
-}
-\end{comment}
 

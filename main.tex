@@ -92,7 +92,7 @@
 \ifCLASSOPTIONcompsoc
   % IEEE Computer Society needs nocompress option
   % requires cite.sty v4.0 or later (November 2003)
-  \usepackage[nocompress]{cite}
+  \usepackage[nocompress,sort]{cite}
 \else
   % normal IEEE
   \usepackage{cite}
@@ -434,7 +434,7 @@
 
 \newcommand{\newsaj}[1]{\textcolor{red}{#1}}
 \newcommand{\saj}[1]{\textcolor{teal}{#1}}
-\newcommand{\new}[1]{\textcolor{blue}{#1}}
+\newcommand{\new}[1]{{#1}}
 
 \newcommand{\agp}[1]{\textcolor{magenta}{AGP: #1}}
 \newcommand{\agpnew}[1]{\textcolor{magenta}{#1}}
@@ -495,9 +495,10 @@
 % journal papers have the author affiliations above the "Manuscript
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 %Pingjing Yang..py2, Zhaoyuan Su..zsu7, Kevin Chen-Chuan Chang..kcchang, 
-\author{Sajjadur Rahman, Mangesh Bendre, Yuyang Liu, Shichu Zhu, Karrie Karahalios, Aditya Parameswaran
+\author{Sajjadur Rahman, Mangesh Bendre, Yuyang Liu, Shichu Zhu, Zhaoyuan Su, \\ Karrie Karahalios, Aditya Parameswaran
 \IEEEcompsocitemizethanks{\IEEEcompsocthanksitem Sajjadur Rahman, Yuyang Liu, Shichu Zhu and Karrie Karahalios are with the Department of Computer Science at University of Illinois, Urbana-Champaign. Email: \{srahman7, yuyangl2, szhu28, kkarahal\}@illinois.edu.
 \IEEEcompsocthanksitem Mangesh Bendre is with VISA Research. Email: mbendre@visa.com.
+\IEEEcompsocthanksitem Zhaoyuan Su with the School of Information and Computer Sciences at the University of California Irvine. Email: nick.su@uci.edu.
 \IEEEcompsocthanksitem Aditya Parameswaran is with the I School and EECS at the University of California, Berkeley. Email: adityagp@berkeley.edu.
 }% <-this % stops an unwanted space
 %\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}
@@ -562,7 +563,7 @@
 % command as these need to go into the title area created by \maketitle.
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
-\input{letter}
+%\input{letter}
 \IEEEtitleabstractindextext{%
 \begin{abstract}
 Spreadsheets are one of the most popular tools for
@@ -602,7 +603,7 @@ while being twice as fast in completing the tasks.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Spreadsheet navigation, data exploration, overview+detail, zooming.
+Spreadsheet navigation, interactive data exploration and discovery, user-centered design, graphical user interfaces, data exploration, overview+detail.
 \end{IEEEkeywords}}
 
 
@@ -720,22 +721,48 @@ Spreadsheet navigation, data exploration, overview+detail, zooming.
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
-\end{IEEEbiography}
+%\begin{IEEEbiography}{Michael Shell}
+%Biography text here.
+%\end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
+%\begin{IEEEbiographynophoto}{John Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
 
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
+\begin{IEEEbiographynophoto}{Sajjadur Rahman}
+is a PhD student at the Department of Computer Science at University of Illinois, Urbana-Champaign, IL, USA. He received the M.Sc. degree  in  2014 and the B.Sc. degree in  2012 from  Bangladesh University of Engineering and Technology, Dhaka, Bangladesh.
 \end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Mangesh Bendre}
+received  the  Ph.D. degree  in 2018  from  University of Illinois, Urbana-Champaign. He is a Research Scientist at VISA Research, Palo Alto, CA, USA.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Yuyang Liu}
+is an undergraduate student at the Department of Computer Science at University of Illinois, Urbana-Champaign.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Shichu Zhu}
+is a graduate student (MCS) at the Department of Computer Science at University of Illinois, Urbana-Champaign. He received the B.S. in Atmospheric and Oceanic Science from Peking University, Beijing, China.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Zhaoyuan Su}
+is a PhD student at the Donald Bren School of Information and Computer Sciences at the University of California Irvine, CA, USA. He received the B.S. in Architecture from University of Illinois, Urbana-Champaign.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Karrie Karahalios}
+received  the  Ph.D. degree  in 2004  from  Massachusetts Institute of Technology, Cambridge, MA, USA. She is a Professor in Computer Science at the University of Illinois, Urbana-Champaign.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Aditya Parameswaran}
+received  the  Ph.D. degree  in 2013  from  Stanford University, CA, USA. He is an Assistant Professor in the School of Information and Electrical Engineering and Computer Sciences at the University of California, Berkeley, CA, USA.  He  was previously  an  assistant  professor in Computer Science at the University of Illinois, Urbana-Champaign. 
+\end{IEEEbiographynophoto}
+
+%He is an associate editor of SIGMOD Record and serves on the steering committee of the HILDA Workshop at SIGMOD and the DSIA Workshop at VIS.
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
@@ -749,10 +776,10 @@ Biography text here.
 % is flush with the other column.
 %\enlargethispage{-5in}
 
-\appendix  % for no appendix heading
+%\appendix  % for no appendix heading
 % do not use \section anymore after \appendix, only \section*
 % is possibly needed
-\input{appendix}
+%\input{appendix}
 
 % that's all folks
 \end{document}

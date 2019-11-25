@@ -178,20 +178,24 @@ similar technique to balance the screen
 space between overview and detail.}
 Users can also hide the overview if required.}
 
-\newsaj{The data structure underlying the overview
+\new{The data structure underlying the overview
 is a histogram constructed
 on the values
 in the navigation attribute column.
-Histograms are binned aggregates
-where each bin represents a collection (group) of data points and the frequency of the data points, \ie \code{COUNT} aggregate, visualizes the density of the corresponding group.} \agp{This previous sentence feels repetitive.} \saj{rephrased. wanted to explain that constructing histogram is a type of binned aggregation.}
-\newsaj{In addition to providing high level (\eg densities) and low level (e.g., outliers) details, binned aggregation techniques 
-enables multi-granularity visual representation of data
+Histograms result from {\em binned aggregation}---consecutive data points are grouped into bins (or groups),
+where each bin represents a collection (group) 
+of data points and is associated with a count aggregate,
+capturing the number of data points that fall in that group.
+In addition to providing high level (\eg densities) 
+and low level (e.g., outliers) details, 
+binned aggregation techniques 
+enable a multi-granularity visual representation of data
 by varying the bin size and
-have been deployed in 
+have therefore been deployed in 
 interactive visualization of 
-large scale datasets, \eg in \emph{imMens}~\cite{liu2013immens}.}. \agp{Clarify what is known from prior work and what
-you are proposing. Here, it is intermixed.}
-\newsaj{An additional benefit of deploying a binned overview for spreadsheets is a decrease in
+large scale datasets, \eg in \emph{imMens}~\cite{liu2013immens}.
+An additional benefit of a binned overview for spreadsheets 
+is a decrease in
 visual discontinuity during navigation. As users are able to 
 view an overview 
 that fits in the computer screen, they can 
@@ -202,11 +206,14 @@ and quickly navigate to the desired subset of data. We now discuss how the overv
 
 
 \stitle{Overview Construction.}
-\newsaj{To generate the overview, we construct an equi-histogram. 
+\new{To generate the overview, we construct an equi-histogram. 
 Equi-depth histograms are commonly
-used for summarizing the statistical properties
-of data, with applications in database systems for query optimization and approximate query processing~\cite{ioannidis2003history} and in data mining applications for distribution fitting in data streams~\cite{mousavi2011fast}, among others.} \agp{only one application?}
-\new{The equi-depth histogram 
+used for summarizing statistical properties
+of data, with applications in database systems 
+for query optimization and approximate 
+query processing~\cite{ioannidis2003history} 
+and in data mining applications for distribution fitting in data streams~\cite{mousavi2011fast}, among others.
+The equi-depth histogram 
 can be constructed on 
 any data types
 that can be ordered, \eg text, numbers, dates. For example, 
@@ -254,10 +261,10 @@ equi-depth
 histogram that is as close to an equi-depth
 histogram as possible, while ensuring
 that the ranges represented by each bin have no overlap.
-\agp{Aditya: would be valuable to describe the algorithm to increase
-technical depth.}
-\saj{Saj: can we add a pseudocode in appendix and refer to that?}
-\agp{Yes please.}
+% \agp{Aditya: would be valuable to describe the algorithm to increase
+% technical depth.}
+% \saj{Saj: can we add a pseudocode in appendix and refer to that?}
+% \agp{Yes please.}
 
 
 \begin{figure}[t]
@@ -365,7 +372,7 @@ between the overview and the
 corresponding spreadsheet data (\textbf{DC4}),
 \ie interactions on the overview
 may be reflected on the spreadsheet and vice-versa.
-\new{One example of this coordinations is} indicating the navigation attribute on the spreadsheet
+\new{One example of this coordination is} indicating the navigation attribute on the spreadsheet
 using color (see the lime green column in Figure~\ref{fig:ux}c)
 as user constructs the overview. However, not all overview interactions are coupled
 with the spreadsheet and vice versa.
@@ -427,6 +434,7 @@ and computational overload, whereas in our case,
 the decoupling is based on the user's current focus.
 
 \subsection{Aggregate Columns}
+\label{sec:agg_col}
 Users can issue spreadsheet formulae
 on the overview
 to compute aggregates for the data
@@ -552,8 +560,8 @@ The breadcrumb~\cite{breadcrumb} displays the current navigation path (see Figur
 (see Figure~\ref{fig:ux}d). \toappendix{If aggregate columns are displayed along with the overview, contents of those columns are updated accordingly (\textbf{DC2}), as users revisit a bin.}
 
 \subsection{Implementation}
-We have integrated \noah with {\scshape DataSpread}~\cite{datamodels}, a web-based spreadsheet. The {\scshape DataSpread} back-end maintains the histogram data structure and  supports the aggregate column computation via its built-in formula engine.\toappendix{ To enable seamless integration of the overview with the spreadsheet data, we leverage the hierarchical positional indexes used by {\scshape DataSpread} to access
-the spreadsheet data. The index is essentially an order statistics tree~\cite{datamodels} built on the position (\eg row number) of the spreadsheet data. For any given navigation attribute, a new positional index is constructed first. \noah then leverages the positional mapping to access the underlying data corresponding to the navigation attribute and constructs the histogram depicting the overview. Therefore, \noah can be integrated to any spreadsheet and requires only access to the positional mapping structure of that spreadsheet.} The \noah front-end is built with HTML/CSS/JS technologies along with the D3 framework~\cite{d3} for generating charts.
+We have integrated \noah with {\scshape DataSpread}~\cite{datamodels}, a web-based spreadsheet. The {\scshape DataSpread} back-end maintains the histogram data structure and  supports the aggregate column computation via its built-in formula engine.
+The \noah front-end is built with HTML/CSS/JS technologies along with the D3 framework~\cite{d3} for generating charts. We explain the \noah architecture in detail in the Appendix.
 
 
 
