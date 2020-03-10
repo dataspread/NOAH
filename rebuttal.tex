@@ -1,0 +1,684 @@
+%!TEX root = main.tex
+
+\section*{Rebuttal to reviews of InfoVis 2019 submission ``Extending Spreadsheets to Support Seamless
+Navigation at Scale''}
+
+A previous version of this paper was submitted to InfoVis 2019 (submission ID: 1043). This version was rejected as the paper co-chairs deemed that revising the paper would require more time than allocated to meet reviewer expectations. The paper co-chairs mentioned the following: ``\textit{We particularly encourage such revisions where submissions were positively received by reviewers, but the revisions required were deemed to be beyond the scope of the conference review cycle. If you address the issues raised and subsequently submit to TVCG, please make reference to this InfoVis submission and include a description of how you addressed the InfoVis reviewers' comments.}'' 
+The summary review asked for the following changes in a revision:
+\begin{itemize}
+    \item[\textbf{C1:}] {\em More clearly articulate the merits over alternative tools, such as Keshif.} 
+     \item[\textbf{C2:}] {\em Convincingly explain the design choice around the binning mechanism or revise
+    that approach.}
+    \item[\textbf{C3:}] {\em Justify the choice of comparing with Excel and note the limitations of that
+    approach.}
+     \item[\textbf{C4:}] {\em Better justify the choice of tasks in the study.} 
+     \item[\textbf{C5:}]{\em Explain the choice of the four research questions.}
+     \item[\textbf{C6:}] {\em Provide more details about the study, including reporting intra-participant
+    differences.}
+\end{itemize} 
+We thank the reviewers and meta-reviewer for their detailed and
+constructive feedback.
+Taking this feedback into account, 
+we have spent the last four months 
+preparing a revised version of this paper.
+We believe the paper is substantially
+stronger as a result. 
+Every section in the paper has been revised. The changes are explained in the ``summary of changes'' document, where
+the changes are highlighted in \new{blue} for reviewers' convenience.
+
+We realize that these extensive changes throughout the paper have increased the paper length. As the TVCG submission guidelines indicate ``\emph{The regular paper page length limit is defined at 12 formatted
+pages, including references and author biographies. Any pages or
+fraction thereof exceeding this limit are charged \textdollar220 per page. Regular
+papers may not exceed 18 formatted pages}'', so we have decided to let the paper length stand since our paper is at 16 pages currently — and we would be happy to pay for the extra pages. We would also be happy to reduce length by moving appropriate content from the main body to the supplementary material as suggested by reviewers. 
+
+We briefly describe the changes to each section
+before returning to the changes required in the summary review  
+({\bf C1}--{\bf C6}). Finally, we provide a point-by-point response to the reviewer comments.
+
+\subsection*{Changes Organized by Section}
+\begin{itemize}
+	\leftmargin=25pt \rightmargin=0pt \labelsep=5pt \labelwidth=20pt \itemindent=0pt \listparindent=0pt \topsep=0pt plus 2pt minus 4pt \partopsep=0pt plus 1pt minus 1pt \parsep=0pt plus 1pt \itemsep=\parsep
+\item[\textbf{S1}]
+In Section~\ref{sec:intro}, we now cite
+work that highlights the widespread adoption
+of spreadsheets even among users of 
+advanced enterprise solutions, further justifying 
+why we focused on addressing navigation challenges within
+spreadsheets. In fact, recent 
+debate within the visualization community following
+VIS 2019 also echoes this view\footnote{https://twitter.com/FILWD/status/1187411664611749888}---instead of designing a new sophisticated tool from scratch that 
+may cater to a small population, 
+we aim to enhance the user experience for
+existing spreadsheet tools
+with nearly a billion users.
+We further augment   
+the definitions of spreadsheet 
+interactions like scrolling and steering in Section~\ref{sec:intro}, 
+and now clearly articulate the challenges of 
+designing a general-purpose plug-in for spreadsheets.
+\item[\textbf{S2}]
+In Section~\ref{sec:usage}, 
+our usage scenario has been substantially revised 
+using Brehmer and Munzner's typology~\cite{brehmer2013multi} to
+clarify the scope of tasks supported by spreadsheets, as well
+as those that are enhanced
+when using a spreadsheet with a \noah plug-in; our new Table~\ref{tab:scope}
+provides use-cases supported within \noah
+for each category.
+\item[\textbf{S3}]
+In Section~\ref{sec:related},
+we now clearly
+articulate the differences in goals
+of spreadsheets and tabular data analysis tools (TDA),
+further justifying our choice of Excel,
+the most widely used spreadsheet tool,
+as our baseline in the evaluation study.
+\item[\textbf{S4}]
+In Section~\ref{sec:design},
+we now explain the  
+third design consideration 
+for \noah more clearly
+(\textbf{DC3})---focusing on motivating the binning
+mechanism.
+\item[\textbf{S5}] In Section~\ref{sec:ui}, 
+we now justify why we are developing a 
+multi-granularity overview,
+and explain why 
+we opted for histograms as an overview representation, by contextualizing our
+approach using prior work on multi-scale aggregation~\cite{elmqvist2009hierarchical}. 
+\item[\textbf{S6}]
+In Section~\ref{sec:study}, 
+we further clarified the goals of our study
+and reframed our research questions to 
+better reflect those goals. 
+Our research questions haven't been substantially altered;
+rather, they have been grouped together and made more precise. 
+In this version,
+we now explain our choice
+for the quiz tasks in detail. 
+\item[\textbf{S7}] Section~\ref{sec:results} has been completely
+revamped to better reflect our research questions,
+while adding more qualitative observations 
+regarding the user experience with \noah. 
+We now
+include additional analysis results on intra-participant differences. 
+\item[\textbf{S8}] In Section~\ref{sec:discuss}, we have added a summary of our takeaways from the evaluation study, while discussing limitations of our evaluation study and \noah's design while highlighting future enhancement opportunities. 
+\end{itemize}
+
+\subsection*{Response to summary review (C1--C6)}
+
+
+\begin{itemize}
+\leftmargin=25pt \rightmargin=0pt \labelsep=5pt \labelwidth=20pt \itemindent=0pt \listparindent=0pt \topsep=0pt plus 2pt minus 4pt \partopsep=0pt plus 1pt minus 1pt \parsep=0pt plus 1pt \itemsep=\parsep
+
+\item[\textbf{R(C1)}] \textit{Merits over other tools} (\textbf{C1}): 
+Throughout the paper (and especially in 
+Sections~\ref{sec:intro}, \ref{sec:related},
+and \ref{sec:study}), we have emphasized
+that the main contribution of \noah
+is its \emph{design as a general-purpose navigation plug-in} 
+to any existing spreadsheet tool. 
+As spreadsheets have a massive user-base, 
+enhancing exploration and formula computation 
+on large datasets while maintaining 
+the spreadsheet look-and-feel as much as possible, 
+has the potential to impact hundreds of millions 
+of spreadsheet users. 
+Most of these users employ spreadsheets 
+as their primary data management and analysis 
+tool while shunning enterprise solutions 
+with more advanced features. 
+Therefore, our goal is to develop a 
+solution to improve navigation within spreadsheets.
+Indeed, we could have tried to enhance navigation
+in other tools, such as Keshif, or Tableau, like
+the reviewers suggest---but we would be forcing
+spreadsheet users to adopt an entirely new tool, something
+that they are clearly loath to do. 
+
+\item[\textbf{R(C2)}] \textit{Explanation of the binning mechanism} (\textbf{C2}): 
+We now explain our choice
+of the binning mechanism in 
+the context of the third design consideration (\emph{DC3}),
+as detailed in Section~\ref{sec:design}.
+We further expand on this in the blurb titled 
+``Why a Multi-granularity Binned Overview'' 
+in Section~\ref{sec:ui}.
+In brief, we opted for binning to 
+provide a clear and concise 
+representation of the overall data 
+distribution while minimizing user's back 
+and forth movement across multiple screens 
+during navigation. 
+At some level, we do need to limit the number
+of values displayed so that the overview
+fits on the screen: binning is a natural solution
+for that issue. 
+We cite related work on 
+multi-scale aggregation~\cite{elmqvist2009hierarchical} 
+to motivate the choice of 
+a multi-granularity overview
+and show that binned aggregation via histograms~\cite{liu2013immens}
+is a suitable representation of such an overview.
+However, we acknowledge limitations 
+for this choice for binning categorical data 
+and discuss possible solutions 
+in Section~\ref{sec:discuss} 
+in the context of our user study findings. 
+
+
+\item[\textbf{R(C3)}] \textit{Justification of Excel as a Baseline} (\textbf{C3}):
+Since our goal is to improve spreadsheet
+user experience---and there are very good reasons for doing so,
+as outlined in item 1) above---the natural comparison point
+is Excel. 
+That said, beyond popularity, 
+we have provided a thorough justification
+for what spreadsheet tools like Excel offer
+relative to tabular data analysis tools (TDA),
+making it a more appropriate point of comparison.
+Our justification for using Excel over 
+tabular data analysis (TDA) tools involves 
+a) highlighting the appeal of spreadsheets 
+among users who shun more advanced enterprise 
+tools (Section~\ref{sec:intro}), 
+b) identifying the scope of tasks 
+supported by spreadsheets and 
+TDA tools (Section~\ref{sec:usage} and~\ref{sec:related}), 
+c) explaining that the goal of spreadsheets 
+is to present the raw data as is, 
+amenable to editing, formula computation, 
+and comparison of derived data, all done in-situ,
+unlike TDA tools that hide the data 
+while providing summarized statistics 
+(Section~\ref{sec:related}), and 
+d) highlighting the importance of 
+addressing the shortcomings of a tool, 
+the user base of which far exceeds 
+that of TDA tools (Section~\ref{sec:study}). 
+
+
+\item[\textbf{R(C4, C5)}] \textit{Enhancing the user study design} 
+(\textbf{C4, C5}):
+We have added additional 
+explanations regarding the goals 
+of the study while better articulating 
+the research questions, 
+provided a better justification 
+for the choice of the tasks for the study (see Section~\ref{sec:study_design}) 
+and added a detailed discussion on the limitations of the study. 
+Specifically, we merged our previous \emph{RQ1} (evaluating the quiz task performance) 
+with \emph{RQ4} (summarizing user feedback on performance via a survey) 
+into a unified research question (new \emph{RQ1}) 
+on the participants' navigation performance. 
+Moreover, we merged previous \emph{RQ2} and \emph{RQ3} 
+that explored how specific features of \noah 
+affected participants' navigation experience 
+into one broad question (new \emph{RQ2}) 
+that explores their overall experience with \noah and its components. 
+Moreover, we have justified the choice of the quiz tasks by 
+a) relating their goals with the scope of tasks supported by spreadsheets (see Section~\ref{sec:usage}), 
+and b) explaining how these tasks can reveal how people may use \noah 
+for spreadsheet navigation. 
+Finally, we have identified three limitations of the study, 
+resulting from the sample size and the study design, which we justify based on the scope of the study.
+
+\item[\textbf{R(C6)}] \textit{Reporting Intra-participant Differences} (\textbf{C6}):
+We performed additional analysis of the study data to report intra-participant submission time differences for the quiz phase tasks. While we summarize the results of the analysis in Section~\ref{sec:time_acc}, the detailed results can be found in Appendix. We find that despite a few exceptions, across all tasks, participants' task submission times were faster using \noah---all but one participants completed at least four tasks in less time using \noah compared to Excel. However, we already obtained similar observations from Figure~\ref{fig:timeBox} in Section~\ref{sec:rq1}. Therefore, we decided to include the results of the intra-participant analysis in the Appendix as opposed to the main paper.
+\end{itemize}
+
+\subsection*{Point-by-point response to reviews}
+
+\subsection*{Primary Reviewer (PR) review}
+
+\stitle{PR1a.} \textit{The
+    treatment of Tabular Data Analysis tools is to short, and the argument that they
+    are "not co-located with the underlying data, introducing visual discontinuities
+    and lack of context" is IMO not true. This is also the main weakness of the paper: A tool like Keshif supports most things that NOAH supports, it certainly supports all the things that the study
+    tests.} 
+    
+\stitle{Response.} 
+\resp{In our revised version, 
+we now clearly articulate the difference 
+in goals between spreadsheets and TDA tools 
+in Section 2.
+Specifically, regarding Keshif,
+the goal of Keshif is to auto-generate
+sophisticated dashboards with customizability
+built-in to maximize the number of insights gained.
+However, with Keshif, a user cannot
+simultaneously examine a summary dashboard alongside
+the raw data---the lowest level of detail 
+a user can see is the unique values for a given column,
+and not the raw data underlying each unique value. 
+There are many other tools like Keshif that support
+advanced analytics capabilities. 
+However, 
+as we argue in {\bf R(C1)} and {\bf R(C3)} and 
+in changes to the paper listed in {\bf S1} and {\bf S3},
+these advanced tools do not have the adoption that spreadsheets have.
+So instead of developing yet another analytics tool
+that is not likely to be used by many, we decided
+to address the shortcomings of spreadsheets directly
+by building a navigation plugin. 
+See also our response to {\bf PR1b}.
+% In our revised version, 
+% we have clearly articulated the difference 
+% in goals between Spreadsheets and TDA tools 
+% in Section 2
+%  and again mention these differences when responding to PR1b. As for comparison with Keshif, the goal for this tool is to auto-generate complex dashboards with customizability built-in and maximize the number of insights gained. However, Keshif cannot relate the summary of a dashboard to the underlying raw data---the lowest level of detail a user can obtain is to view the unique values for a given column and not the the entire data underlying each unique value. Besides Keshif, there are a number of other tools that also support advanced analytical features. However, we have already commented in ``Changes Organized by Section'' under \textbf{S1} and again in \textbf{R(C3)} that such advanced tools have not gained adoption the same way spreadsheets have. Therefore, instead of developing a new tool with a small user-base we opted to address the shortcomings of spreadsheet, a widely used tool.
+ }
+
+\stitle{PR1b.} \textit{A strength of NOAH compared to TDA tools is that it's in an actual
+    spreadsheet, where it's easy to derive new data based on formulas or expressions,
+    but that's not well articulated in the paper and not really part of the study.}
+    
+\stitle{Response.} 
+\resp{We have already addressed this comment 
+in {\bf R(C1)} and {\bf R(C3)}, explaining that 
+the goal of spreadsheets 
+is to present the raw data as is, 
+amenable to editing, formula computation, 
+and comparison of derived data, all done in-situ,
+unlike TDA tools that hide the data 
+while providing summarized statistics
+(Section~\ref{sec:related}). 
+Our study does explore the derivation of new data---specifically,
+the aggregate column feature allows users to derive new 
+data via steering tasks, and perform comparisons via 
+the compare tasks. 
+We evaluate this feature 
+both qualitatively and quantitatively 
+in the user study results section (Section~\ref{sec:results}).}
+
+\stitle{PR2.} \textit{A design decision that I think is not optimal is the binning of multiple unrelated
+items into larger bins, supposedly to ensure scalability (e.g., Ash-Bos). It seems
+like an odd choice to group semantically unrelated items (lexicographic ordering
+isn't super helpful). It also doesn't seem to help much in terms of scalability, as each individual city is represented as a fairly large bar chart. It would
+probably be more effective to just bin separately, which also some participants of the study noted.}
+
+\stitle{Response.} 
+\resp{We have addressed this comment in 
+in the summary reviews section under the discussion point \textbf{R(C2)} titled \textit{Explanation  of  the  binning  mechanism (C2)}.} 
+
+\stitle{PR3.} \textit{By
+using Excel vs another tool, it's very obvious to the users which of the tool the experimenter wants to do well, which is a potential source for bias. That could
+have potentially been mitigated by having them use the open source spreadsheet tool in both cases (which they are unlikely to be familiar with), which would also
+remove some additional confounders.}
+
+\stitle{Response.} \resp{
+While we agree with reviewer's comment, 
+this bias is unavoidable and is present
+in the evaluation of any tool with new features
+the participants haven't encountered before
+(\ie novelty bias).
+The reason we used Excel as opposed to the version
+of {\sc DataSpread} without \noah is because
+{\sc DataSpread} lacks support for most ``advanced''
+spreadsheet operations such as sort, filter,
+conditional formatting, pivot table,
+and subtotals, limiting the participants' ability
+to efficiently complete tasks and negatively
+impacting their accuracy and completion times---so it would
+not be a fair comparison.
+% In fact, one of our goals was to evaluate
+% whether 
+% the use of these advanced spreadsheet operations
+% renders \noah capabilities to be redundant.
+} 
+
+\stitle{PR4.} \textit{The selection of participants for the study indicates that all were expert
+    spreadsheet users. I wonder how NOAH can help non-expert spreadsheet users
+    navigate large datasets easily. Another study with users rating their spreadsheet
+    skills 2 and above will help answer this question.}
+
+\stitle{Response.} \resp{We have acknowledged this limitation
+of our study in our revised submission---see discussion points 
+\textbf{R(C4, C5)}. 
+The reason we focus on expert users is 
+because we did not want expertise
+to be the reason for poor task performance, 
+and instead wanted
+to focus our evaluation on the capabilities
+provided by the tools. 
+}
+
+\stitle{Minor Comments:}
+
+    * \textit{In Fig 1. the label for breadcrumb covers the actual breadcrumb view. Moving the
+    label to the right will make it easy to get a sense of how breadcrumbs look in the
+    final tool.}
+    
+\stitle{Response.} \resp{In Figure 1, user is at the highest level of the granularity. Therefore, the current path is ``Home''.}    
+
+    * \textit{Is it users that rate themselves as greater than 4, or at least 4 in terms of
+    skills with spreadsheets?}
+    
+\stitle{Response.} \resp{At least 4.}  
+
+\subsection*{Secondary Reviewer (SR) review}
+
+\stitle{SR1.} 
+\textit{In general, I agree with the motivation and overarching goal of this work: it
+    could be useful to enable people to “explore” large tabular data “holistically” by
+    showing the data rows and visualizations on the same page with tight coupling
+    (i.e., without visual discontinuities in the authors’ term). However, the focus of
+    this paper is too narrow and as a result the significance of research contribution
+    is too small for a VIS publication.}
+
+\stitle{Response.} 
+\resp{As we explained in 
+discussion point 
+{\bf R(C1)} and changes detailed in {\bf S1}, 
+\textit{instead of designing a new sophisticated tool 
+from scratch that may cater 
+to a small population, 
+we aim to enhance the user experience for existing
+spreadsheet tools with nearly a billion users}. 
+Therefore, the focus of the paper, 
+\ie developing a general-purpose plug-in 
+to improve navigation within spreadsheets, 
+is, on the contrary, 
+quite broad and has the 
+potential to impact billions of users.
+We therefore believe this is a problem 
+well-worth investigating for the VIS community.
+We have further clarified the scope of tasks 
+supported by \noah in changes detailed in {\bf S2},
+using Brehmer and Munzner's typology.}
+
+\stitle{SR2.} \textit{As Shneiderman’s mantra---Overview first, zoom and filter, then detail on demand---indicates, seeing an overview is an important and useful step for data exploration. It is a neat idea to provide an overview alongside the table and use the visual elements in the overview as a shortcut to the raw data in the table. However, because this overview is just a histogram for only one data column, even with some additional features, NOAH’s exploration capability seems limited.}
+
+\stitle{Response.} \resp{
+\noah does enhance most use cases covered by 
+Brehmer and Munzner's typology~\cite{brehmer2013multi}. 
+We have addressed 
+this comment in changes detailed in \textbf{S2} 
+where we identify the scope of tasks supported by \noah.}
+
+\stitle{SR3.} \textit{I note that the comparative study is designed to evaluate whether NOAH helps
+    address spreadsheet “navigational challenges” instead of demonstrating NOAH’s
+    value in facilitating holistic data exploration. It seems that the six quiz tasks
+    are somewhat arbitrary or even biased to emphasize the navigational issue of
+    Excel: I do agree that Excel’s navigation is not ideal.}
+    
+\stitle{Response.} 
+\resp{We have addressed this comment in the discussion point titled \textbf{R(C4, C5)}. We now explain the quiz tasks in the context
+of the typology discussed previously, while also providing
+a detailed end-to-end motivating scenario that captures
+the quiz tasks.}
+    
+\stitle{SR4.} \textit{For the Steer and
+    Customize tasks, why do the quiz tasks “instruct” participants to organize the
+    data by some attributes? For the ``find'' task, why is it asking participants to
+    answer the question from “the currently visible spreadsheet window?”} 
+
+\stitle{Response.} \resp{Both these tasks 
+simulate the scenario where a spreadsheet user 
+chooses to navigate the data based on 
+a specific attribute, as a first step 
+towards answering a specific question regarding the dataset.
+In the revised version, 
+we provide more details as to why the 
+quiz tasks were selected in the context of an 
+end-to-end motivating example scenario in Section~\ref{sec:study}.}
+    
+\stitle{SR5.} \textit{More
+    importantly, people with a basic level of expertise can easily answer these tasks
+    using existing BI tools such as Tableau, Pivot Table, and Power BI. 
+    I know that, as
+    the authors pointed out, these tabular data analysis tools do not show the tabular
+    data and visualizations together on the same sheet.}
+
+\stitle{Response.} 
+\resp{We address this comment 
+in the changes detailed in point {\bf S1},
+and explain how spreadsheets cater to a 
+much larger user-base than the aforementioned tools.
+In fact, users typically shun these ``advanced'' BI tools
+and instead use spreadsheets. 
+So, it is incumbent upon us to improve their experience
+when using spreadsheets, rather than forcing
+them to adopt a new tool. 
+We further explain how the goals of BI tools 
+and spreadsheets are different 
+in discussion point \textbf{R(C3)}.}
+
+\stitle{SR6.} \textit{However, Excel is not designed to best support navigation and instead it provides
+    additional flexible features that the authors acknowledge as limitations. To me,
+    it is unfair to choose the tool with a limitation as a baseline (excluding other
+    more power existing tools) along with some questionable tasks, and show that NOAH
+    is better than the baseline for the tasks demonstrate the limitation. Therefore,
+    the study results are neither interesting nor informative.}
+
+\stitle{Response.} 
+\resp{See our response to {\bf SR1}, {\bf SR2}, {\bf SR3}, and {\bf SR5}.
+We now justify our quiz tasks better and 
+discuss the motivation for comparing
+against Excel. 
+We would argue that understanding the user experience
+for a tool that approximately 10\% of the planet uses
+is well worth the effort---and our study results will help inform
+the development of future tools that eliminate barriers
+in spreadsheet data analysis on increasingly large datasets.}
+
+\stitle{SR7.} \textit{I am not sure
+    why the authors wanted to treat the dataset as a main factor when the four main
+    research questions do not involve dataset characteristics? I expect the
+    explanation of the comparison of dataset characteristics and the discussion of
+    interaction effect, which would make it worth introducing it as a main factor
+    instead of running the study as a simple A/B comparison.}
+    
+\stitle{Response.} \resp{We 
+address this comment in the discussion point \textbf{R(C4, C5)}, 
+where we explain how, in our revised version,
+we now clearly articulate the 
+goals of the study while restructuring our research questions. 
+Moreover, we have completely 
+revamped Section 7 (the results section) 
+to better reflect
+our  research  questions,  
+while  adding  more  qualitative  observations  
+regarding  the  user  experience  with \noah.}
+
+\stitle{SR8.} \textit{While I appreciate the authors’ effort on conducting a comparative study, it would
+    have been a lot more interesting and informative if the authors conducted a
+    qualitative study with high-level questions (which can be combined with a few
+    meaningful low-level ones) that would encourage participants to utilize NOAH’s
+    most novel features to see *IF* and *HOW* people use NOAH in their data
+    exploration process.}
+    
+\stitle{Response.} \resp{As explained in 
+the changes detailed in point {\bf S7}, 
+in the revised paper, we have added more qualitative observations 
+regarding the user experience with \noah in Section 7.2.
+Overall, Section 7 has been completely restructured
+and rewritten. }
+    
+\stitle{SR9.} \textit{Even though the authors described their design considerations, I have some
+    doubts about NOAH’s design. For example, despite the authors’ justification on the
+    overview construction process using the common summarization technique, the number
+    of items in each group seems small to me. Also, it is weird to see the different
+    bar height between different groups when they have different number of cities and
+    to see the completely different representation when a group has only one city
+    (Fig. 2).}
+    
+\stitle{Response.} \resp{See discussion point \textbf{R(C2)}.} 
+
+\subsection*{External Reviewer 1 (ERA) review}
+\stitle{ERA1.} \textit{I have little comments on the first part of the paper, which I find very well
+    executed. The comments I have are: What about DC2 in the implementation section?}
+    
+\stitle{Response.} \resp{We address DC2 by 
+introducing the Aggregate column feature (Section 5.2).}
+    
+\stitle{ERA2.} \textit{I wonder whether the authors considered more direct interactions for some of the
+    operations. For example, one could use Embedded Merge and Split technique to
+    facilitate merging and splitting bins in histograms [A].}
+    
+ \stitle{Response.} \resp{We have added this citation [66] to motivate future work on improving the bin customization feature (Section 8.2).}
+
+\stitle{ERA3.} \textit{I would have liked to see more explanations regarding how the four research
+    questions were selected. Why these ones? Are there others that were considered?}
+    
+\stitle{Response.} \resp{We have addressed this comment in 
+discussion point \textbf{R(C4, C5)}.} 
+    
+\stitle{ERA4.} \textit{The input method for participants to specify their answers is not described. Not
+    that it is a big problem, because task completion time is several dozens of
+    seconds, but still it should be specified.}
+
+\stitle{Response.} \resp{We had already discussed the procedure in the original submission in Phase 2 of Section 6.2 \textit{We developed an online JavaScript-based quiz system that recorded user responses and submission times. 
+We also recorded the participants' interactions
+with both tools using screen capture software}.} 
+
+\stitle{ERA5.} \textit{I think the fact that participants subjectively indicated preferring NOAH over Excel should be tone-downed a bit. Because it was clear to them what the
+    experimenter's solution is (NOAH), they were largely sensitive to bias in
+    assessing the two different conditions.}
+
+\stitle{Response.} \resp{We have revised the paper to acknowledge
+the issue of bias; also see response to primary reviewer comment {\bf PR3}. 
+We provide qualitative insights to highlight the pros and cons of using \noah for spreadsheet navigation in Section~\ref{sec:results},
+and have de-emphasized  
+the quantitative insights that show \noah outperforming Excel.}
+
+
+\stitle{ERA6.} \textit{Given the within-subject design, and given that the authors assume that the two datasets lead to comparable results, I was expecting to see intra-participant
+    differences being reported. Still, this is not a deal-breaker as the authors report the results separately for each dataset.}
+
+\stitle{Response.} \resp{We have addressed this comment in the
+discussion point \textbf{R(C6)} 
+titled \textit{Reporting Intra-participant Differences (C6)}.} 
+
+\stitle{ERA7.} \textit{I find the choice of datasets a bit limiting. If the real challenge is the
+    difficulty to navigate in very large datasets (the authors mention several
+    millions of cells in the paper), then why selecting datasets with only 14 or 15 columns? This easily fits on a single screen and only requires scrolling
+    vertically. This should at least be discussed in the discussion (the experiment targets scalability in terms of rows, but not in terms of columns).}
+
+\stitle{Response.} 
+\resp{
+%We didn't discuss this. Was trying to avoid providing a direct answer. We can say the following:
+We acknowledge the reviewer's comment. In the revised submission,
+we discuss how future iterations of \noah can support bespoke user-defined customizations of the overview (Section~\ref{sec:discuss_additionational}). This may be as simple as defining the orientation of the overview to selecting the binning criteria.}
+
+\subsection*{External Reviewer 2 (ERB) review}
+
+\stitle{ERB1.} \textit{The title says “At Scale”  but there is no discussion of scalability. Does it work
+    with the 2M cells mentioned in the intro?  No test with different sizes of large
+    datasets.  Nothing is done or said to convince me that the testing warrants saying
+    “at scale” in the title of the paper.
+    REQUIRED: remove or justify.}
+
+\stitle{Response.} \resp{Overview histogram construction 
+in \noah is as expensive as the spreadsheet sort operation. The only other computational operation is formulae calculation for the aggregate column operation which leverages the formula engine of {\sc DataSpread}. Therefore, \noah is as fast as the underlying spreadsheet system. We provide the implementation details in the Appendix.}
+
+
+\stitle{ERB2.} \textit{We usually talk about scrolling and zooming for navigation.  Is steering the same
+    as zooming?  Or is steering Sorting and/or Filtering?  Something else?  The paper
+    needs to clarify what operations are actually included in the “steering”.}
+
+\stitle{Response.} \resp{We have better articulated the 
+definition of these operations with examples in our revised 
+Section 1. (Also see summary of changes point {\bf S1}.)}
+
+\stitle{ERB3.} \textit{I found the “Ashville-Boston bin” confusing…. Why were several cities binned
+    together by default? \ldots I really do not understand the benefit of binning cities i.e. categorical
+    variables… The individual bars for each city are shown anyway so adding binning in
+    the overview only increases the length of the overview (and the need for
+    scrolling) so why not just show a bar chart with one bar for each city first, and
+    then allow binning only as needed?
+    REQUIRED: Clarify the binning by default of categorical variables.}
+    
+\stitle{Response.} \resp{We have addressed this comment 
+in discussion point \textbf{R(C2)} 
+titled \textit{Explanation  of  the  binning  mechanism (C2)}.} 
+
+\stitle{ERB4.} \textit{The contextual and historical information are not particularly novel but are
+    appropriately included (and authors should be commended for doing so).   Can the
+    paper clarify how the history is kept?  E.g. keeping the complete state info or
+    recompute from start? Any challenges worth reporting?}
+
+\stitle{Response.} \resp{As mentioned in Section 5.3, \noah simply documents each new bin that the user navigates to in the context bar. \noah preserves the complete state information as explained in the final paragraph of Section 5.2: \textit{we note that the aggregate column
+is kept in sync with the bins
+as users zoom in and out,
+eliminating repeated steering operations}.}   
+
+
+\stitle{ERB5.} \textit{I am not sure I really understand the difference with SUBTOTAL. Not clear…
+    The paper says: “the size of the summary itself can become very large and
+    span multiple screens, e.g., for numeric data. “ is it because there is no
+    binning? Or because too many attributes are summarized in extra columns with a
+    visual representation (and it add too many columns)?   Not clear.   Can the paper
+    also clarify what level of coordination there is in Subtotal? In short: is the
+    difference a fundamental difference or only a superficial layout one?
+    REQUIRED: Clarify difference with Subtotal.}
+
+\stitle{Response.} 
+% \resp{OLD:} \newsaj{We have further clarified how the Subtotal feature operates in Section 3.1. Subtotal \agp{This is not a sentence} similar limitations regarding navigation as Pivot Tables: a) unlike \noah, the summary groups in Subtotal are not binned and impact visual continuity when there are too many groups to explore, b) the summaries are inserted as a collection of new rows within the spreadsheet and lack coordination with the raw data. } \resp{NEW: } 
+\resp{We have further clarified how the Subtotal feature operates in Section 3.1. 
+The difference between Subtotal and 
+\noah's overview are: 
+a) the summary groups within 
+Subtotal are not binned like in \noah,
+resulting in visual discontinuity when
+there are too many groups to explore and
+b) the summaries are inserted as a collection of new rows within the spreadsheet 
+rather than as a separate plugin like \noah 
+and lack 
+coordination with the raw data.}
+
+\stitle{ERB6.} \textit{In 5.1.1
+    The paper says that clicking is not filtering but what is it?  A novel sort?
+    Describe the algorithm used E.g. When it says “as the user clicks on the bin, the
+    data corresponding to Boston is displayed”: what really is done on the table side?
+    REQUIRED: clarify operations done in the detail view}
+
+\stitle{Response.} 
+%\resp{OLD: The overview-spreadsheet coordination is discussed in Section 5.1.2. \agp{Is this revised? They say this is required. Say that something is done in the new version.} }
+%\resp{NEW:} 
+\resp{The overview-spreadsheet coordination is discussed in Section \ref{sec:design_coord}.  In the revised submission, we discuss the implementation details in Appendix and mention that \noah leverages {\sc DataSpread}'s built-in positional representation of the data to enable such coordination.}
+
+\stitle{ERB7.} \textit{In general: 
+    I would like to see at least one example of the use of a continuous attribute e.g.
+    numerical or date .
+    Aren’t they some drawbacks in allowing only a single overview attribute?  E..g
+    doesn’t it make it harder to see correlations between attributes?}
+    
+\stitle{Response.} \resp{The customize task required participants to navigate a numeric attribute. Moreover, the attached video demo in the supplemental material also demonstrates how this task is performed for numeric data at 3 minutes 44 seconds.}
+
+\stitle{ERB8.} \textit{User study: 
+    It looks like the user study had no task using the details part of the
+    overview+details (while coordination is a main contribution).  Strange.}
+
+\stitle{Response.} \resp{The find task is on the detailed view and asks the participants to relate the results of the aggregate column with the raw spreadsheet data.}
+
+\stitle{ERB9.} \textit{While I understand that it is easier to compare a new tool to Excel I wondered why
+    it was not compared with Subtotal, which seems to be a close state of the art.}
+
+\stitle{Response.} 
+%\resp{OLD:} \newsaj{Participants were free to use any feature they were comfortable with while completing the quiz tasks. However, the Subtotal feature is not very effective for a number of the quiz tasks, \eg both steer tasks (due to not supporting COUNTIF), find and compare (for not \agp{maybe start with due to for consistency} being able to perform the steer task\agp{?}), customize (due to a lack of customization functionality).}
+\resp{Participants were free to use any feature they were comfortable with while completing the quiz tasks, and therefore, could use subtotals if they wished. However, the subtotal feature is not very effective for a number of the quiz tasks, \eg both steer tasks (due to not supporting COUNTIF) and customize (due to a lack of customization functionality). Moreover, the find and compare tasks were dependant on the results of the steer tasks, and, therefore, could not 
+be performed without completing the steer
+tasks first.}
+
+
+\stitle{ERB10.} \textit{In
+    the current study we have so many things changing between the 2 interfaces that we
+    will never know what really helped the most: it is the presence of an overview? or
+    the bin mechanism which reduces overview scrolling? or fact that only a single
+    overview can be seen at once?, or the tight coupling between details and overview?
+    I cannot tell…}
+    
+\stitle{Response.} \resp{We acknowledge this as a limitation of our study. In the revision, we have revamped Section 8 and discussed a number of limitations, including the one mentioned by the reviewer, in Section 8.1 under \textit{Isolated evaluation of \noah components.}. See also summary of changes point {\bf S8}.}
+     
+\stitle{ERB11.} \textit{If all the tasks “only” involve counts (and no need to see the details) then a
+    better candidate for comparison may be Keshif, where (if I remember correctly) all
+    count distributions are shown by default for all attributes making easy to find
+    counts, min and max.  Comparisons are possible between 2 selections.}
+
+\stitle{Response.} 
+\resp{Please see our response to \textbf{PR1a} where we explain our reasoning for not considering Keshif. 
+Our tasks went beyond just counts; for example,
+the customize task required users to invoke an average formula. In our revised submission, we mention the scope of formulae supported by the aggregate column feature in Section~\ref{sec:agg_col}: \textit{``the aggregate column can employ any statistical
+or mathematical formulae that
+operate over a range of data''}.}

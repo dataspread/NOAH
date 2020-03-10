@@ -433,6 +433,7 @@
 
 
 \newcommand{\newsaj}[1]{\textcolor{red}{#1}}
+\newcommand{\resp}[1]{\textcolor{blue}{#1}}
 \newcommand{\saj}[1]{\textcolor{teal}{#1}}
 \newcommand{\new}[1]{{#1}}
 
@@ -448,16 +449,16 @@
 \newcommand{\para}[1]{\vspace{2pt} \noindent {\bfseries #1.}}
 \newcommand{\response}[1]{``\emph{#1}''}
 \newcommand{\system}{{\scshape NOAH}\xspace}
-\newcommand{\noah}{{\scshape NOAH}\xspace}
-\newcommand{\cmpA}{{compare~($2$)}\xspace}
-\newcommand{\cmpB}{{compare~($N$)}\xspace}
+
 \newcommand{\cut}[1]{}
 \newcommand{\additional}[1]{}
 \newcommand{\stitle}[1]{\vspace{0.2em}\noindent\textbf{#1}}
 \newcommand{\ttitle}[1]{\vspace{0.2em}\noindent\textbf{#1}}
 \newcommand{\emtitle}[1]{\vspace{0.2em}\noindent\underline{\emph{#1}}}
 \newcommand{\code}[1]{\texttt{\small #1}}
-
+\newcommand{\noah}{{\scshape NOAH}\xspace}
+\newcommand{\cmpA}{{compare~($2$)}\xspace}
+\newcommand{\cmpB}{{compare~($N$)}\xspace}
 \newcommand{\ta}[1]{\vspace{-3pt}\begin{framed}\vspace{-5pt}\noindent\textit{\underline{Takeaway \thetctr\stepcounter{tctr}:} #1}\vspace{-5pt}\end{framed}\vspace{-3pt}}
 
 \newcommand{\boxy}[1]{\vspace{-3pt}\begin{framed}\vspace{-5pt}\noindent#1\vspace{-7pt}\end{framed}\vspace{-5pt}}
@@ -563,7 +564,7 @@
 % command as these need to go into the title area created by \maketitle.
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
-%\input{letter}
+\input{rebuttal}
 \IEEEtitleabstractindextext{%
 \begin{abstract}
 Spreadsheets are one of the most popular tools for
