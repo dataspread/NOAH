@@ -1,0 +1,403 @@
+.vl {
+    border-left: 6px solid green;
+    height: 500px;
+}
+
+#sheet-panel {
+    height: 5vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 5
+}
+.vertical{
+    writing-mode: vertical-lr;
+    /*transform: rotate(270deg);*/
+    text-orientation: upright;
+    float: left;
+    position: relative;
+    top: 200px;
+
+}
+
+#sheets {
+    display: inline;
+}
+
+#createSheet {
+    display: inline;
+}
+
+.alignRight {
+    position: absolute;
+    right: 0px;
+}
+
+.sheet {
+    padding-right: 3px;
+}
+
+.dsTableHead {
+    background-color: #003F13;
+}
+
+.dsTableBody {
+    background-color: #2A7E43;
+}
+
+/* .handsontable td.area {
+  background-color: #F00;
+} */
+
+/*
+#toolbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+} */
+
+.navbar1 {
+    height: 6vh;
+}
+
+.navbar2 {
+    height: 6vh;
+}
+
+.navbar3 {
+    height: 6vh;
+}
+
+.wrapper {
+    height: 78vh;
+}
+
+.breadcrumb {
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    width: 80%;
+    margin-bottom: 0;
+    display: inline-flex;
+}
+
+.breadcrumb > li + li:before {
+    content: "> " !important;
+}
+
+#nav-history {
+    width: 20%;
+    display: inline-block;
+    float: right;
+}
+
+#historyDropdown {
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    background-color: #e9ecef;
+}
+
+.custom-select {
+    width: 42%;
+}
+
+.custom-bucket{
+    width: 40%;
+    border: 1px solid #9dbbdd;
+    margin: 6px;
+}
+/*#bucketlower0{*/
+    /*margin-left: 9%;*/
+/*}*/
+
+.multibuck{
+    width: 20%;
+    border: 1px solid #9dbbdd;
+}
+
+.wrap {
+    word-wrap: normal;
+}
+
+.split-group{
+    border-left: 1px solid black;
+    height:100%;
+    margin-left: 10px;
+    padding-left: 5px;
+    padding-right: 4px;
+    margin-right: 5px;
+    border-right: 1px solid black;
+
+}
+
+.btn-merge{
+     background-color: white;
+     border-color: #dae0e5;
+ }
+.btn-merge:hover {
+    background: #e2e6ea;
+}
+.btn-split{
+    background-color: white;
+    border-color: #dae0e5;
+}
+.btn-split:hover {
+    background: #e2e6ea;
+}
+.bucket-multiAddSub{
+    cursor: pointer;
+    width:8%;
+    padding-left: 10px;
+}
+
+.bucket-multiAddCan{
+    cursor: pointer;
+    width:8%;
+    padding-left: 10px;
+}
+
+.formClose {
+    padding-left: 10px;
+    float: right;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hierRemove{
+    cursor: pointer;
+    width:8%;
+
+}
+
+.hierAdd{
+    cursor: pointer;
+    width:8%;
+    padding-left: 5px;
+}
+
+.
+.bucket-add{
+    cursor: pointer;
+    width:8%;
+    padding-left: 2px;
+}
+
+.bucket-rm{
+    cursor: pointer;
+    width:9%;
+    padding-left: 5px;
+}
+
+.bucket-multiAdd{
+    cursor: pointer;
+}
+
+
+
+.zoomInPlus{
+    cursor: pointer;
+    padding-left: 5px;
+    float:right;
+}
+
+.zoomOutM{
+    cursor: pointer;
+    float:left;
+}
+
+#colClose {
+    padding-left: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* #navChart .ht_master tr > td.current {
+  background-color: #D3D3D3 !important;
+  color:white;
+} */
+/*.progress {*/
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*width: 15px;*/
+    /*height: 74.1vh;*/
+    /*background-color: #aaa;*/
+/*}*/
+
+/*.progress-bar {*/
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*height: 0px;*/
+    /*width: 15px;*/
+    /*background-color: #333;*/
+/*}*/
+
+.exploration {
+    color: white;
+}
+
+.GridRow {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.GridColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.LeftSideGridContainer {
+    flex: 0 0 50px;
+}
+
+.BodyGrid {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+}
+
+.evenRow,
+.oddRow {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.oddRow {
+    background-color: #fafafa;
+}
+
+.cell,
+.rowHeaderCell,
+.columnHeaderCell {
+    width: 100%;
+    height: 100%;
+    padding: .5em;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.columnHeaderCell {
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid black;
+    border-top: 1px solid #e0e0e0;
+    background-color: #d5d5d5;
+    text-align: center;
+}
+
+.rowHeaderCell {
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #d5d5d5;
+    text-align: center;
+}
+
+.centeredCell {
+    align-items: center;
+    text-align: center;
+}
+
+.letterCell {
+    font-size: 1.5em;
+    color: #fff;
+    text-align: center;
+}
+
+.noCells {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    color: #bdbdbd;
+}
+
+.toolTip {
+    position: fixed;
+    display: none;
+    min-width: 10px;
+    height: auto;
+    background: none repeat scroll 0 0 #ffffff;
+    border: 1px solid #6F257F;
+    padding: 3px;
+    text-align: center;
+    font: 12px sans-serif;
+}
+
+.bar:hover {
+    //fill: #11a5a3;
+    stroke: black;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    margin: 1px 0px 0px 1px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    display: none;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 20px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

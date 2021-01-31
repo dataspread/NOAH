@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="webjars/jquery-ui/1.12.1/jquery-ui.css">
+    <link rel="stylesheet" href="webjars/handsontable/dist/handsontable.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+
+            <div id="toolbox">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light navbar1">
+                    <a class="navbar-brand" href="#">DataSpread</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="fileDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">File</a>
+                                <div class="dropdown-menu" aria-labelledby="fileDropdown">
+
+                                    <a id="create-book" class="dropdown-item" href="#">New</a>
+                                    <a id="open-book" class="dropdown-item" href="#">Open</a>
+                                    <a id="rename-book" class="dropdown-item" href="#">Rename</a>
+                                    <a id="delete-book" class="dropdown-item" href="#">Delete</a>
+                                    <a id="close-book" class="dropdown-item" href="#">Close</a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" id="importTable">Import</a>
+                                    <a class="dropdown-item" href="" id="linkTable">Link</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="editDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</a>
+                                <div class="dropdown-menu" aria-labelledby="fileDropdown">
+                                    <a class="dropdown-item" href="#">Undo</a>
+                                    <a class="dropdown-item" href="#">Redo</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="viewDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">View</a>
+                                <div class="dropdown-menu" aria-labelledby="viewDropdown">
+                                    <a class="dropdown-item" href="#">Formula Bar</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Freeze Row</a>
+                                    <a class="dropdown-item" href="#">UnFreeze Row</a>
+                                </div>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="insertDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Insert
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="insertDropdown">
+                                    <a class="dropdown-item" href="#">Picture</a>
+                                    <div class="dropdown-divider"></div>
+                                    <h6 class="dropdown-header">Charts</h6>
+                                    <a class="dropdown-item" href="#">Pie Chart</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#">Help</a>
+                            </li>
+
+                            <li class="nav-item dropdown" id='explorationtool-bar'>
+                                <a class="nav-link dropdown-toggle" href="#" id="exploretoolDropdown" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Exploration
+                                    Tools</a>
+                                <div class="dropdown-menu" id='explorationtool-option'
+                                     aria-labelledby="exploretoolDropdown">
+                                    <a class="dropdown-item" href="#" id="Explore">Explore</a>
+                                    <a class="dropdown-item" href="#" id='Hierarchical'>Add Hierarchical Column</a>
+                                    <a class="dropdown-item" href="#" id='Sort' style="display:none" data-toggle="modal"
+                                       data-target="#exampleModal">Sort</a>
+                                    <a class="dropdown-item" href="#" id='Bucket' style="display:none">Customize Bins</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <ul class="nav justify-content-end">
+
+                            <li class="nav-link">
+                                <a id="tableName"></a>
+                            </li>
+
+                            <li class="nav-link">
+                                <a href="#" class="nav-link">Register</a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="#" class="nav-link">Sign In</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light navbar2">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-file"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="pasteDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-paste"></i>
+
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="pasteDropdown">
+                                <a href="#" class="dropdown-item">
+                                    <a class="dropdown-item" href="#">Paste</a>
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-cut"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-copy"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="input-group">
+                                <select class="custom-select" id="fontSlector">
+                                    <option selected>Arial</option>
+                                    <option value="">Microsoft Yahei</option>
+                                    <option value="">Times Roman</option>
+                                </select>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="input-group">
+                                <div class="input-group-append">
+                                    <select class="custom-select" id="fontSizeSlector">
+                                        <option selected>8</option>
+                                        <option value="">10</option>
+                                        <option value="">30</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-bold"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-italic"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-underline"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-strikethrough"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-font"></i>
+                            </button>
+                        </li>
+
+                        <input class="jscolor">
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-paint-brush jscolor"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-table"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-filter"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-sort"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-align-justify"></i>
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                Merge
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <button class="btn">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                        </li>
+
+                    </ul>
+                </nav>
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light navbar3">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <button class="btn" id="createTable">
+                                Create Table
+                            </button>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Select area</span>
+                                </div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button type="button" class="btn btn-outline-secondary">Apply function</button>
+                                    <button type="button"
+                                            class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Mean</a>
+                                        <a class="dropdown-item" href="#">Maximum</a>
+                                        <a class="dropdown-item" href="#">Minimum</a>
+                                        <div role="separator" class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">More</a>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" id="formulaBar"
+                                       aria-label="Text input with segmented dropdown button">
+                            </div>
+
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <div class="wrapper">
+                <nav aria-label="breadcrumb" id="navPath" style="display:none">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" aria-current="page">Home</li>
+                    </ol>
+                    <li class="nav-item dropdown" id="nav-history">
+                        <a class="nav-link dropdown-toggle" href="#" id="historyDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Navigation History</a>
+                        <div class="dropdown-menu" id="history-option" aria-labelledby="historyDropdown">
+
+                        </div>
+                    </li>
+
+                </nav>
+                <!--<div id="testnav">-->
+                    <!--<div class="progress"></div>-->
+                    <!--<div class="progress-bar parallax-one"></div>-->
+                    <div id="navChart"></div>
+
+                <!--</div>-->
+                <div id="test-hot"></div>
+                <div id='exploration-bar' style="display:none">
+                    <form id="explore-form">
+
+                        <span class="formClose">x</span>
+
+                        <fieldset class="form-group m-3" id="exploreOpt">
+                        </fieldset>
+
+                        <div class="form-group m-5">
+                            <button type="submit" class="btn btn-primary">Start Explore!</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="hierarchical-col" style="display:none;">
+                    <form id="hierarchi-form">
+                        <span class="formClose">x</span>
+                        <legend class="form-label m-3" style="font-size:1.5rem">Hierarchical form</legend>
+
+                        <fieldset class="form-group m-3" id="aggregateCol">
+                        </fieldset>
+                        <fieldset>
+                            <label class="my-1 ml-2" for="chartOpt">Show result by</label>
+                            <select class="custom-select my-1" id="chartOpt">
+                                <option value="1">Raw Value</option>
+                                <option value="2">Chart</option>
+                            </select>
+                        </fieldset>
+
+                        <div class="m-3">
+                            <button type="submit" class="btn btn-primary">Done</button>
+                        </div>
+                    </form>
+                </div>
+                <div id='bucket-col' style="display:none;overflow-y:scroll; " >
+                    <form id="bucket-form">
+                        <span class="formClose">x</span>
+                        <legend class="form-label m-1" style="font-size:1rem"><b>Redefine Bin Boundaries</b></legend>
+                        <div class="row " >
+                            <div class="col-lg-3 ">
+                                <button type="button" class="btn btn-merge" id="bucket-merge">
+                                    Merge
+                                    <!--<img src="merge.jpg" alt="merge" width="22" height="22">-->
+                                </button>
+                            </div>
+                            <div class="input-group col-lg-7 split-group">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-split" type="button" id="bucket-split">
+                                        Split
+                                        <!--<img src="split.jpg" alt="split" width="22" height="22">-->
+                                    </button>
+                                </div>
+                                <select class="custom-select" id="multibuck-text" style="display: none">
+                                    <option selected># of Bins</option>
+                                </select>
+                                <input type="text" class="form-control" id="multibuck-numeric" style="display: none" placeholder="# of Bins"/>
+                            </div>
+                            <button type="button" class="btn btn-merge dropdown-toggle dropdown-toggle-split " id="textBucket" style="display: none"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a  class="dropdown-item" href="#" id="bucketAll">Merge All Bins</a>
+                                <a  class="dropdown-item" href="#" id="displayAll">Split All Bins</a>
+                            </div>
+                           <!-- <div class="btn-group col-lg-2">
+                                <button type="button" class="btn btn-merge dropdown-toggle dropdown-toggle-split" id="textBucket" style="display: none" data-reference="parent" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a  class="dropdown-item" href="#" id="bucketAll">Merge All Buckets</a>
+                                    <a  class="dropdown-item" href="#" id="displayAll">Split All Buckets</a>
+                                </div>
+                            </div>--->
+                        </div>
+
+                        <!--<fieldset class="form-group m-3" >-->
+                            <!--<input class="form-check-input ml-2" type="checkbox" value="" id="bucketAll">-->
+                            <!--<label class="form-check-label ml-5" for="bucketAll">-->
+                                <!--Merge All Buckets-->
+                            <!--</label>-->
+                        <!--</fieldset>-->
+                        <!--<fieldset class="form-group m-3" style="display: none" id="textBucket" >-->
+                            <!--<input class="form-check-input ml-2" type="checkbox" value="" id="displayAll">-->
+                            <!--<label class="form-check-label ml-5" for="displayAll">-->
+                                <!--Collapse All Buckets-->
+                            <!--</label>-->
+                        <!--</fieldset>-->
+                        <fieldset class="form-group m-3" id="bucketOpt">
+                        </fieldset>
+                        <div class="form-group m-3">
+                            <button type="submit" class="btn btn-outline-primary" id="bucketSub" style="margin-left: 8em ; display: none">Apply</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sort</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="sort-form">
+                                <input type="radio" id="r1" name="rb"  value="0" checked> Ascending
+                                <input type="radio" id="r2" name="rb" value="1"> Descending<br>
+                                <div class="form-group" id="inlineOpt">
+                                    <!-- <label class="my-1 mr-2" for="inlineOpt1">Attribute</label>
+                                    <select class="custom-select my-1 mr-xl-5" id="inlineOpt1">
+                                    </select> -->
+                                </div>
+                                <button type="button" class="btn btn-secondary " id="sortAdd">Add</button>
+                                <button type="button" class="btn btn-secondary" id="sortRemove">Remove</button>
+                                <button type="submit" class="btn btn-primary my-1">OK</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sheet-panel">
+
+                <div id="sheets">
+                    <!-- Split dropup button -->
+                </div>
+
+                <button type="button" class="btn btn-secondary" id="addSheetButton">
+                    Add a new sheet
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="book-dialog"></div>
+<div id="sheet-dialog"></div>
+<div id="table-dialog"></div>
+
+<script src="webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="webjars/jquery-ui/1.12.1/jquery-ui.min.js"></script>
+<script src="webjars/handsontable/dist/handsontable.min.js"></script>
+<script src="webjars/popper.js/1.14.1/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js"></script>
+<script src="https://d3js.org/d3.v5.js"></script>
+<script src="index.js"></script>
+<script src="navigation.js"></script>
+
+</body>
+
+</html>

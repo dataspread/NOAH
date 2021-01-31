@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.dataspread</groupId>
+    <artifactId>webapp</artifactId>
+    <version>0.1.1</version>
+    <properties>
+        <zss.version>3.8.1</zss.version>
+        <blockstore.version>1.0.0</blockstore.version>
+        <commons-math.version>2.2</commons-math.version>
+        <servlet.version>2.4</servlet.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+    </parent>
+
+    <packaging>war</packaging>
+    <name>Webapp</name>
+    <description>Dataspread Web Application</description>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.dataspread</groupId>
+            <artifactId>blockstore</artifactId>
+            <version>${blockstore.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.dataspread</groupId>
+            <artifactId>zss</artifactId>
+            <version>${zss.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.dataspread</groupId>
+            <artifactId>zssmodel</artifactId>
+            <version>${zss.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.webjars.bowergithub.handsontable</groupId>
+            <artifactId>handsontable</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>5.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>sockjs-client</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>stomp-websocket</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>3.3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery-ui</artifactId>
+            <version>1.12.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>popper.js</artifactId>
+            <version>1.14.1</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>react</artifactId>
+            <version>16.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>react-dom</artifactId>
+            <version>16.4.1</version>
+        </dependency>-->
+
+
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>babel-standalone</artifactId>
+            <version>6.26.0</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>react-virtualized</artifactId>
+            <version>9.20.0</version>
+        </dependency> -->
+        <dependency>
+            <groupId>org.zkoss.common</groupId>
+            <artifactId>zcommon</artifactId>
+            <version>8.0.2.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.dataspread</groupId>
+            <artifactId>zssmodel</artifactId>
+            <version>3.8.1</version>
+        </dependency>
+        <!--
+                <dependency>
+                    <groupId>org.webjars.npm</groupId>
+                    <artifactId>semantic-ui-react</artifactId>
+                    <version>0.81.1</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.webjars</groupId>
+                    <artifactId>Semantic-UI</artifactId>
+                    <version>2.3.3</version>
+                </dependency>
+        -->
+    </dependencies>
+    <build>
+        <finalName>DataSpread</finalName>
+        <sourceDirectory>${project.basedir}/src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/web/WEB-INF</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webXml>${project.basedir}/web/WEB-INF/web.xml</webXml>
+                    <warSourceDirectory>${project.basedir}/web</warSourceDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

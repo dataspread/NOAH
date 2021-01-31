@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk>
+	<library-property>
+		<name>zssapp.bookrepostory.readonly</name>
+		<value>false</value>
+	</library-property>
+		
+	<session-config>
+		<max-desktops-per-session>10</max-desktops-per-session>
+	</session-config>
+
+	<library-property>
+		<name>ds.model.PreFetchRows</name>
+		<value>200</value>
+	</library-property>
+
+	<library-property>
+		<name>ds.model.PreFetchRows</name>
+		<value>30</value>
+	</library-property>
+
+	<library-property>
+		<name>ds.model.syncComputation</name>
+		<value>true</value>
+	</library-property>
+
+	<library-property>
+		<name>ds.model.simple</name>
+        <value>false</value>
+	</library-property>
+</zk>
