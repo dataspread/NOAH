@@ -2,7 +2,8 @@
 
 _NOAH_ is a dynamic hierarchical overview that can be embedded alongside spreadsheets to explore the data at various granularities by zooming in and out of the spreadsheet. The overview is essentially a histogram with bins and depicts the overall data distribution, enabling users to quickly assimilate the data. Using NOAH users can issue formulae over data subsets without cumbersome scrolling or range selection, enabling users to gain a high or low-level perspective of the spreadsheet. NOAH also enables users to customize the overview and automatically manages user's exploration hisotry to help them retrace previous steps in the analytics session. _NOAH_ is integrated within [DataSpread][dataspread-github] is a _spreadsheet-database hybrid system_, with a spreadsheet frontend, and a database backend. Following is a video demo of NOAH:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iZsboe3x680" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![nav-demo](https://user-images.githubusercontent.com/8811607/109452683-2d65bf00-7a05-11eb-81a4-14caf5a480e0.png)](https://www.youtube.com/watch?v=iZsboe3x680 "Navigation Demo")
+
 
 ### Key Features
 
