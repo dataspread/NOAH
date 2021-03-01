@@ -29,7 +29,9 @@ NOAH can be deployed locally through Docker (recommended) or through Apache Tomc
 
 2. Install Docker. [Docker][docker] makes it easy to separate applications from underlying infrastructure so setting up and running applications is quick and easy.
 
-3. Start Docker and start the application. It should be accessible at [http://localhost:8080/][install_loc]. Stop the application with `CTRL+C`.
+3. Copy the pre-built war file from [here](https://drive.google.com/file/d/1UCjQ7A8UFL1LO5LP5QuER_s0pP1JcTP2/view?usp=sharing) and paste in the `/build-web` directory. 
+
+4. Start Docker and start the application. It should be accessible at [http://localhost:8080/][install_loc]. Stop the application with `CTRL+C`.
 	```
 	docker-compose up
 	```
