@@ -1,6 +1,6 @@
 # NOAH: Interactive Spreadsheet Exploration with Dynamic Hierarchical Overviews
 
-_NOAH_ is a dynamic hierarchical overview that can be embedded alongside spreadsheets to explore the data at various granularities by zooming in and out of the spreadsheet. The overview is essentially a histogram with bins and depicts the overall data distribution, enabling users to quickly assimilate the data. Using NOAH users can issue formulae over data subsets without cumbersome scrolling or range selection, enabling users to gain a high or low-level perspective of the spreadsheet. NOAH also enables users to customize the overview and automatically manages user's exploration hisotry to help them retrace previous steps in the analytics session. _NOAH_ is integrated within [DataSpread][dataspread-github] is a _spreadsheet-database hybrid system_, with a spreadsheet frontend, and a database backend. Following is a video demo of NOAH:
+_NOAH_ is a dynamic hierarchical overview that can be embedded alongside spreadsheets to explore the data at various granularities by zooming in and out of the spreadsheet. The overview is essentially a histogram with bins and depicts the overall data distribution, enabling users to quickly assimilate the data. Using NOAH users can issue formulae over data subsets without cumbersome scrolling or range selection, enabling users to gain a high or low-level perspective of the spreadsheet. NOAH enables users to customize the overview and also automatically manages user's exploration history to help them retrace previous steps in the analytics session. _NOAH_ is integrated within [DataSpread][dataspread-github], a _spreadsheet-database hybrid system_ with a spreadsheet frontend and a database backend. Following is a video demo of NOAH:
 
 [![nav-demo](https://user-images.githubusercontent.com/8811607/109452683-2d65bf00-7a05-11eb-81a4-14caf5a480e0.png)](https://www.youtube.com/watch?v=iZsboe3x680 "Navigation Demo")
 
@@ -84,7 +84,7 @@ To host NOAH locally on Tomcat, you can either use one of the pre-built WAR file
 6. Deploy the WAR file within Tomcat as the root application. This can be done via Tomcat's web interface by undeploying any application located at `/` and deploying the WAR file with the context path `/`. To do this manually, delete the `webapps/ROOT` folder under `TOMCAT_HOME` while the application is not running, copy the WAR file to the `webapps` folder, and rename it to `ROOT.war`. 
 
 ## Launching NOAH 
-After step 3 of Method 1 or step 6 of method 2, you are ready to run the program. Visit the url where Tomcat is installed. It will be typically [http://localhost:8080/][install_loc] for a local install. Upload a file and start navigation using the following steps:
+After step 3 of Method 1 or step 6 of method 2, you are ready to run the program. Visit the url which is typically [http://localhost:8080/][install_loc] for a local install. Upload a file and start navigation using the following steps:
 
 ### Menu Selection  
 From the menubar select Nav -> Explore. 
