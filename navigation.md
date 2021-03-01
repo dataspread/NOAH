@@ -5,7 +5,7 @@ Users can navigate the spreadsheet by interacting with the bins of the overview 
 When a user clicks on a specific bin, the system displays the corresponding spreadsheet data; users can use this to jump to a specific spreadsheet location without having to scroll endlessly. For example, in Figure 2b, as the user clicks on the Boston bin, the data corresponding to Boston is displayed (Figure 2c).
 
 <img width="547" alt="navigationOp" src="https://user-images.githubusercontent.com/8811607/109453601-5dae5d00-7a07-11eb-9bf4-14dc01f1c4d6.png">
-<p align="center"> 
+<p align="left"> 
 The Navigational Operations.
 </p>
 
