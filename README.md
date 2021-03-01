@@ -97,8 +97,7 @@ Select the attribute by which you want to explore the data.
 ![exploreS2](https://user-images.githubusercontent.com/8811607/109452999-d8767880-7a05-11eb-8351-7f5c9abdfb5c.png)
 
 ### Overview Display
-The overview is displayed within a _Navigation Panel_ on the left (see `a` in the following Fgiure). Users can perform various operarion on the overview such as [navigation](navigation.md), [aggregation](aggregation.md), [customization](customization.md), and [revisting navigation history](context
-.md). 
+The overview is displayed within a _Navigation Panel_ on the left (see `a` in the following Fgiure). Users can perform various operarion on the overview such as [navigation](navigation.md), [aggregation](aggregation.md), [customization](customization.md), and [revisting navigation history](context.md). 
 
 <img width="953" alt="navigation" src="https://user-images.githubusercontent.com/8811607/109453457-fabcc600-7a06-11eb-9fc7-f85d9cd52037.png">
 
