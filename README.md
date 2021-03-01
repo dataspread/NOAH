@@ -86,7 +86,7 @@ To host NOAH locally on Tomcat, you can either use one of the pre-built WAR file
 6. Deploy the WAR file within Tomcat as the root application. This can be done via Tomcat's web interface by undeploying any application located at `/` and deploying the WAR file with the context path `/`. To do this manually, delete the `webapps/ROOT` folder under `TOMCAT_HOME` while the application is not running, copy the WAR file to the `webapps` folder, and rename it to `ROOT.war`. 
 
 ## Launching NOAH 
-After step 3 of Method 1 or step 6 of method 2, you are ready to run the program. Visit the url where Tomcat is installed. It will be typically [http://localhost:8080/][install_loc] for a local install. Upload a file and start navigation using the following steps:
+After step 4 of Method 1 or step 6 of method 2, you are ready to run the program. Visit the url where Tomcat is installed. It will be typically [http://localhost:8080/][install_loc] for a local install. Upload a file and start navigation using the following steps:
 
 ### Menu Selection  
 From the menubar select Nav -> Explore. 
