@@ -1,13 +1,15 @@
 # NOAH: Interactive Spreadsheet Exploration with Dynamic Hierarchical Overviews
 
-_NOAH_ is a dynamic hierarchical overview that can be embedded alongside spreadsheets to explore the data at various granularities by zooming in and out of the spreadsheet. The overview is essentially a histogram with bins and depicts the overall data distribution, enabling users to quickly assimilate the data. Using NOAH users can issue formulae over data subsets without cumbersome scrolling or range selection, enabling users to gain a high or low-level perspective of the spreadsheet. NOAH also enables users to customize the overview and automatically manages user's exploration hisotry to help them retrace previous steps in the analytics session. _NOAH_ is integrated within [DataSpread][dataspread-github] is a _spreadsheet-database hybrid system_, with a spreadsheet frontend, and a database backend. Following is a video demo of NOAH.
+_NOAH_ is a dynamic hierarchical overview that can be embedded alongside spreadsheets to explore the data at various granularities by zooming in and out of the spreadsheet. The overview is essentially a histogram with bins and depicts the overall data distribution, enabling users to quickly assimilate the data. Using NOAH users can issue formulae over data subsets without cumbersome scrolling or range selection, enabling users to gain a high or low-level perspective of the spreadsheet. NOAH also enables users to customize the overview and automatically manages user's exploration hisotry to help them retrace previous steps in the analytics session. _NOAH_ is integrated within [DataSpread][dataspread-github] is a _spreadsheet-database hybrid system_, with a spreadsheet frontend, and a database backend. Following is a video demo of NOAH:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iZsboe3x680" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Key Features
 
-* _Navigation_: Users can navigate the spreadsheet by interacting with the bins of the overview via clicking and semantic zooming operations. Details [here](navigation.md)
-* _Aggregation_: Users can issue spreadsheet formulae on the overview and view the results within an _aggregate column_. Details [here](aggregation.md)
-* _Customization_: Users can perform various custimizations such as merging or splitting bins of the overview. Details [here](customization.md)
-* _Context Management_: Users can view their navigation history in a context bar and navigate the hierarchical overview using a breadcrumb. Details [here](context.md)
+* _Navigation_: Users can navigate the spreadsheet by interacting with the bins of the overview via clicking and semantic zooming operations. Details [here](navigation.md).
+* _Aggregation_: Users can issue spreadsheet formulae on the overview and view the results within an _aggregate column_. Details [here](aggregation.md).
+* _Customization_: Users can perform various custimizations such as merging or splitting bins of the overview. Details [here](customization.md).
+* _Context Management_: Users can view their navigation history in a context bar and navigate the hierarchical overview using a breadcrumb. Details [here](context.md).
 
 
 # Setup Instructions
@@ -90,10 +92,10 @@ For more details on _NOAH_ read out technical paper at [VLDB 2021][paper]. Cite 
   title={NOAH: Interactive Spreadsheet Exploration with Dynamic Hierarchical Overviews},
   author={Rahman, Sajjadur and Bendre, Mangesh and Liu, Yuyang and Zhu, Shichu and Su, Zhaoyuan and Karahalios, Karrie and Parameswaran, Aditya},
   journal={Proceedings of the VLDB Endowment},
-  volume={10},
-  number={11},
-  pages={1262--1273},
-  year={2017},
+  volume={14},
+  number={6},
+  pages={970--983},
+  year={2021},
   publisher={VLDB Endowment}
 }
 ```
