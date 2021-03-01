@@ -86,6 +86,22 @@ To host NOAH locally on Tomcat, you can either use one of the pre-built WAR file
 ## Launching NOAH 
 After step 3 of Method 1 or step 6 of method 2, you are ready to run the program. Visit the url where Tomcat is installed. It will be typically [http://localhost:8080/][install_loc] for a local install. Upload a file and start navigation using the following steps:
 
+### Menu Selection  
+From the menubar select Nav -> Explore. 
+
+![exploreS1](https://user-images.githubusercontent.com/8811607/109452997-d3b1c480-7a05-11eb-8f25-15739e589ea7.png)
+
+### Attribute Selection
+Select the attribute by which you want to explore the data.
+
+![exploreS2](https://user-images.githubusercontent.com/8811607/109452999-d8767880-7a05-11eb-8351-7f5c9abdfb5c.png)
+
+### Overview Display
+The overview is displayed within a _Navigation Panel_ on the left (see `a` in the following Fgiure). Users can perform various operarion on the overview such as [navigation](navigation.md), [aggregation](aggregation.md), [customization](customization.md), and [revisting navigation history](context
+.md). 
+
+<img width="953" alt="navigation" src="https://user-images.githubusercontent.com/8811607/109453457-fabcc600-7a06-11eb-9fc7-f85d9cd52037.png">
+
 # Technical Details
 For more details on _NOAH_ read out technical paper at [VLDB 2021][paper]. Cite our work as follows: 
 ```
