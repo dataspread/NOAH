@@ -15,7 +15,7 @@ COPY ./build-web/context.xml /usr/local/tomcat/conf/context.xml
 COPY ./build-web/postgresql-9.4.1208.jar /usr/local/tomcat/lib/
 
 # Creates user with access to manager webapp
-COPY ./build-web/tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
+COPY ./build-web/tomcat-user.xml /usr/local/tomcat/conf/tomcat-users.xml
 # Disables network filtering to allow access to manager webapp
 COPY ./build-web/manager-context.xml /usr/local/tomcat/webapps/manager/META-INF/context.xml
 
